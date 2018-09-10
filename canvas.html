@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Actividad 4</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+
+</head>
+<body>
+	<canvas id="myCanvas" width="480" height="320"></canvas>
+</body>
+<script type="text/javascript">
+var canvas = document.getElementsByTagName("canvas")[0],
+    context = canvas.getContext("2d"),
+    cont = 0,
+    xIni, yIni, 
+    xFin, yFin;
+
+window.addEventListener("click", function(e){
+	debugger;
+	var x1 = 0;
+	var y1 = 0;
+
+    if (++cont % 2 !== 0){       
+        xIni = e.clientX;
+        yIni = e.clientY;
+        x1 = xIni;
+        y1 = yIni;
+    }
+    else{
+        xFin = e.clientX;
+        yFin = e.clientY;
+        
+        context.moveTo(xIni, yIni);
+        context.lineTo(xFin, yFin);
+        context.lineWidth = 2;
+        context.strokeStyle = "green";
+        context.stroke();
+    if(x1 == 200 && y1==100){
+    	alert(hola);
+    }
+
+    }
+}, false);
+
+
+</script>
+<style type="text/css">
+	canvas { background: #eee; }
+</style>
+</html>

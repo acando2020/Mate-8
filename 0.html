@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>MANANTIAL - Lengua 8</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Bootstrap-->
+        <link href="/css/bootstrap.css" rel="stylesheet">
+        <!--Animaciones-->
+        <link href="/css/animate.css" rel="stylesheet">
+        <!--Css propio del proyecto-->
+        <link href="/css/custom.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <!--contenedor de la actividad-->
+        <div class="container space">
+            <!--div que contiene la actividad-->
+            <div class="panel border-aprendo" id="activity">
+                <div class="panel-heading bg-aprendo">
+                    <h2 class="text-white"><img src="../img/icoE.png" alt="">Exploro para recordar</h2>
+                    <h3 id="nombre_alumno" hidden>Alumno: </h3>
+                    <div class="pull-right help">
+                        <!--tool tip de la ayuda de la actividad-->                        
+                        <span data-toggle="tooltip" data-placement="bottom" 
+                              title="En  la actividad xyz se tiene que seleccionas los elemento a y reeplazarlos por los b
+                              etc etc " class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 bg-info">
+                    <!--espacio de los botones-->
+                    <div class="col-md-6 text-left space">
+                        <div id="botonera" class="btn-group" role="group" aria-label="...">
+
+                            <button type="button" class="btn btn-info" onclick="salir()" ><span data-toggle="tooltip" data-placement="top" 
+                                                                                                title="Salir" class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
+                            <button type="button" class="btn btn-info"><span data-toggle="tooltip" data-placement="top" 
+                                                                             title="Guardar en local" class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span></button>
+                            <button type="button" class="btn btn-info"><span data-toggle="tooltip" data-placement="top" 
+                                                                             title="Enviar a Correo" class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button>
+                        </div>
+                        <div id="botonera" class="btn-group" role="group" aria-label="...">
+                            <button type="button" class="btn btn-primary"><span data-toggle="tooltip" data-placement="top" 
+                                                                                title="Iniciar" class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+                            <button type="button" class="btn btn-success"><span data-toggle="tooltip" data-placement="top" 
+                                                                                title="Calificar / Comprobar" class="glyphicon glyphicon-check" aria-hidden="true"></span></button>
+                        </div>
+                        <button type="button" id="full" class="btn btn-warning" onclick="full_screen(this)">
+                            <span data-toggle="tooltip" data-placement="top" title="Pantalla completa" class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
+                        </button>
+                        <button type="button" id="small" class="btn btn-warning display-none" onclick="exit_full_screen(this)">
+                            <span data-toggle="tooltip" data-placement="top" title="Salir de pantalla completa" class="glyphicon glyphicon-resize-small" aria-hidden="true"></span></button>
+                    </div>
+
+                    <div id="nota" class="col-md-6 text-right">
+                        <h3>    
+                            <span  class="label label-danger" >
+                                <span class="glyphicon glyphicon-list-alt"></span> Actividad 1 / 2
+                            </span>
+                            <span  class="label label-primary" >
+                                <span class="glyphicon glyphicon-pencil"></span> Tú puntaje <span id="txtNota" > / 10</span>
+                            </span>
+                        </h3>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div  class="col col-md-12 space">
+                        <span class="text-question">1. ¿Qué es para ti una aventura? </span>
+                            
+                        <textarea  class="form-control no-redimensionar" cols="60" rows="2"></textarea>
+                    </div>
+                    <div  class="col col-md-12 space">
+                        <span class="text-question">2. ¿Crees que un viaje puede ser una aventura?</span>
+                        <textarea  class="form-control no-redimensionar" cols="60" rows="2"></textarea>
+                    </div> 
+                    <div  class="col col-md-12 space">
+                        <span class="text-question">3. ¿ Crees que una historia de aventuras es narrativa o informativa? ¿Por qué? </span>
+                        <textarea  class="form-control no-redimensionar" cols="60" rows="2"></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Modal Guardar PDF-->
+        <div class="modal fade animated pulse" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Guardar la actividad en su máquina local</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="modal_form" class="form-horizontal">
+                            <div class="form-group ">
+                                <div class="col-sm-2">
+                                    <label id="lbl_nombre" for="txt_alumno">Alumno: </label>
+                                </div>  
+                                <div class="col-sm-10"> 
+                                    <!--el input para ingresar el nombre del alumno debe se txt_alumno-->
+                                    <input type="text" class="form-control nombre " id="txtAlumno" placeholder="Ingrese el nombre del alumno">
+                                    <div class="alert alert-danger display-none" id="txtAlumnoAlert" role="alert">
+                                        <button type="button" class="close" onclick="ocultar_by_id('txtAlumnoAlert')" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <span class="glyphicon glyphicon-info-sign error-color"  aria-hidden="true"></span>
+                                        Por favor ingrese el nombre. Es obligatorio</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="save_open_activity_to_local('txtAlumno')">Guardar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>        
+            </div>
+        </div>
+
+
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="../js/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!--generador de pdf-->
+        <script src="../js/html2pdf/html2pdf.bundle.min.js"></script>
+        <script src="../js/screenfull.js"></script>
+        <script src="../js/helper.js"></script>
+        <script src="../js/activities.js"></script>
+
+
+    </body>
+</html>
+
+
