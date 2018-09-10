@@ -72,8 +72,6 @@ table tr th div span {
 }
 
 
-
-
 .actividad1 {
     background: #fff;
 }
@@ -85,16 +83,22 @@ table tr th div span {
     width: 50px;
 }
 
+.act3css {
+    text-align: center;
+    border: 1px solid #B97699;
+    border-bottom: 1px solid #85BCEB;
+    width: 50px;
+}
+
+
 .correcto {
     color: #ffffff;
-    background-color: #8FB435;
-    font-weight: 700;
+    background-color: #00e600;
 }
 
 .incorrecto {
     color: #ffffff;
-    background-color: #E76E80;
-    font-weight: 700;
+    background-color: #ff6666;
 }
 
 .desactivar {
@@ -172,7 +176,7 @@ table tr th div span {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="calcularTotal()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta5()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -233,45 +237,264 @@ table tr th div span {
                                     <br>
                                     <div class="row">
                                         <ol type="a">
-                                            <div class="col-lg-12">
-                                                <div class="col-lg-1"><li></li></div>
-                                                <div class="col-lg-6">La temperatura del congelador es de 5 °C bajo cero.</div>
-                                                <div class="col-lg-5"><input type="number" name="" id="act1num0" class="saltos">°C</div>
+                                            <div class="col-lg-12 act1class" id="act1Txt0">
                                             </div>
-                                            <div class="col-lg-12">
-                                                <br><div class="col-lg-1"><li></li></div>
-                                                <div class="col-lg-6">La ciudad se encuentra a 1 200 m sobre el nivel del mar.</div>
-                                                <div class="col-lg-5"><input type="number" name="" id="act1num1" class="saltos">m</div>
+                                            <div class="col-lg-12 act1class" id="act1Txt1">
                                             </div>
-                                            <div class="col-lg-12">
-                                                <br><div class="col-lg-1"><li></li></div>
-                                                <div class="col-lg-6">El buzo se encuentra a 20 m de profundidad.</div>
-                                                <div class="col-lg-5"><input type="number" name="" id="act1num2" class="saltos">m</div>
+                                            <div class="col-lg-12 act1class" id="act1Txt2">
                                             </div>
-                                            <div class="col-lg-12">
-                                                <br><div class="col-lg-1"><li></li></div>
-                                                <div class="col-lg-6">Iván tiene una deuda de $ 5 000 en el banco.</div>
-                                                <div class="col-lg-5"><input type="number" name="" id="act1num3" class="saltos"></div>
+                                            <div class="col-lg-12 act1class" id="act1Txt3">
                                             </div>
-                                            <div class="col-lg-12">
-                                                <br><div class="col-lg-1"><li></li></div>
-                                                <div class="col-lg-6">Los termómetros marcaron una temperatura de 3 °C bajo cero.</div>
-                                                <div class="col-lg-5"><input type="number" name="" id="act1num4" class="saltos">°C</div>
+                                            <div class="col-lg-12 act1class" id="act1Txt4">
                                             </div>
-                                            <div class="col-lg-12">
-                                                <br><div class="col-lg-1"><li></li></div>
-                                                <div class="col-lg-6">El Chimborazo se encuentra a 6 263 m sobre el nivel del mar.</div>
-                                                <div class="col-lg-5"><input type="number" name="" id="act1num5" class="saltos">m</div>
+                                            <div class="col-lg-12 act1class" id="act1Txt5">
                                             </div>
-                                            <div class="col-lg-12">
-                                                <br><div class="col-lg-1"><li></li></div>
-                                                <div class="col-lg-6">Estamos justo a nivel del mar.</div>
-                                                <div class="col-lg-5"><input type="number" name="" id="act1num6" class="saltos">m</div>
+                                            <div class="col-lg-12 act1class" id="act1Txt6">
                                             </div>
                                         </ol>
                                     </div>
                                 </div>
                                 <br>
+                                <div class="text-question">
+                                    <input type="text" maxlength="2" id="nota1_2" size="2" style="text-align:center" class="nota-abierta" min="0" max="10">&nbsp;<span><b>2.- Analiza</b> y <b>responde</b> las siguientes preguntas.</span>
+                                    <br>
+                                    <div class="row">
+                                        <ol type="a">
+                                            <div class="col-lg-12">
+                                                <b style="color: #428bca">a) </b> ¿Cuántos números naturales hay entre –5 y 5, inclusive? <b>Escríbelos</b>.
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                            <br>
+                                            <div class="col-lg-12">
+                                                <br><b style="color: #428bca">b) </b> ¿Cuántos números enteros hay entre –5 y 5, inclusive? <b>Escríbelos</b>.
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="text-question">
+                                    <input type="text" maxlength="2" id="nota1_3" size="2" style="text-align:center" class="nota-abierta" min="0" max="10" readonly>&nbsp;<span><b>3.- Completa</b> la pirámide basándote en la regla de la izquierda.</span>
+                                    <br>
+                                    <div align="center">
+                                        <table class="table table-bordered" style="width: auto;text-align: center;background: #FBD329;">
+                                            <tr>
+                                                <td colspan="2">a + b</td>
+                                            </tr>
+                                            <tr>
+                                                <td>a</td>
+                                                <td>b</td>
+                                            </tr>
+                                        </table>
+                                        <br>
+                                    </div>
+                                    <div align="center">
+                                        <table class="" style="width: auto;text-align: center;">
+                                            <tr>
+                                                <td colspan="8">
+                                                    <input type="number" name="" class="act3css" id="act3num0" readonly="readonly">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="8">
+                                                    <input type="number" name="" class="act3css" id="act3num1" readonly="readonly">
+                                                    <input type="number" name="" class="act3css" id="act3num2" placeholder="0" style="display: none;">
+                                                    <input type="number" name="" class="act3css" id="act3res0" placeholder="0">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="8">
+                                                    <input type="number" name="" class="act3css" id="act3res1" placeholder="0">
+                                                    <input type="number" name="" class="act3css" id="act3num3" placeholder="0" style="display: none;">
+                                                    <input type="number" name="" class="act3css" id="act3num4" readonly="readonly">
+                                                    <input type="number" name="" class="act3css" id="act3num5" placeholder="0" style="display: none;">
+                                                    <input type="number" name="" class="act3css" id="act3res2" placeholder="0">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="8">
+                                                    <input type="number" name="" class="act3css" id="act3res3" placeholder="0">
+                                                    <input type="number" name="" class="act3css" id="act3num7" placeholder="0">
+                                                    <input type="number" name="" class="act3css" id="act3res4" placeholder="0">
+                                                    <input type="number" name="" class="act3css" id="act3num6" placeholder="0" style="display: none;">
+                                                    <input type="number" name="" class="act3css" id="act3num8" placeholder="0" style="display: none;">
+                                                    <input type="number" name="" class="act3css" id="act3num9" readonly="readonly">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="text-question">
+                                    <input type="text" maxlength="2" id="nota1_4" size="2" style="text-align:center" class="nota-abierta" min="0" max="10">&nbsp;<span><b>4.- Determina</b> cuál de las siguientes afirmaciones es verdadera o falsa. <b>Justifica</b> tu respuesta.</span>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <b style="color: #428bca">a) </b> El conjunto ℕ está incluido en el conjunto ℤ .
+                                            <input type="text" name="" class="form-control">
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <br><b style="color: #428bca">b) </b> Todo número entero es natural.
+                                            <input type="text" name="" class="form-control">
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <br><b style="color: #428bca">c) </b> El conjunto ℕ tiene principio, pero no tiene fin.
+                                            <input type="text" name="" class="form-control">
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <br><b style="color: #428bca">d) </b> El conjunto ℤ no tiene principio ni fin.
+                                            <input type="text" name="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-question">
+                                    <br>
+                                    <input type="text" maxlength="2" id="nota1_5" size="2" style="text-align:center" class="nota-abierta" min="0" max="10">&nbsp;<span><b>5.- Completa</b> cada cuadro con los números que hagan verdadera la expresión.</span>
+                                    <br>
+                                    <br>
+                                    <input type="text" class="form-control"></input>
+                                    <br>
+                                    <table class="table" style="width: auto;">
+                                        <tr id="literalA">
+                                            <td><b style="color: #428bca">a) </b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num0" class="saltos" readonly="readonly" style="border: 0;" value="5">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num1" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num2" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num3" class="saltos" readonly="readonly" style="border:0; " value="10">
+                                            </td>
+                                        </tr>
+                                        <tr id="literalB">
+                                            <td><b style="color: #428bca">b) </b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num4" class="saltos" readonly="readonly" style="border: 0;" value="15">
+                                            </td>
+                                            <td><b>></b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num5" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b>></b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num6" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b>></b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num7" class="saltos" readonly="readonly" style="border:0; " value="-21">
+                                            </td>
+                                        </tr>
+                                        <tr id="literalC">
+                                            <td><b style="color: #428bca">c) </b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num8" class="saltos" readonly="readonly" style="border: 0;" value="-3">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num9" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num10" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num11" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num12" class="saltos" readonly="readonly" style="border:0; " value="7">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num13" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num14" class="saltos" readonly="readonly" style="border:0; " value="10">
+                                            </td>
+                                        </tr>
+                                        <tr id="literalD">
+                                            <td><b style="color: #428bca">d) </b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num15" class="saltos" readonly="readonly" style="border: 0;" value="12">
+                                            </td>
+                                            <td><b>></b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num16" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b>></b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num17" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b>></b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num18" class="saltos" readonly="readonly" style="border:0; " value="2">
+                                            </td>
+                                            <td><b>></b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num19" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b>></b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num20" class="saltos" readonly="readonly" style="border:0; " value="-4">
+                                            </td>
+                                        </tr>
+                                        <tr id="literalE">
+                                            <td><b style="color: #428bca">e) </b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num21" class="saltos" readonly="readonly" style="border: 0;" value="-3">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num22" class="saltos" readonly="readonly" style="border: 0;" value="0">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num23" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num24" class="saltos" readonly="readonly" style="border: 0;" value="9">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num25" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num26" class="saltos" readonly="readonly" style="border: 0;" value="12">
+                                            </td>
+                                        </tr>
+                                        <tr id="literalF">
+                                            <td><b style="color: #428bca">f) </b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num27" class="saltos" readonly="readonly" style="border: 0;" value="-4">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num28" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num29" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num30" class="saltos" style="border-radius: 10px 0px 10px 0px; border: 1px solid #6AB5E5; ">
+                                            </td>
+                                            <td><b><</b></td>
+                                            <td>
+                                                <input type="text" name="" id="act5num31" class="saltos" readonly="readonly" style="border:0; " value="1">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                                 <!--FIN COLOCAR AQUI EL DESARROLLO DE LA PREGUNTA-->
                             </div>
                         </div>
@@ -404,6 +627,7 @@ table tr th div span {
     <script src="js/initElementos.js"></script>
     <script src="js/dragNdrop.js"></script>
     <script src="js/calcularNotas.js"></script>
+    <script src="js/actividad64.js"></script>
     <script type="text/javascript">
     var titulos = 'diagnostico';
     numero_pagina(54);
