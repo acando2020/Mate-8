@@ -583,7 +583,9 @@ function calcularNotaGeneral(total_nota, r_correctas, op_seleccionadas, total_pr
     //var tiempoReload=4000; //en milisegundos
 
     if (op_seleccionadas < total_nota) {
-        alert('Debe escoger ' + total_nota + ' respuestas de la pregunta');
+        //alert('Debe escoger ' + total_nota + ' respuestas de la pregunta');
+        var nf = 0;
+        $('#nota1_9').val(nf.toFixed(2) + ' ');
 
     } else {
         var calculo = (result_sobre * r_correctas) / total_nota
@@ -667,19 +669,6 @@ function pregunta11() {
 
 
 function calcularTotal() {
-
-    pregunta1();
-    pregunta2();
-    pregunta3();
-    pregunta4();
-    pregunta5();
-    pregunta6();
-    pregunta7();
-    pregunta8();
-    contarRespCorrectaDnD();
-    pregunta10();
-    pregunta11();
-    pregunta12();
     var nota11_1 = document.getElementById('nota1_1').value;
     var nota11_2 = document.getElementById('nota1_2').value;
     var nota11_3 = document.getElementById('nota1_3').value;
@@ -691,13 +680,43 @@ function calcularTotal() {
     var nota11_9 = document.getElementById('nota1_9').value;
     var nota11_10 = document.getElementById('nota1_10').value;
     var nota11_11 = document.getElementById('nota1_11').value;
-    var nota11_12 = document.getElementById('nota1_12').value;
+
+    if ((nota11_2 == "") || (nota11_4 == "") || (nota11_6 == "") || (nota11_10 == "")) {
+        alert("Ingrese la nota de la pregunta 2, 4, 6 ó 10");
+    } else {
 
 
-    var SuperTotal = parseFloat(nota11_1) + parseFloat(nota11_2) + parseFloat(nota11_3) + parseFloat(nota11_4) + parseFloat(nota11_5) + parseFloat(nota11_6) + parseFloat(nota11_7) + parseFloat(nota11_8) + parseFloat(nota11_9) + parseFloat(nota11_10) + parseFloat(nota11_11) + parseFloat(nota11_12);
-    var total = (SuperTotal * 10) / 12;
-    $('#txtNota').html(total.toFixed(2));
-    document.getElementById('bt_comprobar').disabled = true;
-    $('input').attr("disabled", true);
-    $('#txtAlumno').attr("disabled", false);
+
+        pregunta1();
+        // pregunta2();
+        pregunta3();
+        // pregunta4();
+        pregunta5();
+        //pregunta6();
+        pregunta7();
+        pregunta8();
+        contarRespCorrectaDnD();
+        //pregunta10();
+        pregunta11();
+        //pregunta12();
+        var nota11_1 = document.getElementById('nota1_1').value;
+        var nota11_2 = document.getElementById('nota1_2').value;
+        var nota11_3 = document.getElementById('nota1_3').value;
+        var nota11_4 = document.getElementById('nota1_4').value;
+        var nota11_5 = document.getElementById('nota1_5').value;
+        var nota11_6 = document.getElementById('nota1_6').value;
+        var nota11_7 = document.getElementById('nota1_7').value;
+        var nota11_8 = document.getElementById('nota1_8').value;
+        var nota11_9 = document.getElementById('nota1_9').value;
+        var nota11_10 = document.getElementById('nota1_10').value;
+        var nota11_11 = document.getElementById('nota1_11').value;
+
+
+        var SuperTotal = parseFloat(nota11_1) + parseFloat(nota11_2) + parseFloat(nota11_3) + parseFloat(nota11_4) + parseFloat(nota11_5) + parseFloat(nota11_6) + parseFloat(nota11_7) + parseFloat(nota11_8) + parseFloat(nota11_9) + parseFloat(nota11_10) + parseFloat(nota11_11);
+        var total = (SuperTotal * 10) / 11;
+        $('#txtNota').html(total.toFixed(2));
+        document.getElementById('bt_comprobar').disabled = true;
+        $('input').attr("disabled", true);
+        $('#txtAlumno').attr("disabled", false);
+    }
 }
