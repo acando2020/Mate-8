@@ -17,6 +17,15 @@
     <link rel="stylesheet" href="css/extrasCss.css">
 </head>
 <style type="text/css">
+canvas {
+    display: block;
+    margin: 0 auto;
+    background: $canvas-bg;
+    border-radius: 3px;
+    box-shadow: 0px 0px 15px 3px #ccc;
+    cursor: pointer;
+}
+
 table tr th,
 td div {
     text-align: center;
@@ -121,6 +130,10 @@ table tr th div span {
 .dndAligned {
     display: grid;
 }
+
+.sobrelinea {
+    text-decoration: overline;
+}
 </style>
 
 <body>
@@ -176,7 +189,7 @@ table tr th div span {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta5()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta11()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -347,7 +360,7 @@ table tr th div span {
                                 </div>
                                 <div class="text-question">
                                     <br>
-                                    <input type="text" maxlength="2" id="nota1_5" size="2" style="text-align:center" class="nota-abierta" min="0" max="10">&nbsp;<span><b>5.- Completa</b> cada cuadro con los números que hagan verdadera la expresión.</span>
+                                    <input type="text" maxlength="2" id="nota1_5" size="2" style="text-align:center" class="nota-abierta" min="0" max="10" readonly>&nbsp;<span><b>5.- Completa</b> cada cuadro con los números que hagan verdadera la expresión.</span>
                                     <br>
                                     <br>
                                     <input type="text" class="form-control"></input>
@@ -495,6 +508,92 @@ table tr th div span {
                                         </tr>
                                     </table>
                                 </div>
+                                <div class="text-question">
+                                    <input type="text" maxlength="2" id="nota1_6" size="2" style="text-align:center" class="nota-abierta" min="0" max="10">&nbsp;<span><b>6.- Analiza</b> y <b>responde</b> las siguientes preguntas:</span>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <b style="color: #428bca">a) </b> ¿Puede ser | x | = –7? <b>Explica</b> tu respuesta.
+                                            <input type="text" name="" class="form-control">
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <br><b style="color: #428bca">b) </b> ¿Puede ser | x | = 3? <b>Explica</b> tu respuesta.
+                                            <input type="text" name="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-question">
+                                    <br>
+                                    <input type="text" maxlength="2" id="nota1_7" size="2" style="text-align:center" class="nota-abierta" min="0" max="10" readonly>&nbsp;<span><b>7.- Resuelve</b> las siguientes operaciones combinadas.</span>
+                                    <div class="row">
+                                        <ol type="a">
+                                            <div class="col-lg-4 act7class" id="act7Txt0">
+                                            </div>
+                                            <div class="col-lg-4 act7class" id="act7Txt1">
+                                            </div>
+                                            <div class="col-lg-4 act7class" id="act7Txt2">
+                                            </div>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="text-question">
+                                    <br>
+                                    <input type="text" maxlength="2" id="nota1_8" size="2" style="text-align:center" class="nota-abierta" min="0" max="10" readonly>&nbsp;<span><b>8.- Utiliza</b> las propiedades de la potenciación y simplifica las expresiones.</span>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <ol type="a">
+                                                <div class="col-lg-6"><span> <b style="color: #428bca"><li></li></b> 27<sup>3</sup> ÷ 81 =</span>
+                                                    <input type="number" id="act8num0" name="" style="width: 40px;border-radius: 5px 5px 5px 5px;text-align: center;"><sup><input type="number" id="act8num1" name="" style="width: 30px;text-align: center; border-radius: 5px 5px 5px 5px"></sup></div>
+                                                <div class="col-lg-6"><span> <b style="color: #428bca"><li></li></b>(81<sup>6</sup> ÷ 27<sup>4</sup>) ÷ 9<sup>6</sup> =</span>
+                                                    <input type="number" id="act8num2" name="" style="width: 40px;border-radius: 5px 5px 5px 5px;text-align: center;">
+                                                </div>
+                                                <div class="col-lg-6"><span> <b style="color: #428bca"><li></li></b>125<sup>4</sup> ÷ 25<sup>5</sup> =</span>
+                                                    <input type="number" id="act8num3" name="" style="width: 40px;border-radius: 5px 5px 5px 5px;text-align: center;"><sup><input type="number" id="act8num4" name="" style="width: 30px;text-align: center; border-radius: 5px 5px 5px 5px"></sup></div>
+                                                <div class="col-lg-6"><span> <b style="color: #428bca"><li></li></b>(4<sup>10</sup> . 25<sup>12</sup>) ÷ (8<sup>5</sup> . 125<sup>8</sup>) =</span>
+                                                    <input type="number" id="act8num5" name="" style="width: 40px;border-radius: 5px 5px 5px 5px;text-align: center;"><sup><input type="number" id="act8num6" name="" style="width: 30px;text-align: center; border-radius: 5px 5px 5px 5px"></sup></div>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-question">
+                                    <br>
+                                    <input type="text" maxlength="2" id="nota1_9" size="2" style="text-align:center" class="nota-abierta" min="0" max="10" readonly>&nbsp;<span><b>9.- Relaciona</b> cada figura con la fracción que le corresponde.</span>
+                                    <div align="center">
+                                        <table style="text-align: center;" class="">
+                                            <tr>
+                                                <td>
+                                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 dndAligned cajas imagen" id="caja_img1"></div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4  dndAligned cajas texto" id="caja_txt1"></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 dndAligned cajas imagen" id="caja_img2"></div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4  dndAligned cajas texto" id="caja_txt2"></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 dndAligned cajas imagen" id="caja_img3"></div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4  dndAligned cajas texto" id="caja_txt3"></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 dndAligned cajas imagen" id="caja_img4"></div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 dndAligned cajas texto" id="caja_txt4"></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
                                 <!--FIN COLOCAR AQUI EL DESARROLLO DE LA PREGUNTA-->
                             </div>
                         </div>
@@ -517,54 +616,68 @@ table tr th div span {
                             <div class="panel-body">
                                 <!--INICIO COLOCAR AQUI EL DESARROLLO DE LA PREGUNTA-->
                                 <div class="text-question">
-                                    <input type="text" name="" id="nota1_9" class="nota-abierta notasCalc notaCalcCerrada" readonly>&nbsp;&nbsp;<span><b>9.- Observa</b> las imágenes y luego <b>relaciónalas</b> con una línea.</span>
-                                    <table class="">
+                                    <input type="text" name="" id="nota1_10" class="nota-abierta notasCalc notaCalcCerrada">&nbsp;&nbsp;<span><b>10.- Escribe</b> cada conjunto por extensión, determina el tipo de conjunto y representa en un diagrama de Venn.</span>
+                                    <div class="row">
+                                        <div class="col-lg-12 table-responsive">
+                                            <b style="color: #428bca">a)</b> A = {x| x es un número par positivo}
+                                            <input type="text" class="form-control" placeholder="Escribe tu respuesta">
+                                            <br>
+                                            <input type="text" class="form-control" placeholder="Escribe tu respuesta">
+                                            <br>
+                                            <div align="center">
+                                                <canvas class="canvas">Su navegador no soporta canvas :( </canvas>
+                                                <br>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 table-responsive">
+                                            <b style="color: #428bca">b)</b> B = { x | x ∈ ℕ, 3 ≤ x ≤10}
+                                            <input type="text" class="form-control" placeholder="Escribe tu respuesta">
+                                            <br>
+                                            <input type="text" class="form-control" placeholder="Escribe tu respuesta">
+                                            <br>
+                                            <div align="center">
+                                                <canvas class="canvas">Su navegador no soporta canvas :( </canvas>
+                                                <br>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 table-responsive">
+                                            <b style="color: #428bca">c)</b> C = { x − 2 | x ∈ ℤ,  − 1
+                                            < x < 4} <input type="text" class="form-control" placeholder="Escribe tu respuesta">
+                                                <br>
+                                                <input type="text" class="form-control" placeholder="Escribe tu respuesta">
+                                                <br>
+                                                <div align="center">
+                                                    <canvas class="canvas">Su navegador no soporta canvas :( </canvas>
+                                                    <button class="btn btn-danger limpiar">Borrar Todos</button>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-question">
+                                    <input type="text" name="" id="nota1_11" class="nota-abierta notasCalc notaCalcCerrada" readonly>&nbsp;&nbsp;<span><b>11.- Une</b> cada conjunto con su representación simbólica.</span>
+                                    <table class="table" align="center">
                                         <tr>
-                                            <td>
-                                                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 cajas1 dndAligned imagenes" id="caja_imgn1"></div>
+                                            <td style="width: 50%;">
+                                                <div class="cajas1 act11txt" id="act11Txt1" style="background: #CFE4C1;" align="center"></div>
                                             </td>
                                             <td>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 cajas1 dndAligned textos" id="caja_txts1"></div>
+                                                <div class="act11_1txt" id="act11_1Txt1" align="center"></div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 cajas1 dndAligned imagenes" id="caja_imgn2"></div>
+                                                <div class="cajas1 act11txt" id="act11Txt2" style="background: #CFE4C1; " align="center"></div>
                                             </td>
                                             <td>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 cajas1 dndAligned textos" id="caja_txts2"></div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 cajas1 dndAligned imagenes" id="caja_imgn3"></div>
-                                            </td>
-                                            <td>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 cajas1 dndAligned textos" id="caja_txts3"></div>
+                                                <div class=" act11_1txt" id="act11_1Txt2" align="center"></div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 cajas1 dndAligned imagenes" id="caja_imgn4"></div>
+                                                <div class="cajas1 act11txt" id="act11Txt3" style="background: #CFE4C1;" align="center"></div>
                                             </td>
                                             <td>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 cajas1 dndAligned textos" id="caja_txts4"></div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 cajas1 dndAligned imagenes" id="caja_imgn5"></div>
-                                            </td>
-                                            <td>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 cajas1 dndAligned textos" id="caja_txts5"></div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 cajas1 dndAligned imagenes" id="caja_imgn6"></div>
-                                            </td>
-                                            <td>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 cajas1 dndAligned textos" id="caja_txts6"></div>
+                                                <div class="act11_1txt" id="act11_1Txt3" align="center"></div>
                                             </td>
                                         </tr>
                                     </table>
@@ -631,6 +744,118 @@ table tr th div span {
     <script type="text/javascript">
     var titulos = 'diagnostico';
     numero_pagina(54);
+    $('.canvas').each(function() {
+        var canvas = $(this)[0];
+        var ctx = canvas.getContext('2d');
+        // Do stuff
+
+        /*var limpiar = document.getElementById("limpiar");
+         var canvas = document.getElementById("canvas");
+         var ctx =  canvas.getContext('2d');*/
+        var cw = canvas.width = 400,
+            cx = cw / 2;
+        var ch = canvas.height = 200,
+            cy = ch / 2;
+
+        var dibujar = false;
+        var factorDeAlisamiento = 5;
+        var Trazados = [];
+        var puntos = [];
+        ctx.lineJoin = "round";
+
+
+        $(".limpiar").click(function() {
+            dibujar = false;
+            ctx.clearRect(0, 0, cw, ch);
+            Trazados.length = 0;
+            puntos.length = 0;
+        });
+
+
+        /*var limpiar = document.getElementById('limpiar');
+         limpiar.addEventListener('click', function(evt) {
+
+            }, false);*/
+
+        canvas.addEventListener('mousedown', function(evt) {
+            dibujar = true;
+            //ctx.clearRect(0, 0, cw, ch);
+            puntos.length = 0;
+            ctx.beginPath();
+
+        }, false);
+
+        canvas.addEventListener('mouseup', function(evt) {
+            redibujarTrazados();
+        }, false);
+
+        canvas.addEventListener("mouseout", function(evt) {
+            redibujarTrazados();
+        }, false);
+
+        canvas.addEventListener("mousemove", function(evt) {
+            if (dibujar) {
+                var m = oMousePos(canvas, evt);
+                puntos.push(m);
+                ctx.lineTo(m.x, m.y);
+                ctx.stroke();
+            }
+        }, false);
+
+
+
+
+
+        function reducirArray(n, elArray) {
+            var nuevoArray = [];
+            nuevoArray[0] = elArray[0];
+            for (var i = 0; i < elArray.length; i++) {
+                if (i % n == 0) {
+                    nuevoArray[nuevoArray.length] = elArray[i];
+                }
+            }
+            nuevoArray[nuevoArray.length - 1] = elArray[elArray.length - 1];
+            Trazados.push(nuevoArray);
+        }
+
+        function calcularPuntoDeControl(ry, a, b) {
+            var pc = {}
+            pc.x = (ry[a].x + ry[b].x) / 2;
+            pc.y = (ry[a].y + ry[b].y) / 2;
+            return pc;
+        }
+
+        function alisarTrazado(ry) {
+            if (ry.length > 1) {
+                var ultimoPunto = ry.length - 1;
+                ctx.beginPath();
+                ctx.moveTo(ry[0].x, ry[0].y);
+                for (i = 1; i < ry.length - 2; i++) {
+                    var pc = calcularPuntoDeControl(ry, i, i + 1);
+                    ctx.quadraticCurveTo(ry[i].x, ry[i].y, pc.x, pc.y);
+                }
+                ctx.quadraticCurveTo(ry[ultimoPunto - 1].x, ry[ultimoPunto - 1].y, ry[ultimoPunto].x, ry[ultimoPunto].y);
+                ctx.stroke();
+            }
+        }
+
+
+        function redibujarTrazados() {
+            dibujar = false;
+            ctx.clearRect(0, 0, cw, ch);
+            reducirArray(factorDeAlisamiento, puntos);
+            for (var i = 0; i < Trazados.length; i++)
+                alisarTrazado(Trazados[i]);
+        }
+
+        function oMousePos(canvas, evt) {
+            var ClientRect = canvas.getBoundingClientRect();
+            return { //objeto
+                x: Math.round(evt.clientX - ClientRect.left),
+                y: Math.round(evt.clientY - ClientRect.top)
+            }
+        }
+    });
     </script>
 </body>
 
