@@ -36,14 +36,12 @@
 
 .correcto {
     color: #ffffff;
-    background-color: #8FB435;
-    font-weight: 700;
+    background-color: #00e600;
 }
 
 .incorrecto {
     color: #ffffff;
-    background-color: #E76E80;
-    font-weight: 700;
+    background-color: #ff6666;
 }
 
 .desactivar {
@@ -57,7 +55,7 @@
 }
 
 input {
-    text-align: center;
+
     border: 0;
     border-bottom: 1px solid #85BCEB;
     width: 30px;
@@ -108,7 +106,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="calificar_abierta()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="actividad69()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -144,29 +142,21 @@ input {
                 <!--pregunats de la actividad-->
                 <div class="text-question">
                     <img class="img-responsive" src="img/practica_guiada.png"></img>
-                    <input type="number" name="" max="10" min="0" class="nota-abierta"><span> En la siguiente expresión algebraica, <b>realiza</b> la reducción de términos semejantes.</span><br>
+                    <span> En la siguiente expresión algebraica, <b>realiza</b> la reducción de términos semejantes.</span>
+                    <br>
                     <span>25x + 12y – 4x + 9y – y + 6 – 13x – 3</span>
                     <div class="row">
-                        <div class="col-lg-12">
-                            <br><div class="col-lg-2"><img src="img/paso1.jpg" class="img-responsive">
-                            </div>
-                            <div class="col-lg-10">Lee el problema y determina en cuántas partes se cortó la cinta.
-                                <input class="form-control"></input>
-                            </div>
+                        <br>
+                        <div class="col-lg-12"> <img src="img/paso1.jpg" class="img-responsive"><b>Agrupa</b> de acuerdo con cada variable, x, y o números.
+                            <input class="form-control"></input>
                         </div>
-                        <div class="col-lg-12">
-                            <br><div class="col-lg-2"><img src="img/paso2.jpg" class="img-responsive">
-                            </div>
-                            <div class="col-lg-10">Determina qué parte es x.
-                                <input class="form-control"></input>
-                            </div>
+                        <br>
+                        <div class="col-lg-12"><img src="img/paso2.jpg" class="img-responsive"><b>Aplica</b> la propiedad distributiva en cada paréntesis.
+                            <input class="form-control"></input>
                         </div>
-                        <div class="col-lg-12">
-                            <br><div class="col-lg-2"><img src="img/paso3.jpg" class="img-responsive">
-                            </div>
-                            <div class="col-lg-10">Escribe la representación de cada parte.
-                                <input class="form-control"></input>
-                            </div>
+                        <br>
+                        <div class="col-lg-12"><img src="img/paso3.jpg" class="img-responsive"><b>Resuelve</b> la operación de cada paréntesis.
+                            <input type="text" class="form-control sinEspacios text-lowercase" id="act69num1"></input>
                         </div>
                     </div>
                 </div>
@@ -220,6 +210,25 @@ input {
         var titulos = "aplico";
         $("#txtNota").html("0");
         $("#n_pagina").html("62");
+
+        function actividad69() {
+            var nt1 = 0;
+            var act69num1 = document.getElementById('act69num1').value;
+            if (act69num1 == "8x+20y+3") {
+                nt1 = 10;
+                $("#act69num1").css({ "background-color": "#00e600" });
+
+            } else {
+                $("#act69num1").css({ "background-color": "#ff6666" });
+
+            }
+            $('#txtNota').html(nt1.toFixed(2));
+            document.getElementById('bt_comprobar').disabled = true;
+            $('input').attr("disabled", true);
+            $('#txtAlumno').attr("disabled", false);
+
+
+        }
         </script>
 </body>
 

@@ -43,14 +43,12 @@
 
 .correcto {
     color: #ffffff;
-    background-color: #8FB435;
-    font-weight: 700;
+    background-color: #00e600;
 }
 
 .incorrecto {
     color: #ffffff;
-    background-color: #E76E80;
-    font-weight: 700;
+    background-color: #ff6666;
 }
 
 .desactivar {
@@ -129,7 +127,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="totalnota()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta5()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -169,143 +167,115 @@ input {
                         <div class="col-lg-12" style="background: #f0f7fc; text-align: justify;">
                             <div class="col-lg-6">
                                 <div class="col-lg-12">
-                                    <input type="text" id="nota1_1" name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">1. </b> Una cuerda se corta en dos pedazos, uno de ellos es 5 m más largo que el otro, ¿cuál es la expresión matemática que indica la longitud de cada pedazo?</span>
                                     <br>
-                                    <span><img src="img/paso1.jpg"><input type="text" name="" style="width: 300px;"></span>
+                                    <input type="text" id="nota1_1" name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">1. </b> <b>Realiza</b> la reducción de términos semejantes de la siguiente expresión:</span>
                                     <br>
+                                    <span><img src="img/paso1.jpg" class="img-responsive"><input type="text" class="form-control" name=""></span>
                                     <br>
-                                    <span><img src="img/paso2.jpg"><input type="text" name="" style="width: 300px;"></span>
+                                    <span><img src="img/paso2.jpg" class="img-responsive"><input type="text" class="form-control" name=""></span>
                                     <br>
-                                    <br>
-                                    <span><img src="img/paso3.jpg"><input type="text" name="" style="width: 300px;"></span>
+                                    <span><img src="img/paso3.jpg" class="img-responsive"><input type="text" class="form-control" name="" id="act1num1"></span>
                                 </div>
                                 <div class="col-lg-12">
-                                    <input type="text" id="nota1_2" name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">2. </b> <b>Escribe</b> en lenguaje matemático cada expresión.</span>
+                                    <br>
+                                    <input type="text" id="nota1_2" name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">2. </b> <b>Reduce</b> términos semejantes.</span>
                                     <ol type="a">
-                                        <span> <li> Un número cualquiera. </li> <input type="text" name="" style="width: 300px;"></span>
                                         <br>
-                                        <br><span> <li> El cubo de un número. </li> <input type="text" name="" style="width: 300px;"></span>
+                                        <li>&nbsp;&nbsp;<span>5ab − 8ab + ab − 6ab + 21ab =</span>
+                                            <input type="text" id="act2num0" name="" class="text-lowercase sinEspacios" style="width: 200px;">
+                                        </li>
                                         <br>
-                                        <br><span> <li> El doble de un número aumentado en 4. </li> <input type="text" name="" style="width: 300px;"></span>
+                                        <li>&nbsp;&nbsp;<span>10x − 15x + 2x − 17x + 6x =</span>
+                                            <input type="text" id="act2num1" name="" class="text-lowercase sinEspacios" style="width: 200px;">
+                                        </li>
                                         <br>
-                                        <br><span> <li> El triple de un número más el número. </li> <input type="text" name="" style="width: 300px;"></span>
+                                        <li>&nbsp;&nbsp;<span>19xy − 13xy + 5xy =</span>
+                                            <input type="text" id="act2num2" name="" class="text-lowercase sinEspacios" style="width: 200px;">
+                                        </li>
                                         <br>
-                                        <br><span> <li>La diferencia de dos números. </li> <input type="text" name="" style="width: 300px;"></span>
+                                        <li>&nbsp;&nbsp;<span>− 18y + 19y − y =</span>
+                                            <input type="text" id="act2num3" name="" class="text-lowercase sinEspacios" style="width: 200px;">
+                                        </li>
                                         <br>
-                                        <br><span> <li> La semidiferencia entre dos números. </li> <input type="text" name="" style="width: 300px;"></span>
+                                        <li>&nbsp;&nbsp;<span>12ab<sup>2</sup>  − 23ab<sup>2</sup> − 5ab<sup>2</sup>  =</span>
+                                            <input type="text" id="act2num4" name="" class="text-lowercase sinEspacios" style="width: 40px;"><sup><input type="text" id="act2num5" name="" class="text-lowercase sinEspacios" style="width: 20px;"></sup></li>
+                                    </ol>
+                                </div>
+                                <div class="col-lg-12">
+                                    <br>
+                                    <input type="text" id="nota1_3" name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">3. </b> <b>Analiza</b>cada par de términos y <b>escribe</b> si son o no semejantes.</span>
+                                    <ol type="a">
                                         <br>
-                                        <br><span> <li> El producto de un número por su sucesor. </li> <input type="text" name="" style="width: 300px;"></span>
+                                        <li>&nbsp;&nbsp;<span>4xy<sup>2</sup> , 5xy</span>
+                                            <select id="sel0" class="hola">
+                                                <option>-----Seleccione-----</option>
+                                                <option value="No son semejantes.">No son semejantes.</option>
+                                                <option value="Sí son semejantes.">Sí son semejantes.</option>
+                                            </select>
+                                        </li>
                                         <br>
-                                        <br><span> <li> El quíntuplo de un número aumentado en 10. </li> <input type="text" name="" style="width: 300px;"></span>
+                                        <li>&nbsp;&nbsp;<span>8x<sup>2</sup>y,  -7x<sup>2</sup>y</span>
+                                            <select id="sel1" class="hola">
+                                                <option>-----Seleccione-----</option>
+                                                <option value="No son semejantes.">No son semejantes.</option>
+                                                <option value="Sí son semejantes.">Sí son semejantes.</option>
+                                            </select>
+                                        </li>
                                         <br>
-                                        <br><span> <li> Un número de dos cifras. </li> <input type="text" name="" style="width: 300px;"></span>
+                                        <li>&nbsp;&nbsp;<span>9abc, 9bc</span>
+                                            <select id="sel2" class="hola">
+                                                <option>-----Seleccione-----</option>
+                                                <option value="No son semejantes.">No son semejantes.</option>
+                                                <option value="Sí son semejantes.">Sí son semejantes.</option>
+                                            </select>
+                                        </li>
                                         <br>
-                                        <br><span> <li> Tres números consecutivos. </li> <input type="text" name="" style="width: 300px;"></span>
-                                        <br>
-                                        <br><span> <li> El triple de la diferencia de dos números. </li> <input type="text" name="" style="width: 300px;"></span>
-                                        <br>
-                                        <br><span> <li> El cubo de un número más el triple del cuadrado del mismo número. </li> <input type="text" name="" style="width: 300px;"></span>
-                                        <br>
-                                        <br><span> <li> Un número aumentado en 3. </li> <input type="text" name="" style="width: 300px;"></span>
-                                        <br>
-                                        <br><span> <li> La cuarta parte de un número. </li> <input type="text" name="" style="width: 300px;"></span>
+                                        <li>&nbsp;&nbsp;<span>4xz, 4xy</span>
+                                            <select id="sel3" class="hola">
+                                                <option>-----Seleccione-----</option>
+                                                <option value="No son semejantes.">No son semejantes.</option>
+                                                <option value="Sí son semejantes.">Sí son semejantes.</option>
+                                            </select>
+                                        </li>
                                         <br>
                                     </ol>
                                 </div>
                             </div>
                             <div class="col-lg-6">
+                                <br>
                                 <div class="col-lg-12">
-                                    <input type="number" readonly id="nota1_3" name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">3. </b> <b>Relaciona</b> el lenguaje verbal con el lenguaje matemático y <b>encierra</b> la respuesta correcta.</span>
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <td style="color: white; background: #00b1d3 ">Lenguaje verbal</td>
-                                            <td style="color: white; background: #70c4df">Lenguaje matemático</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <ol type="1">
-                                                    <span><li>El doble de un número.</li></span>
-                                                    <br>
-                                                    <span><li>La mitad de un número.</li></span>
-                                                    <br>
-                                                    <span><li>Un número impar.</li></span>
-                                                    <br>
-                                                    <span><li>El cuadrado de un número.</li></span>
-                                                    <br>
-                                                    <span><li>Un número aumentado en 2.</li></span>
-                                                    <br>
-                                                </ol>
-                                            </td>
-                                            <td>
-                                                <ol type="a">
-                                                    <span><li>x + 2</li></span>
-                                                    <br>
-                                                    <span><li>x<sup>2</sup>  </li></span>
-                                                    <br>
-                                                    <span><li>2x</li></span>
-                                                    <br>
-                                                    <span><li><sup>x</sup>/<sub>2</sub></li></span>
-                                                    <br>
-                                                    <span><li>2x + 1</li></span>
-                                                    <br>
-                                                </ol>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <ol type="a">
-                                        <span><li class="enc" id="R1">1.a, 2.b, 3.c, 4.d, 5.e</li></span>
+                                    <input type="text" id="nota1_4" name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">4. </b> <b>Encuentra</b> la expresión algebraica que represente el perímetro de cada figura.</span>
+                                    <div class="col-lg-12">
+                                        <img src="img/i1_p65_act70.jpg" class="img-responsive">
+                                        <textarea class="form-control" style="resize: none;" placeholder="Procedimiento"></textarea>
+                                        <br>P =
+                                        <input class="saltos2 sinEspacios text-lowercase" style="width: 100px;" placeholder="Respuesta" id="act4resp1"></input>
                                         <br>
-                                        <span><li class="enc" id="R2">1.a, 2.c, 3.b, 4.d, 5.e</li></span>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="col-lg-12" align="center" style="background: url('img/i2_p65_act70.jpg'); width: 300px; height: 210px;">
                                         <br>
-                                        <span><li class="enc" id="R3">1.c, 2.d, 3.e, 4.b, 5.a</li></span>
-                                        <br>
-                                        <span><li class="enc" id="R4">1.c, 2.d, 3.e, 4.b, 5.e</li></span>
-                                        <br>
-                                        <span><li class="enc" id="R5">1.c, 2.b, 3.d, 4.c, 5.a</li></span>
-                                        <br>
-                                    </ol>
+                                        <span id="act4num0" style="position: absolute;left: 150px;top: 10px;">2</span>
+                                        <span id="act4num1" style="position: absolute;left: 150px;top: 180px;">2</span>
+                                        <span id="act4num2" style="position: absolute;left: 50px;top: 150px;">2</span>
+                                        <span id="act4num3" style="position: absolute;left: 240px;top: 150px;">2</span>
+                                        <span id="act4num4" style="position: absolute;left: 50px;top: 30px;">2</span>
+                                        <span id="act4num5" style="position: absolute;left: 240px;top: 30px;">2</span>
+                                    </div>
+                                    <textarea class="form-control" style="resize: none;" placeholder="Procedimiento"></textarea>
+                                    <br> P =
+                                    <input class="saltos2 sinEspacios text-lowercase" style="width: 100px;" placeholder="Respuesta" id="act4resp2"></input>
+                                    <br>
                                 </div>
                                 <div class="col-lg-12">
-                                    <input type="number" readonly id="nota1_4" name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">4. </b> <b>Selecciona</b> la respuesta correcta para cada enunciado.</span>
+                                    <br><input type="text" id="nota1_5" name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">5. </b> <b>Encuentra</b> la expresión algebraica que represente el perímetro de cada figura.</span>
                                     <br>
-                                    <span> <b style="color:#005CA9">I) </b> La suma de un número más su doble y su triple es 66.</span>
-                                    <br>
-                                    <ol type="a">
-                                        <br><span><li class="enc" id="I1">x + 2x + 3x = 66</li></span>
-                                        <br>
-                                        <span><li class="enc" id="I2">x + 2 + x + 3x = 66</li></span>
-                                        <br>
-                                        <span><li class="enc" id="I3">x + x<sup>2</sup> + 3x = 66</li></span>
-                                        <br>
-                                        <span><li class="enc" id="I4">2x + x + 3 + x = 66</li></span>
-                                        <br>
-                                    </ol>
-                                    <br>
-                                    <span> <b style="color:#005CA9">II) </b>La mitad de un número disminuido en dos.</span>
-                                    <br>
-                                    <ol type="a">
-                                        <br><span><li class="enc" id="II1"><sup>x</sup>/<sub>2</sub>  + 2</li></span>
-                                        <br>
-                                        <span><li class="enc" id="II2">2x + 2</li></span>
-                                        <br>
-                                        <span><li class="enc" id="II3">2x − 2</li></span>
-                                        <br>
-                                        <span><li class="enc" id="II4"><sup>x</sup>/<sub>2</sub>  - 2</li></span>
-                                        <br>
-                                    </ol>
-                                    <br>
-                                    <span> <b style="color:#005CA9">III) </b>La mitad de un número disminuido en dos.</span>
-                                    <br>
-                                    <ol type="a">
-                                        <br><span><li class="enc" id="III1">c<sup>2</sup> = a<sup>2</sup> + 2b</li></span>
-                                        <br>
-                                        <span><li class="enc" id="III2">c<sup>2</sup> = (a + b)<sup>2</sup></li></span>
-                                        <br>
-                                        <span><li class="enc" id="III3">c<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup></li></span>
-                                        <br>
-                                        <span><li class="enc" id="III4">c<sup>2</sup> = 2a + 2b</li></span>
-                                        <br>
-                                    </ol>
+                                    <span> <b style="color:#005CA9">a) </b><span id="act5num0"></span></span><br>
+                                    <input type="text" name="" class="saltos2 sinEspacios text-lowercase" style="width: 300px;" id="act5resp1">
+                                    <br><br>
+                                     <span> <b style="color:#005CA9">b) </b><span id="act5num1"></span></span><br>
+                                    <input type="text" name="" class="saltos2 sinEspacios text-lowercase" style="width: 300px;" id="act5resp2">
                                 </div>
                             </div>
                         </div>
@@ -356,7 +326,7 @@ input {
         <script src="js/helper1.js"></script>
         <script src="js/activities.js"></script>
         <script src="js/Utilitario.js"></script>
-        <script src="js/actividad67.js"></script>
+        <script src="js/actividad70.js"></script>
         <script src="js/validacionesExtras.js"></script>
         <script type="text/javascript">
         var titulos = "aplico";

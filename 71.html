@@ -14,6 +14,10 @@
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/fraccion.css" rel="stylesheet">
     <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/literallycanvas.css" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react-with-addons.js"></script>
+    <script type="text/javascript" src="js/literallycanvas.min.js"></script>
 </head>
 <style type="text/css">
 .cajas {
@@ -28,6 +32,13 @@
 .cajas1 {
 
     border: 1px #98007f solid;
+}
+
+.encierra {
+    background: rgba(255, 102, 0, 0.8);
+    color: #fff;
+    padding: 2px;
+    border-radius: 15px;
 }
 
 .actividad1 {
@@ -54,23 +65,29 @@
     background-color: #232956;
 }
 
-.inputPequeño {
-    text-align: center;
-    border: 0;
-    border-bottom: 1px dotted #328AF7;
-    width: 40px;
-    color: blue;
-}
-
 input {
-
     border: 0;
     border-bottom: 1px solid #85BCEB;
     width: 30px;
 }
+
+.seleccionCajai {
+    background-color: #ffffff;
+    width: auto;
+    height: auto;
+    border: 10px #53A0FF solid;
+    border-radius: 25px;
+}
+
+.encierra {
+    background: rgba(255, 102, 0, 0.8);
+    color: #fff;
+    padding: 2px;
+    border-radius: 15px;
+}
 </style>
 
-<body>
+<body onload="initDraw()">
     <div id="nota-informativa" class="nota-ayuda">
         <button type="button" class="close" onclick="cerrar_ayuda()" aria-label="Close"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
         <!--ACA ESCRIBIR TEXTO DE LA AYUDA DE LA ACTIVIDAD-->
@@ -114,7 +131,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="calificar_abierta()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta5()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -149,20 +166,12 @@ input {
             <div class="panel-body">
                 <!--pregunats de la actividad-->
                 <div class="text-question">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="col-lg-3"><img src="img/i1_p64_act68.jpg" class="img-responsive"></div>
-                            <div class="col-lg-9">
-                                <img src="img/i2_p64_act68.jpg" class="img-responsive">
-                                <br>
-                                <span>En total transportaron 9 acordeones, <input type="text" class="inputPequeño soloNumeros" name="" >baterías, <input type="text" class="inputPequeño soloNumeros" name="" >trompetas y <input type="text" class="inputPequeño soloNumeros" name="" >violines.</span>
-                                <br>
-                                <br>
-                                <input type="number" class="nota-abierta" max="10" min="0"></input><span><b style="color: #98007f">•</b> ¿Puedes sumar cinco acordeones y seis trompetas para determinar cuántos acordeones llevan?</span>
-                                <input class="form-control"></input>
-                            </div>
-                        </div>
-                    </div>
+                    <img class="img-responsive" src="img/practica_individual.png"></img>
+                    <div class="my-drawing"></div>
+                </div>
+                <div class="text-question">
+                    <img class="img-responsive" src="img/practica_individual.png"></img>
+                    <div class="my-drawing"></div>
                 </div>
             </div>
         </div>
@@ -209,29 +218,23 @@ input {
         <script src="js/helper1.js"></script>
         <script src="js/activities.js"></script>
         <script src="js/Utilitario.js"></script>
+        <script src="js/validacionesExtras.js"></script>
         <script type="text/javascript">
-        var titulos = "reflexiono";
+        var titulos = "aplico";
         $("#txtNota").html("0");
         $("#n_pagina").html("62");
 
-        function actividad65() {
-            var vl = ['25', '40', '40', '20', '25', '40', '40', '20', ]
-            var cont = 0;
-            for (var i = 0; i < 8; i++) {
-                var valores = $('#act65num' + [i] + '').val();
+        function initDraw() {
+            $(document).ready(function() {
+                var winHeight = $(window).height();
+                var winWidth = $(window).width();
 
-                if (valores == vl[i]) {
-                    $('#act65num' + [i] + '').addClass('correcto');
-                    cont = cont + 1;
-                } else {
-                    $('#act65num' + [i] + '').addClass('incorrecto');
-                }
-            }
-            var total = (cont * 10) / 8;
-            $('#txtNota').html(total.toFixed(2));
-            document.getElementById('bt_comprobar').disabled = true;
-            $('input').attr("disabled", true);
-            $('#txtAlumno').attr("disabled", false);
+                var lc = LC.init(
+                    document.getElementsByClassName('my-drawing')[0], { imageURLPrefix: 'imgcanvas' }
+                );
+
+                lc.respondToSizeChange();
+            });
         }
         </script>
 </body>
