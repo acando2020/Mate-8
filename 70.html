@@ -67,6 +67,13 @@ input {
     width: 30px;
 }
 
+.inputsmall {
+    text-align: center;
+    border: 0;
+    border-bottom: 1px solid #85BCEB;
+    width: 30px;
+}
+
 .seleccionCajai {
     background-color: #ffffff;
     width: auto;
@@ -127,7 +134,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta5()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="totalnota()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -168,7 +175,7 @@ input {
                             <div class="col-lg-6">
                                 <div class="col-lg-12">
                                     <br>
-                                    <input type="text" id="nota1_1" name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">1. </b> <b>Realiza</b> la reducción de términos semejantes de la siguiente expresión:</span>
+                                    <input type="text" id="nota1_1" readonly name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">1. </b> <b>Realiza</b> la reducción de términos semejantes de la siguiente expresión:</span>
                                     <br>
                                     <span><img src="img/paso1.jpg" class="img-responsive"><input type="text" class="form-control" name=""></span>
                                     <br>
@@ -178,64 +185,39 @@ input {
                                 </div>
                                 <div class="col-lg-12">
                                     <br>
-                                    <input type="text" id="nota1_2" name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">2. </b> <b>Reduce</b> términos semejantes.</span>
+                                    <input type="text" id="nota1_2" readonly name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">2. </b> <b>Reduce</b> términos semejantes.</span>
                                     <ol type="a">
                                         <br>
-                                        <li>&nbsp;&nbsp;<span>5ab − 8ab + ab − 6ab + 21ab =</span>
-                                            <input type="text" id="act2num0" name="" class="text-lowercase sinEspacios" style="width: 200px;">
+                                        <li class="act2class" id="act2Txt0">
                                         </li>
                                         <br>
-                                        <li>&nbsp;&nbsp;<span>10x − 15x + 2x − 17x + 6x =</span>
-                                            <input type="text" id="act2num1" name="" class="text-lowercase sinEspacios" style="width: 200px;">
+                                        <li class="act2class" id="act2Txt1">
                                         </li>
                                         <br>
-                                        <li>&nbsp;&nbsp;<span>19xy − 13xy + 5xy =</span>
-                                            <input type="text" id="act2num2" name="" class="text-lowercase sinEspacios" style="width: 200px;">
+                                        <li class="act2class" id="act2Txt2">
                                         </li>
                                         <br>
-                                        <li>&nbsp;&nbsp;<span>− 18y + 19y − y =</span>
-                                            <input type="text" id="act2num3" name="" class="text-lowercase sinEspacios" style="width: 200px;">
+                                        <li class="act2class" id="act2Txt3">
                                         </li>
                                         <br>
-                                        <li>&nbsp;&nbsp;<span>12ab<sup>2</sup>  − 23ab<sup>2</sup> − 5ab<sup>2</sup>  =</span>
-                                            <input type="text" id="act2num4" name="" class="text-lowercase sinEspacios" style="width: 40px;"><sup><input type="text" id="act2num5" name="" class="text-lowercase sinEspacios" style="width: 20px;"></sup></li>
+                                        <li class="act2class" id="act2Txt4"></li>
                                     </ol>
                                 </div>
                                 <div class="col-lg-12">
                                     <br>
-                                    <input type="text" id="nota1_3" name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">3. </b> <b>Analiza</b>cada par de términos y <b>escribe</b> si son o no semejantes.</span>
+                                    <input type="text" id="nota1_3" readonly name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">3. </b> <b>Analiza</b>cada par de términos y <b>escribe</b> si son o no semejantes.</span>
                                     <ol type="a">
                                         <br>
-                                        <li>&nbsp;&nbsp;<span>4xy<sup>2</sup> , 5xy</span>
-                                            <select id="sel0" class="hola">
-                                                <option>-----Seleccione-----</option>
-                                                <option value="No son semejantes.">No son semejantes.</option>
-                                                <option value="Sí son semejantes.">Sí son semejantes.</option>
-                                            </select>
+                                        <li class="act3class" id="act3Txt0">
                                         </li>
                                         <br>
-                                        <li>&nbsp;&nbsp;<span>8x<sup>2</sup>y,  -7x<sup>2</sup>y</span>
-                                            <select id="sel1" class="hola">
-                                                <option>-----Seleccione-----</option>
-                                                <option value="No son semejantes.">No son semejantes.</option>
-                                                <option value="Sí son semejantes.">Sí son semejantes.</option>
-                                            </select>
+                                        <li class="act3class" id="act3Txt1">
                                         </li>
                                         <br>
-                                        <li>&nbsp;&nbsp;<span>9abc, 9bc</span>
-                                            <select id="sel2" class="hola">
-                                                <option>-----Seleccione-----</option>
-                                                <option value="No son semejantes.">No son semejantes.</option>
-                                                <option value="Sí son semejantes.">Sí son semejantes.</option>
-                                            </select>
+                                        <li class="act3class" id="act3Txt2">
                                         </li>
                                         <br>
-                                        <li>&nbsp;&nbsp;<span>4xz, 4xy</span>
-                                            <select id="sel3" class="hola">
-                                                <option>-----Seleccione-----</option>
-                                                <option value="No son semejantes.">No son semejantes.</option>
-                                                <option value="Sí son semejantes.">Sí son semejantes.</option>
-                                            </select>
+                                        <li class="act3class" id="act3Txt3">
                                         </li>
                                         <br>
                                     </ol>
@@ -244,7 +226,7 @@ input {
                             <div class="col-lg-6">
                                 <br>
                                 <div class="col-lg-12">
-                                    <input type="text" id="nota1_4" name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">4. </b> <b>Encuentra</b> la expresión algebraica que represente el perímetro de cada figura.</span>
+                                    <input type="text" id="nota1_4" readonly name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">4. </b> <b>Encuentra</b> la expresión algebraica que represente el perímetro de cada figura.</span>
                                     <div class="col-lg-12">
                                         <img src="img/i1_p65_act70.jpg" class="img-responsive">
                                         <textarea class="form-control" style="resize: none;" placeholder="Procedimiento"></textarea>
@@ -269,13 +251,41 @@ input {
                                     <br>
                                 </div>
                                 <div class="col-lg-12">
-                                    <br><input type="text" id="nota1_5" name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">5. </b> <b>Encuentra</b> la expresión algebraica que represente el perímetro de cada figura.</span>
                                     <br>
-                                    <span> <b style="color:#005CA9">a) </b><span id="act5num0"></span></span><br>
-                                    <input type="text" name="" class="saltos2 sinEspacios text-lowercase" style="width: 300px;" id="act5resp1">
-                                    <br><br>
-                                     <span> <b style="color:#005CA9">b) </b><span id="act5num1"></span></span><br>
-                                    <input type="text" name="" class="saltos2 sinEspacios text-lowercase" style="width: 300px;" id="act5resp2">
+                                    <input type="text" id="nota1_5" readonly name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">5. </b> <b>Encuentra</b> la expresión algebraica que represente el perímetro de cada figura.</span>
+                                    <br>
+                                    <span> <b style="color:#005CA9">a) </b><span id="act5num0"></span></span>
+                                    <br>
+                                    <input type="text" name="" class="saltos2 sinEspacios text-lowercase" style="width: 200px;" id="act5resp1">
+                                    <br>
+                                    <br>
+                                    <span> <b style="color:#005CA9">b) </b><span id="act5num1"></span></span>
+                                    <br>
+                                    <input type="text" name="" class="saltos2 sinEspacios text-lowercase" style="width: 200px;" id="act5resp2">
+                                </div>
+                                <div class="col-lg-12">
+                                    <br>
+                                    <input type="text" id="nota1_6" readonly name="" max="10" min="0" class="nota-abierta" style="background: white;"><span> <b style="color:#005CA9">6. </b> <b>Encuentra</b> la expresión algebraica que represente el perímetro de cada figura.</span>
+                                    <br>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" style="text-align: center;background: white;">
+                                            <tr>
+                                                <td style="background: #0098c4;color: white;">Término</td>
+                                                <td style="background: #a4cc8f;color: white;">Signo</td>
+                                                <td style="background: #0098c4;color: white;">Coeficiente</td>
+                                                <td style="background: #a4cc8f;color: white;">Parte literal</td>
+                                                <td style="background: #0098c4;color: white;">Grado</td>
+                                            </tr>
+                                            <tr class="act6class" id="act6Txt0">
+                                            </tr>
+                                            <tr class="act6class" id="act6Txt1">
+                                            </tr>
+                                            <tr class="act6class" id="act6Txt2">
+                                            </tr>
+                                            <tr class="act6class" id="act6Txt3">
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -331,7 +341,7 @@ input {
         <script type="text/javascript">
         var titulos = "aplico";
         $("#txtNota").html("0");
-        $("#n_pagina").html("62");
+        $("#n_pagina").html("65");
         </script>
 </body>
 

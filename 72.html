@@ -123,7 +123,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="NotaFinal()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="calificar_abierta()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -158,89 +158,19 @@ input {
             <div class="panel-body">
                 <!--pregunats de la actividad-->
                 <div class="text-question">
+                    <span>Los números racionales se pueden expresar como una fracción o como un número decimal.</span>
+                    <br>
+                    <input type="number" class="nota-abierta" max="10" min="0"></input><span><b>Responde</b>, ¿en cuántas partes iguales se dividió la unidad y qué representa cada parte?</span>
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="col-lg-3"><img src="img/i1_p66_act71.jpg" class="img-responsive"></div>
-                            <div class="col-lg-9">
-                                <div class="text-question">
-                                    <span>Las respuestas de la investigación realizada en la sección Exploro para recordar se representa en el siguiente cuadro.</span>
-                                    <br>
-                                    <input type="number" name="" class="nota-abierta" id="nota1" readonly><span><b>Completa</b> el cuadro.</span>
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered" style="text-align: center;">
-                                            <tr>
-                                                <td style="background: #810a82; color:white;">Género musical</td>
-                                                <td style="background: #c877ad; color:white;">Representación</td>
-                                                <td style="background: #810a82; color:white;">Expresión fraccionaria</td>
-                                                <td style="background: #c877ad; color:white;">Expresión decimal</td>
-                                                <td style="background: #810a82; color:white;">Número de personas</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jazz</td>
-                                                <td><img src="img/i2_p66_act71.jpg" class="img-responsive"></td>
-                                                <td>
-                                                    <h3><sup>1</sup>&frasl;<sub>4</sub></h3></td>
-                                                <td>1 ÷ 4 = 0, 25</td>
-                                                <td>0, 25 . 100=25</td>
-                                            </tr>
-                                            <tr class="act1class" id="act1Txt0">
-                                            </tr>
-                                            <tr class="act1class" id="act1Txt1">
-                                            </tr>
-                                            <tr class="act1class" id="act1Txt2">
-                                            </tr>
-                                            <tr class="act1class" id="act1Txt3">
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <span>25 personas prefieren jazz, <input type="text" id="act1num16" class="soloNumeros inputPequeño" name="">personas pop, <input type="text" id="act1num17" class="soloNumeros inputPequeño" name="">personas electrónica, <input type="text" id="act1num18" class="soloNumeros inputPequeño" name="">personas indie y <input type="text" id="act1num19" class="soloNumeros inputPequeño" name="">personas reggaetón.</span>
-                                </div>
-                                <div class="text-question">
-                                    <br>
-                                    <input type="number" name="" class="nota-abierta" id="nota2" readonly><span><b>Relaciona</b>, con una línea, cada imagen con la fracción y el número decimal que le corresponde.</span>
-                                    <table class="table" align="center">
-                                        <tr>
-                                            <td style="width: 50%;">
-                                                <div class="cajas1 act11txt" id="act11Txt1" style="background: #fbe9d3;" align="center"></div>
-                                            </td>
-                                            <td>
-                                                <div class="act11_1txt" id="act11_1Txt1" align="center"></div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="cajas1 act11txt" id="act11Txt2" style="background: #fbe9d3; " align="center"></div>
-                                            </td>
-                                            <td>
-                                                <div class=" act11_1txt" id="act11_1Txt2" align="center"></div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="cajas1 act11txt" id="act11Txt3" style="background: #fbe9d3;" align="center"></div>
-                                            </td>
-                                            <td>
-                                                <div class="act11_1txt" id="act11_1Txt3" align="center"></div>
-                                            </td>
-                                        </tr>
-                                         <tr>
-                                            <td>
-                                                <div class="cajas1 act11txt" id="act11Txt4" style="background: #fbe9d3;" align="center"></div>
-                                            </td>
-                                            <td>
-                                                <div class="act11_1txt" id="act11_1Txt4" align="center"></div>
-                                            </td>
-                                        </tr>
-                                         <tr>
-                                            <td>
-                                                <div class="cajas1 act11txt" id="act11Txt5" style="background: #fbe9d3;" align="center"></div>
-                                            </td>
-                                            <td>
-                                                <div class="act11_1txt" id="act11_1Txt5" align="center"></div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
+                        <div class="col-lg-12" align="center">
+                            <div class="col-lg-4"><img src="img/i1_p64_act72.jpg" class="img-responsive">
+                                <textarea class="form-control" style="resize: none;border: 1px dotted #E400FF;" readonly>La unidad se dividió en 10 partes, cada parte es 1 décimo. 1/10 = 0,1</textarea>
+                            </div>
+                            <div class="col-lg-4"><img src="img/i2_p64_act72.jpg" class="img-responsive">
+                                <textarea class="form-control" style="resize: none;border: 1px dotted #E400FF;"></textarea>
+                            </div>
+                            <div class="col-lg-4"><img src="img/i3_p64_act72.jpg" class="img-responsive">
+                                <textarea class="form-control" style="resize: none;border: 1px dotted #E400FF;"></textarea>
                             </div>
                         </div>
                     </div>
@@ -290,11 +220,10 @@ input {
         <script src="js/helper1.js"></script>
         <script src="js/activities.js"></script>
         <script src="js/Utilitario.js"></script>
-        <script src="js/actividad71.js"></script>
         <script src="js/validacionesExtras.js"></script>
         <script src="js/dragNdrop.js"></script>
         <script type="text/javascript">
-        var titulos = "reflexiono";
+        var titulos = "comprendo";
         $("#txtNota").html("0");
         $("#n_pagina").html("62");
 
