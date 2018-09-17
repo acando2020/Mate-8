@@ -97,6 +97,11 @@ input {
 .fraction span.bar {
     display: none;
 }
+
+.periodicos {
+    border-top: 2px solid #000000;
+    border-radius: 15px;
+}
 </style>
 
 <body>
@@ -143,7 +148,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="calificar_abierta()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta1()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -179,14 +184,98 @@ input {
                 <!--pregunats de la actividad-->
                 <div class="text-question">
                     <img class="img-responsive" src="img/practica_guiada.png"></img>
-                    <div class="eq-c">
-                        <i>c</i>(NaOH) =
-                        <div class="fraction">
-                            <span class="fup"><input type="" name=""></span>
-                            <span class="bar">/</span>
-                            <span class="fdn"><i>V</i>(NaOH)</span>
+                    <span><b>Halla</b> la fracción generatriz de los siguientes números decimales.</span>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="col-lg-4"><b style="color: #005ca4">a)</b> 1,42 </div>
+                            <div class="col-lg-4"><b style="color: #005ca4">b)</b> 8,3535…</div>
+                            <div class="col-lg-4"><b style="color: #005ca4">c)</b> 3,2444…</div>
                         </div>
-                        = 1.2345 mol dm<sup>-3</sup>
+                    </div>
+                    <br>
+                    <span><img src="img/paso1.jpg"><b>Identifica</b> el tipo de número decimal que representa.</span>
+                    <br>
+                    <span><b style="color: #005ca4">a)</b>1,42 exacto</span>
+                    <br>
+                    <span><b style="color: #005ca4">b)</b><input type="text" id="act1num0" name="" style="width: 70px;">&nbsp;<input type="text" id="act1num1" name="" style="width: 150px;"></span>
+                    <br>
+                    <span><b style="color: #005ca4">c)</b><input type="text" id="act1num2" name="" style="width: 70px;">&nbsp;<input type="text" id="act1num3" name="" style="width: 150px;"></span>
+                    <br>
+                    <br>
+                    <span><img src="img/paso2.jpg"><b>Aplica</b> el proceso para encontrar la fracción generatriz.</span>
+                    <br>
+                    <div class="eq-c">
+                        <b style="color: #005ca4">a)</b> 1,42 =
+                        <div class="fraction">
+                            <span class="fup">142</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">100</span>
+                        </div>
+                        =
+                        <div class="fraction">
+                            <span class="fup">71</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">50</span>
+                        </div>
+                    </div>
+                    <div class="eq-c">
+                        <b style="color: #005ca4">b)</b> 8,<span class="periodicos">35</span> = 8 +
+                        <div class="fraction">
+                            <span class="fup">35</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">99</span>
+                        </div>
+                        =
+                        <div class="fraction">
+                            <span class="fup"><input type="text" id="act1num4" class="soloNumeros" style="border:0; text-align: center;" placeholder="0" name=""></span>
+                            <span class="bar">/</span>
+                            <span class="fdn"><input type="text" id="act1num5" class="soloNumeros" style="border:0; text-align: center;" placeholder="0" name=""></span>
+                        </div>
+                    </div>
+                    <div class="eq-c">
+                        <b style="color: #005ca4">c)</b> 3,2<span class="periodicos">4</span> = 3 +
+                        <div class="fraction">
+                            <span class="fup">24 - 2</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">90</span>
+                        </div>
+                        =
+                        <div class="fraction">
+                            <span class="fup"><input type="text" id="act1num6" class="soloNumeros" style="border:0; text-align: center;" placeholder="0" name=""></span>
+                            <span class="bar">/</span>
+                            <span class="fdn"><input type="text" id="act1num7" class="soloNumeros" style="border:0; text-align: center;" placeholder="0" name=""></span>
+                        </div>
+                        =
+                        <div class="fraction">
+                            <span class="fup"><input type="text" id="act1num8" class="soloNumeros" style="border:0; text-align: center;" placeholder="0" name=""></span>
+                            <span class="bar">/</span>
+                            <span class="fdn"><input type="text" id="act1num9" class="soloNumeros" style="border:0; text-align: center;" placeholder="0" name=""></span>
+                        </div>
+                    </div>
+                    <span><img src="img/paso3.jpg"><b>Escribe</b> el número decimal y su fracción generatriz.</span>
+                    <div class="eq-c">
+                        <b style="color: #005ca4">a)</b> 1,42 =
+                        <div class="fraction">
+                            <span class="fup">71</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">50</span>
+                        </div>
+                    </div>
+                    <div class="eq-c">
+                        <b style="color: #005ca4">b)</b> 8,<span class="periodicos">35</span> =
+                        <div class="fraction">
+                            <span class="fup"><input type="text" id="act1num10" class="soloNumeros" style="border:0; text-align: center;" placeholder="0" name=""></span>
+                            <span class="bar">/</span>
+                            <span class="fdn"><input type="text" id="act1num11" class="soloNumeros" style="border:0; text-align: center;" placeholder="0" name=""></span>
+                        </div>
+                    </div>
+                    <div class="eq-c">
+                        <b style="color: #005ca4">c)</b> 3,2<span class="periodicos">4</span> =
+                        <div class="fraction">
+                            <span class="fup"><input type="text" id="act1num12" class="soloNumeros" style="border:0; text-align: center;" placeholder="0" name=""></span>
+                            <span class="bar">/</span>
+                            <span class="fdn"><input type="text" id="act1num13" class="soloNumeros" style="border:0; text-align: center;" placeholder="0" name=""></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -236,6 +325,7 @@ input {
         <script src="js/Utilitario.js"></script>
         <script src="js/validacionesExtras.js"></script>
         <script src="js/dragNdrop.js"></script>
+        <script src="js/actividad73.js"></script>
         <script type="text/javascript">
         var titulos = "aplico";
         $("#txtNota").html("0");
