@@ -120,7 +120,13 @@ input {
     <div id="nota-informativa" class="nota-ayuda">
         <button type="button" class="close" onclick="cerrar_ayuda()" aria-label="Close"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
         <!--ACA ESCRIBIR TEXTO DE LA AYUDA DE LA ACTIVIDAD-->
-        Escribe la respuesta correcta en los espacios en blanco.
+        Lee cuidadosamente las preguntas, contesta cada una de ellas.
+        <br>
+        <b>1.</b> Halla la fracción generatriz de los números que se encuentran en cada literal.
+        <br>
+        <b>5, 6 y 7</b> Haz click para seleccionar la respuesta correcta.
+        <br>
+        <b>8.</b> Arrastra los números decimales con su fracción generatriz.
         <br>
         <span id="ayudas"></span>
     </div>
@@ -160,7 +166,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta9()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="NotaFinal()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -642,126 +648,25 @@ input {
                                             <div class="col-lg-12">
                                                 <div class="col-lg-6">
                                                     <table>
-                                                        <tr>
-                                                            <td><b style="color: #005ca4;"><li></li></b></td>
-                                                            <td>
-                                                                <div class="fraction">
-                                                                    <span class="fup">145</span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn">100</span>
-                                                                </div>
-                                                                =
-                                                            </td>
-                                                            <td>
-                                                                <input type="text" name="" style="width: 70px;">
-                                                            </td>
+                                                        <tr class="act10class" id="act010Txt0">
                                                         </tr>
-                                                        <tr>
-                                                            <td><b style="color: #005ca4;"><li></li></b></td>
-                                                            <td>
-                                                                <div class="fraction">
-                                                                    <span class="fup">9475</span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn">1000</span>
-                                                                </div>
-                                                                =
-                                                            </td>
-                                                            <td>
-                                                                <input type="text" name="" style="width: 70px;">
-                                                            </td>
+                                                        <tr class="act10class" id="act010Txt1">
                                                         </tr>
-                                                        <tr>
-                                                            <td><b style="color: #005ca4;"><li></li></b></td>
-                                                            <td>-
-                                                                <div class="fraction">
-                                                                    <span class="fup">94</span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn">99</span>
-                                                                </div>
-                                                                =
-                                                            </td>
-                                                            <td>
-                                                                <input type="text" name="">
-                                                                <input type="text" name="" class="periodicos" style="border-bottom: 0;">
-                                                            </td>
+                                                        <tr class="act10class" id="act010Txt2">
                                                         </tr>
-                                                        <tr>
-                                                            <td><b style="color: #005ca4;"><li></li></b></td>
-                                                            <td>
-                                                                <div class="fraction">
-                                                                    <span class="fup">29</span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn">990</span>
-                                                                </div>
-                                                                =
-                                                            </td>
-                                                            <td>
-                                                                <input type="text" name="">
-                                                                <input type="text" name="" class="periodicos" style="border-bottom: 0;">
-                                                            </td>
+                                                        <tr class="act10class" id="act010Txt3">
                                                         </tr>
                                                     </table>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <table>
-                                                        <tr>
-                                                            <td><b style="color: #005ca4;"><li></li></b></td>
-                                                            <td>
-                                                                <div class="fraction">
-                                                                    <span class="fup">95</span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn">99</span>
-                                                                </div>
-                                                                =
-                                                            </td>
-                                                            <td>
-                                                                <input type="text" name="">
-                                                                <input type="text" name="" class="periodicos" style="border-bottom: 0;">
-                                                            </td>
+                                                        <tr class="act10class" id="act010Txt4">
                                                         </tr>
-                                                        <tr>
-                                                            <td><b style="color: #005ca4;"><li></li></b></td>
-                                                            <td>-
-                                                                <div class="fraction">
-                                                                    <span class="fup">161</span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn">10</span>
-                                                                </div>
-                                                                =
-                                                            </td>
-                                                            <td>
-                                                                <input type="text" name="" style="width: 70px;">
-                                                            </td>
+                                                        <tr class="act10class" id="act010Txt5">
                                                         </tr>
-                                                        <tr>
-                                                            <td><b style="color: #005ca4;"><li></li></b></td>
-                                                            <td>-
-                                                                <div class="fraction">
-                                                                    <span class="fup">607</span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn">999</span>
-                                                                </div>
-                                                                =
-                                                            </td>
-                                                            <td>
-                                                                <input type="text" name="">
-                                                                <input type="text" name="" class="periodicos" style="border-bottom: 0;">
-                                                            </td>
+                                                        <tr class="act10class" id="act010Txt6">
                                                         </tr>
-                                                        <tr>
-                                                            <td><b style="color: #005ca4;"><li></li></b></td>
-                                                            <td>
-                                                                <div class="fraction">
-                                                                    <span class="fup">17</span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn">90</span>
-                                                                </div>
-                                                                =
-                                                            </td>
-                                                            <td>
-                                                                <input type="text" name="">
-                                                                <input type="text" name="" class="periodicos" style="border-bottom: 0;">
-                                                            </td>
+                                                        <tr class="act10class" id="act010Txt7">
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -824,7 +729,7 @@ input {
         <script type="text/javascript">
         var titulos = "aplico";
         $("#txtNota").html("0");
-        $("#n_pagina").html("62");
+        $("#n_pagina").html("68");
 
         function sinEspacios(inputs) {
             $(inputs).on('keypress', function(e) {

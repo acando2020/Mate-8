@@ -240,7 +240,7 @@ function calificar_abierta() {
 
     } else if (vacio > 0) {
         alert('todas las preguntas se deben evaluar');
-        $(elList[i]).removeClass('no-valid')
+        $('.nota-abierta').val("");
 
 
     } else {

@@ -718,7 +718,7 @@ function calcularNotaGeneral(total_nota, r_correctas, op_seleccionadas, total_pr
     if (op_seleccionadas < total_nota) {
         var calculo = 0;
         $('#nota8').val(calculo.toFixed(2) + ' ');
-        alert('Debe escoger ' + total_nota + ' respuestas de la pregunta');
+        alert('Debe escoger ' + total_nota + ' respuestas de la pregunta 8');
 
     } else {
         var calculo = (result_sobre * r_correctas) / total_nota;
@@ -796,14 +796,135 @@ function pregunta9() {
 
 }
 
+////////////////////////////pregunta10////////////////////////////////////////////////////////////////////////////////
+var random9 = [
+    ['<td><b style="color: #005ca4;"><li></li></b></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup">145</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">100</span>' +
+        '</div>=</td><td>' +
+        '<input type="text" id="act10num0" name="" style="width: 70px;" class="sinEspacios">' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4;"><li></li></b></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup">9475</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">1000</span>' +
+        '</div>=</td><td>' +
+        '<input type="text" id="act10num1" name="" class="sinEspacios" style="width: 70px;">' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4;"><li></li></b></td><td>-' +
+        '<div class="fraction">' +
+        '<span class="fup">94</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">99</span>' +
+        '</div>=</td><td>' +
+        '<input type="text" id="act10num2" class="sinEspacios" style="text-align: right;">' +
+        '<input type="text" id="act10num3" name="" class="sinEspacios periodicos" style="border-bottom: 0;">' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4;"><li></li></b></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup">29</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">990</span>' +
+        '</div>=</td><td>' +
+        '<input type="text" id="act10num4" class="sinEspacios" style="text-align: right;">' +
+        '<input type="text" id="act10num5" name="" class="sinEspacios periodicos" style="border-bottom: 0;">' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4;"><li></li></b></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup">95</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">99</span>' +
+        '</div>=</td><td>' +
+        '<input type="text" id="act10num6" class="sinEspacios" style="text-align: right;">' +
+        '<input type="text" id="act10num7" name="" class="sinEspacios periodicos" style="border-bottom: 0;">' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4;"><li></li></b></td><td>-' +
+        '<div class="fraction">' +
+        '<span class="fup">161</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">10</span>' +
+        '</div>=</td><td>' +
+        '<input type="text" id="act10num8" name="" class="sinEspacios" style="width: 70px;">' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4;"><li></li></b></td><td>-' +
+        '<div class="fraction">' +
+        '<span class="fup">607</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">999</span>' +
+        '</div>=</td><td>' +
+        '<input type="text" id="act10num9" class="sinEspacios" style="text-align: right;">' +
+        '<input type="text" id="act10num10" name="" class="sinEspacios periodicos" style="border-bottom: 0;">' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4;"><li></li></b></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup">17</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">90</span>' +
+        '</div>=</td><td>' +
+        '<input type="text" id="act10num11" class="sinEspacios" style="text-align: right;">' +
+        '<input type="text" id="act10num12" name="" class="sinEspacios periodicos" style="border-bottom: 0;">' +
+        '</td>'
+    ],
+];
+var act010Txt = document.getElementsByClassName('act10class');
+
+random9.sort(f_randomico);
+for (i = 0; i < act010Txt.length; i++) {
+    $('#' + act010Txt[i].id).html(random9[i]);
+}
+
+function pregunta10() {
+    var respact2 = ['1,45', '9,475', '-0,', '94', '0,0', '29', '0,', '95', '-16,1', '-0,', '607', '0,', '18', ];
+    var cont = 0;
+    for (var i = 0; i < 13; i++) {
+        var res = $('#act10num' + [i] + '').val().toLowerCase();
+        if (respact2[i] == res) {
+            cont = cont + 1;
+            $('#act10num' + [i] + '').css("background", "#00e600");
+        } else {
+            $('#act10num' + [i] + '').css("background", "#ff6666");
+        }
+
+    }
+    var total = (cont * 1) / 13;
+    $('#nota10').val(parseFloat(total).toFixed(2));
+
+}
+
 
 function NotaFinal() {
     pregunta1();
     pregunta2();
+    pregunta3();
+    pregunta4();
+    pregunta5();
+    pregunta6();
+    pregunta7();
+    contarRespCorrectaDnD();
+    pregunta9();
+    pregunta10();
     var nota1 = document.getElementById('nota1').value;
     var nota2 = document.getElementById('nota2').value;
+    var nota3 = document.getElementById('nota3').value;
+    var nota4 = document.getElementById('nota4').value;
+    var nota5 = document.getElementById('nota5').value;
+    var nota6 = document.getElementById('nota6').value;
+    var nota7 = document.getElementById('nota7').value;
+    var nota8 = document.getElementById('nota8').value;
+    var nota9 = document.getElementById('nota9').value;
+    var nota10 = document.getElementById('nota10').value;
 
-    var total = parseFloat(nota1) + parseFloat(nota2);
+    var total = parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3) + parseFloat(nota4) + parseFloat(nota5) + parseFloat(nota6) + parseFloat(nota7) + parseFloat(nota8) + parseFloat(nota9) + parseFloat(nota10);
     $('#txtNota').html(parseFloat(total).toFixed(2));
     document.getElementById('bt_comprobar').disabled = true;
     $('input').attr("disabled", true);
