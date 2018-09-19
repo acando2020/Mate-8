@@ -348,10 +348,16 @@ function pregunta3() {
         var n1 = document.getElementById("ovl1").classList.item(3);
         var n3 = document.getElementById("ovl3").classList.item(3);
 
-        if (n1 == n3) {
-            $('.1').addClass('ovalcorrecto');
-            $('.3').addClass('ovalcorrecto');
-            nt1 = 0.25;
+        if ((n1 != n2) || (n3 != n6) || (n1 != n4) || (n3 != n7) || (n1 != n5) || (n3 != n8)) {
+            if (n1 == n3) {
+                $('.1').addClass('ovalcorrecto');
+                $('.3').addClass('ovalcorrecto');
+                nt1 = 0.25;
+
+            } else {
+                $('.1').addClass('ovalincorrecto');
+                $('.3').addClass('ovalincorrecto');
+            }
 
         } else {
             $('.1').addClass('ovalincorrecto');
@@ -360,13 +366,17 @@ function pregunta3() {
 
         var n2 = document.getElementById("ovl2").classList.item(3);
         var n6 = document.getElementById("ovl6").classList.item(3);
-        if ((n2 != n1) || (n6 != n1)) {
+        if ((n2 != n1) || (n6 != n3)) {
             if (n2 == n6) {
                 $('.2').addClass('ovalcorrecto');
                 $('.6').addClass('ovalcorrecto');
                 nt2 = 0.25;
 
+            } else {
+                $('.2').addClass('ovalincorrecto');
+                $('.6').addClass('ovalincorrecto');
             }
+
 
         } else {
             $('.2').addClass('ovalincorrecto');
@@ -375,11 +385,16 @@ function pregunta3() {
 
         var n4 = document.getElementById("ovl4").classList.item(3);
         var n7 = document.getElementById("ovl7").classList.item(3);
-        if (n4 == n7) {
-            $('.4').addClass('ovalcorrecto');
-            $('.7').addClass('ovalcorrecto');
-            nt3 = 0.25;
+        if ((n4 != n2) || (n7 != n6)) {
+            if (n4 == n7) {
+                $('.4').addClass('ovalcorrecto');
+                $('.7').addClass('ovalcorrecto');
+                nt3 = 0.25;
 
+            } else {
+                $('.4').addClass('ovalincorrecto');
+                $('.7').addClass('ovalincorrecto');
+            }
         } else {
             $('.4').addClass('ovalincorrecto');
             $('.7').addClass('ovalincorrecto');
@@ -387,10 +402,16 @@ function pregunta3() {
         var n5 = document.getElementById("ovl5").classList.item(3);
         var n8 = document.getElementById("ovl8").classList.item(3);
 
-        if (n5 == n8) {
-            $('.5').addClass('ovalcorrecto');
-            $('.8').addClass('ovalcorrecto');
-            nt4 = 0.25;
+        if ((n5 != n4) || (n8 != n7)) {
+            if (n5 == n8) {
+                $('.5').addClass('ovalcorrecto');
+                $('.8').addClass('ovalcorrecto');
+                nt4 = 0.25;
+
+            } else {
+                $('.5').addClass('ovalincorrecto');
+                $('.8').addClass('ovalincorrecto');
+            }
 
         } else {
             $('.5').addClass('ovalincorrecto');
@@ -405,12 +426,253 @@ function pregunta3() {
 
 }
 
+/////////////////////////pregunta4///////////////////////////////////////////////////////
+var random4 = [
+    ['<td><b style="color: #005ca4"><li></li></b></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup">7</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">-7</span>' +
+        '</div>=</td><td>' +
+        '<input id="act4num0" type="text" class="inputfraccciones sinEspacios" style="border: 2px solid #8DE0FF; border-radius: 10px 0px 10px 0px;"></input>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup">-8</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">-1</span>' +
+        '</div>=</td><td>' +
+        '<input id="act4num1" type="text" class="inputfraccciones sinEspacios" style="border: 2px solid #8DE0FF; border-radius: 10px 0px 10px 0px;"></input>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup">0</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">-3</span>' +
+        '</div>=</td><td>' +
+        '<input id="act4num2" type="text" class="inputfraccciones sinEspacios" style="border: 2px solid #8DE0FF; border-radius: 10px 0px 10px 0px;"></input>' +
+        '</td>'
+    ],
+    ['  <td><b style="color: #005ca4"><li></li></b></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup">-4</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">36</span>' +
+        '</div>=</td><td>' +
+        '<div style="border: 2px solid #8DE0FF; border-radius: 10px 0px 10px 0px;">-' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act4num3" type="text" name="" class="inputfraccciones sinEspacios"></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act4num4" type="text" name="" class="inputfraccciones sinEspacios"></span>' +
+        '</div></div></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup">7</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">-63</span>' +
+        '</div>=</td><td>' +
+        '<div style="border: 2px solid #8DE0FF; border-radius: 10px 0px 10px 0px;">-' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act4num5" type="text" name="" class="inputfraccciones sinEspacios"></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act4num6" type="text" name="" class="inputfraccciones sinEspacios"></span>' +
+        '</div></div></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup">15</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">-3</span>' +
+        '</div>=</td><td>' +
+        '<input id="act4num7" type="text" class="inputfraccciones sinEspacios" style="border: 2px solid #8DE0FF; border-radius: 10px 0px 10px 0px;">' +
+        '</td>'
+    ],
+];
+var act04Txt = document.getElementsByClassName('act4class');
+random4.sort(f_randomico);
+for (var i = 0; i < act04Txt.length; i++) {
+    $('#' + act04Txt[i].id + '').html(random4[i])
+
+}
+
+function pregunta4() {
+    var respact2 = ['-1', '8', '0', '1', '9', '1', '9', '-5', ];
+    var cont = 0;
+    for (var i = 0; i < 8; i++) {
+        var res = $('#act4num' + [i] + '').val().toLowerCase();
+        if (respact2[i] == res) {
+            cont = cont + 1;
+            $('#act4num' + [i] + '').css("background", "#00e600");
+        } else {
+            $('#act4num' + [i] + '').css("background", "#ff6666");
+        }
+
+    }
+    var total = (cont * 1) / 8;
+    $('#nota4').val(parseFloat(total).toFixed(2));
+}
+
+/////////////////////////pregunta5///////////////////////////////////////////////////////
+var random5 = [
+    ['<td><div class="fraction">' +
+        '<span class="fup">2</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">3</span>' +
+        '</div></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act5num0" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act5num1" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '</div></td>'
+    ],
+    ['<td><div class="fraction">' +
+        '<span class="fup">-5</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">4</span>' +
+        '</div></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act5num2" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act5num3" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '</div></td>'
+    ],
+    ['<td><div class="fraction">' +
+        '<span class="fup">7</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">-6</span>' +
+        '</div></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act5num4" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act5num5" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '</div></td>'
+    ],
+    ['<td><div class="fraction">' +
+        '<span class="fup">21</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">12</span>' +
+        '</div></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act5num6" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act5num7" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '</div></td>'
+    ],
+    ['<td><div class="fraction">' +
+        '<span class="fup">-310</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">240</span>' +
+        '</div></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act5num8" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act5num9" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '</div></td>'
+    ],
+    ['<td><div class="fraction">' +
+        '<span class="fup">1</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">2</span>' +
+        '</div></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act5num10" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act5num11" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '</div></td>'
+    ],
+    ['<td><div class="fraction">' +
+        '<span class="fup">-16</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">-48</span>' +
+        '</div></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act5num12" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act5num13" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '</div></td>'
+    ],
+    ['<td>- <div class="fraction">' +
+        '<span class="fup">6</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">8</span>' +
+        '</div></td><td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act5num14" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act5num15" type="text" class="sinEspacios inputfraccciones" name=""></span>' +
+        '</div></td>'
+    ],
+];
+var act05Txt = document.getElementsByClassName('act5class');
+random5.sort(f_randomico);
+for (var i = 0; i < act05Txt.length; i++) {
+    $('#' + act05Txt[i].id + '').html(random5[i])
+
+}
+
+function pregunta5() {
+    var respact2 = ['16', '24', '-30', '24', '28', '-24', '42', '24', '-31', '24', '12', '24', '-8', '-24', '18', '24', ];
+    var cont = 0;
+    for (var i = 0; i < 16; i++) {
+        var res = $('#act5num' + [i] + '').val().toLowerCase();
+        if (respact2[i] == res) {
+            cont = cont + 1;
+            $('#act5num' + [i] + '').css("background", "#00e600");
+        } else {
+            $('#act5num' + [i] + '').css("background", "#ff6666");
+        }
+
+    }
+    var total = (cont * 1) / 16;
+    $('#nota5').val(parseFloat(total).toFixed(2));
+}
+
+function pregunta6() {
+    var respact2 = ['21', '34', ];
+    var cont = 0;
+    for (var i = 0; i < 2; i++) {
+        var res = $('#act6num' + [i] + '').val().toLowerCase();
+        if (respact2[i] == res) {
+            cont = cont + 1;
+            $('#act6num' + [i] + '').css("background", "#00e600");
+        } else {
+            $('#act6num' + [i] + '').css("background", "#ff6666");
+        }
+
+    }
+    var total = (cont * 1) / 2;
+    $('#nota6').val(parseFloat(total).toFixed(2));
+}
+
+function NotaFinal() {
+    var sele = $('.seleccionado').length;
+    if (sele < 8) {
+        alert("Debe colorear las parejas de fracciones equivalentes.")
+    } else {
+        pregunta1();
+        pregunta2();
+        pregunta3();
+        pregunta4();
+        pregunta5();
+        pregunta6();
+
+        var nota1 = document.getElementById('nota1').value;
+        var nota2 = document.getElementById('nota2').value;
+        var nota3 = document.getElementById('nota3').value;
+        var nota4 = document.getElementById('nota4').value;
+        var nota5 = document.getElementById('nota5').value;
+        var nota6 = document.getElementById('nota6').value;
+
+        var subtotal = parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3) + parseFloat(nota4) + parseFloat(nota5) + parseFloat(nota6);
+        var total = (subtotal * 10) / 6;
+        $('#txtNota').html(parseFloat(total).toFixed(2));
+        document.getElementById('bt_comprobar').disabled = true;
+        $('input').attr("disabled", true);
+        $('#txtAlumno').attr("disabled", false);
+    }
 
 
-
-function function_name(argument) {
-    $('#txtNota').html(parseFloat(total).toFixed(2));
-    document.getElementById('bt_comprobar').disabled = true;
-    $('input').attr("disabled", true);
-    $('#txtAlumno').attr("disabled", false);
 }

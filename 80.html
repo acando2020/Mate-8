@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mate 8</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Bootstrap-->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--Animaciones-->
+    <link href="css/animate.css" rel="stylesheet">
+    <!--Css propio del proyecto-->
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/fraccion.css" rel="stylesheet">
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/literallycanvas.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/react-with-addons.js"></script>
+    <script type="text/javascript" src="js/literallycanvas.min.js"></script>
+</head>
+<style type="text/css">
+.cajas {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px dotted #000000;
+    padding: 15px;
+    margin: 5px;
+    width: auto;
+    height: auto;
+}
+
+
+
+
+.actividad1 {
+    background: #fff;
+}
+
+.correcto {
+    color: #ffffff;
+    background-color: #00e600;
+}
+
+.incorrecto {
+    color: #ffffff;
+    background-color: #ff6666;
+}
+
+.desactivar {
+    background-color: #444;
+    color: #888;
+    padding: 8px;
+}
+
+#cabecera .badge {
+    background-color: #232956;
+}
+
+.inputPequeño {
+    text-align: center;
+    border: 0;
+    border-bottom: 1px dotted #328AF7;
+    width: 40px;
+    color: blue;
+}
+
+.cajas1 {
+    max-width: 95%;
+    max-height: 200px;
+    border: 1px #ed8700 dotted;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 5px;
+    width: auto;
+}
+
+input {
+
+    border: 0;
+    border-bottom: 1px solid #85BCEB;
+    width: 30px;
+}
+
+.fraction {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.2em 0.4ex;
+    text-align: center;
+}
+
+.fraction>span {
+    display: block;
+    padding-top: 0.15em;
+}
+
+.fraction span.fdn {
+    border-top: thin solid black;
+}
+
+.fraction span.bar {
+    display: none;
+}
+
+.periodicos {
+    border-top: 2px solid #000000;
+    border-radius: 15px;
+    border-bottom: 0px;
+}
+
+.inputfraccciones {
+    text-align: center;
+    border: 1px solid #D3D3D3;
+    width: 40px;
+}
+</style>
+
+<body>
+    <div id="nota-informativa" class="nota-ayuda">
+        <button type="button" class="close" onclick="cerrar_ayuda()" aria-label="Close"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
+        <!--ACA ESCRIBIR TEXTO DE LA AYUDA DE LA ACTIVIDAD-->
+        Escribe la respuesta correcta en los espacios en blanco.
+        <br>
+        <span id="ayudas"></span>
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <button class="btn button btnHelp mytooltip" data-info="Mostrar ayuda de la actividad" onclick="mostrar_ayuda()">
+                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_1 btnGuardar mytooltip" data-info="Guardar en local" onclick="$('#myModal').modal('show')">
+                        <span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_1 btnEvniar mytooltip" style="display: none !important;" data-info="Enviar a Correo">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_2 btnIniciar mytooltip" style="display: none !important;" disabled data-info="Iniciar">
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_2 btnRepetir mytooltip" data-info="Repetir" onclick="location.reload()">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="total()">
+                        <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_5 mytooltip display-none" style="display: none !important;" data-info="Pantalla completa" onclick="full_screen_change()">
+                        <span id="full_ico" class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
+                    </button>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 0px;margin-left: 0px; ">
+                <li><span class="notificacion actividad">
+                            <span class="glyphicon glyphicon-list-alt"></span> Actividad <span id='n_cont'>1</span> / <span id='n_ejer'>1</span>
+                    </span>
+                    <span class="notificacion nota">
+                            <span class="glyphicon glyphicon-pencil"></span> Nota <span id="txtNota"></span> / 10
+                    </span>
+                    <span class="notificacion pagina">
+                            <span class="glyphicon glyphicon-bookmark"></span> Pág <i id="n_pagina"></i>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--FIN DE NAVBAR QUE SE AÑADE-->
+    <div class="container espacio">
+        <div class="panel border-exploro" id="activity">
+            <!--modificar el bg- segun la actividad-->
+            <div class="panel-heading bg-exploro">
+                <span class="titulo"><img src="img/icoE.png" alt="">Exploro para recordar</span>
+                <span class="titulo_2 txtAlumno display-none" id="nombre_alumno">Alumno: </span>
+            </div>
+            <div class="panel-body">
+                <!--pregunats de la actividad-->
+                <div class="text-question">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="col-lg-3"><img class="img-responsive" src="img/i1_p72_act80.jpg"></img>
+                            </div>
+                            <div class="col-lg-9">
+                                <span><input class="nota-abierta" id="nota1" readonly></input><b>Analiza</b> el texto de la sección Exploro para recordar y responde las preguntas.</span>
+                                <br>
+                                <span><b style="color: #98007f">•</b> ¿Qué fracciones de la escala musical representan las notas do, sol y fa?</span>
+                                <br>
+                                <table class="table">
+                                    <tr>
+                                        <td>do:
+                                            <div class="fraction">
+                                                <span class="fup">1</span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn">2</span>
+                                            </div>,
+                                        </td>
+                                        <td>sol:
+                                            <div class="fraction">
+                                                <span class="fup"><input id="act1num0" class="inputfraccciones sinEspacios"></input></span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn"><input id="act1num1" class="inputfraccciones sinEspacios"></input></span>
+                                            </div>,</td>
+                                        <td>fa:
+                                            <div class="fraction">
+                                                <span class="fup"><input id="act1num2" class="inputfraccciones sinEspacios"></input></span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn"><input id="act1num3" class="inputfraccciones sinEspacios"></input></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <span><b style="color: #98007f">•</b> ¿Cuál es el mínimo común múltiplo (mcm) de los denominadores de las fracciones? mcm (2, 3, 4) =<input id="act1num4" class="inputfraccciones sinEspacios" placeholder="0"></input></span>
+                                <br>
+                                <span><b style="color: #98007f">•</b> <b>Amplifica</b> cada fracción para que tenga el denominador como mcm = 12.</span>
+                                <table class="table">
+                                    <tr>
+                                        <td style="text-align: center;">
+                                            x6
+                                            <br> ↑<span style="border-top: 1px solid #252525">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>↓
+                                            <div class="eq-c">
+                                                <div class="fraction">
+                                                    <span class="fup">1</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">2</span>
+                                                </div>=
+                                                <div class="fraction">
+                                                    <span class="fup">6</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">12</span>
+                                                </div>
+                                            </div>
+                                            ↓<span style="border-bottom: 1px solid #252525">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>↑
+                                            <br> x6
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <input id="act1num5" class="inputfraccciones sinEspacios"></input>
+                                            <br> ↑<span style="border-top: 1px solid #252525">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>↓
+                                            <div class="eq-c">
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act1num6" class="inputfraccciones sinEspacios"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act1num7" class="inputfraccciones sinEspacios"></input></span>
+                                                </div>=
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act1num8" class="inputfraccciones sinEspacios"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act1num9" class="inputfraccciones sinEspacios"></input></span>
+                                                </div>
+                                            </div>
+                                            ↓<span style="border-bottom: 1px solid #252525">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>↑
+                                            <br>
+                                            <input id="act1num10" class="inputfraccciones sinEspacios"></input>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <input id="act1num11" class="inputfraccciones sinEspacios"></input>
+                                            <br> ↑<span style="border-top: 1px solid #252525">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>↓
+                                            <div class="eq-c">
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act1num12" class="inputfraccciones sinEspacios"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act1num13" class="inputfraccciones sinEspacios"></input></span>
+                                                </div>=
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act1num14" class="inputfraccciones sinEspacios"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act1num15" class="inputfraccciones sinEspacios"></input></span>
+                                                </div>
+                                            </div>
+                                            ↓<span style="border-bottom: 1px solid #252525">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>↑
+                                            <br>
+                                            <input id="act1num16" class="inputfraccciones sinEspacios"></input>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <span><b style="color: #98007f">•</b> ¿Cuáles son las fracciones equivalentes que obtuviste?</span>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="fraction">
+                                                <span class="fup">6</span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn">12</span>
+                                            </div>,
+                                        </td>
+                                        <td>
+                                            <div class="fraction">
+                                                <span class="fup"><input id="act1num17" class="inputfraccciones sinEspacios"></input></span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn"><input id="act1num18" class="inputfraccciones sinEspacios"></input></span>
+                                            </div>,</td>
+                                        <td>
+                                            <div class="fraction">
+                                                <span class="fup"><input id="act1num19" class="inputfraccciones sinEspacios"></input></span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn"><input id="act1num20" class="inputfraccciones sinEspacios"></input></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <b style="color: #98007f">•</b><b>Dibuja</b> y <b>divide</b> la recta numérica en partes de
+                                <div class="fraction">
+                                    <span class="fup">1</span>
+                                    <span class="bar">/</span>
+                                    <span class="fdn">12</span>
+                                </div> , luego <b>localiza</b> las fracciones anteriores.
+                                <div class="my-drawing"></div>
+                                <span><b style="color: #98007f">•</b> <b>Ordena</b> las fracciones anteriores de menor a mayor.</span>
+                                <div class="eq-c">
+                                    <div class="fraction">
+                                        <span class="fup"><input id="act1num21" class="inputfraccciones sinEspacios"></span>
+                                        <span class="bar">/</span>
+                                        <span class="fdn"><input id="act1num22" class="inputfraccciones sinEspacios"></span>
+                                    </div>
+                                    <input id="act1num23" class="inputfraccciones sinEspacios">
+                                    <div class="fraction">
+                                        <span class="fup"><input id="act1num24" class="inputfraccciones sinEspacios"></span>
+                                        <span class="bar">/</span>
+                                        <span class="fdn"><input id="act1num25" class="inputfraccciones sinEspacios"></span>
+                                    </div>
+                                    <input id="act1num26" class="inputfraccciones sinEspacios">
+                                    <div class="fraction">
+                                        <span class="fup"><input id="act1num27" class="inputfraccciones sinEspacios"></span>
+                                        <span class="bar">/</span>
+                                        <span class="fdn"><input id="act1num28" class="inputfraccciones sinEspacios"></span>
+                                    </div>
+                                </div>
+                                <span><b style="color: #98007f">•</b> De acuerdo con las fracciones originales, ¿cuál es el orden de menor a mayor?</span>
+                                <div class="eq-c">
+                                    <div class="fraction">
+                                        <span class="fup"><input id="act1num29" class="inputfraccciones sinEspacios"></span>
+                                        <span class="bar">/</span>
+                                        <span class="fdn"><input id="act1num30" class="inputfraccciones sinEspacios"></span>
+                                    </div>
+                                    <input id="act1num31" class="inputfraccciones sinEspacios">
+                                    <div class="fraction">
+                                        <span class="fup"><input id="act1num32" class="inputfraccciones sinEspacios"></span>
+                                        <span class="bar">/</span>
+                                        <span class="fdn"><input id="act1num33" class="inputfraccciones sinEspacios"></span>
+                                    </div>
+                                    <input id="act1num34" class="inputfraccciones sinEspacios">
+                                    <div class="fraction">
+                                        <span class="fup"><input id="act1num35" class="inputfraccciones sinEspacios"></span>
+                                        <span class="bar">/</span>
+                                        <span class="fdn"><input id="act1num36" class="inputfraccciones sinEspacios"></span>
+                                    </div>
+                                </div>
+                                <span><b style="color: #98007f">•</b> ¿Cuál de las fracciones anteriores es mayor?</span>
+                                <div class="eq-c">
+                                    Es mayor la fracción
+                                    <div class="fraction">
+                                        <span class="fup"><input id="act1num37" class="inputfraccciones sinEspacios"></span>
+                                        <span class="bar">/</span>
+                                        <span class="fdn"><input id="act1num38" class="inputfraccciones sinEspacios"></span>
+                                    </div>
+                                </div>
+
+                                <span><input class="nota-abierta" id="nota2" readonly></input><b style="color: #98007f"></b> <b>Encuentra</b> la expresión decimal de las fracciones que corresponden a las notas musicales, do, sol y fa.</span>
+                                <table class="table">
+                                    <tr>
+                                        <td>do:
+                                            <div class="fraction">
+                                                <span class="fup">1</span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn">2</span>
+                                            </div>=0,5
+                                        </td>
+                                        <td>sol:
+                                            <div class="fraction">
+                                                <span class="fup"><input id="act2num0" class="inputfraccciones sinEspacios"></input></span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn"><input id="act2num1" class="inputfraccciones sinEspacios"></input></span>
+                                            </div>=
+                                            <input id="act2num2" class="" style="text-align: right;">,
+                                            <input id="act2num3" type="" name="" class="periodicos">
+                                        </td>
+                                        <td>fa:
+                                            <div class="fraction">
+                                                <span class="fup"><input id="act2num4" class="inputfraccciones sinEspacios"></input></span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn"><input id="act2num5" class="inputfraccciones sinEspacios"></input></span>
+                                            </div>=
+                                            <input id="act2num6" class="inputfraccciones sinEspacios">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <span><b style="color: #98007f">•</b> En la recta numérica, <b>localiza</b> los números decimales.</span>
+                                <div class="my-drawing"></div>
+                                <span><b style="color: #98007f">•</b> <b>Ordena</b> los números decimales de menor a mayor.</span>
+                                <input id="act2num7" class="form-control"></input>
+                                <span><b style="color: #98007f">•</b> ¿Qué número decimal es mayor y a qué fracción corresponde?</span>
+                                <div class="eq-c">
+                                    <input id="act2num8" class="inputfraccciones sinEspacios">=
+                                    <div class="fraction">
+                                        <span class="fup"><input id="act2num9" class="inputfraccciones sinEspacios"></span>
+                                        <span class="bar">/</span>
+                                        <span class="fdn"><input id="act2num10" class="inputfraccciones sinEspacios"></span>
+                                    </div>
+                                    =
+                                    <div class="fraction">
+                                        <span class="fup"><input id="act2num11" class="inputfraccciones sinEspacios"></span>
+                                        <span class="bar">/</span>
+                                        <span class="fdn"><input id="act2num12" class="inputfraccciones sinEspacios"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Guardar PDF-->
+    <div class="modal fade animated pulse" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" onclick="$('#myModal').modal('hide')">&times;</button>
+                    <h4 class="modal-title">Guarda esta actividad en tu computadora</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="modal_form" class="form-horizontal">
+                        <div class="form-group ">
+                            <div class="col-sm-2">
+                                <label id="lbl_nombre" for="txtAlumno">Alumno: </label>
+                            </div>
+                            <div class="col-sm-10">
+                                <!--el input para ingresar el nombre del alumno debe se txt_alumno-->
+                                <input type="text" class="form-control nombre " id="txtAlumno" placeholder="Ingrese tu nombre">
+                                <div class="alert alert-danger display-none" id="txtAlumnoAlert" role="alert">
+                                    <button type="button" class="close" onclick="o$('#myModal').modal('hide')" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <span class="glyphicon glyphicon-info-sign error-color" aria-hidden="true"></span> Debes ingresar tu nombre</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="save_open_activity_to_local('txtAlumno')">Guardar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!--generador de pdf-->
+    <script src="js/html2pdf/html2pdf.bundle.min.js"></script>
+    <script src="js/screenfull.js"></script>
+    <script src="js/helper1.js"></script>
+    <script src="js/activities.js"></script>
+    <script src="js/Utilitario.js"></script>
+    <script src="js/validacionesExtras.js"></script>
+    <script src="js/dragNdrop.js"></script>
+    <script src="js/actividad80.js"></script>
+    <script type="text/javascript">
+    var titulos = "reflexiono";
+    $("#txtNota").html("0");
+    $("#n_pagina").html("69");
+    var winHeight = $(window).height();
+    var winWidth = $(window).width();
+    $(document).ready(function() {
+        var watermarkImage = new Image();
+        watermarkImage.src = 'img/i1_p72_act80.png';
+        var watermarkImage1 = new Image();
+        watermarkImage1.src = 'img/i2_p72_act80.png';
+        LC.init(
+            document.getElementsByClassName('my-drawing')[0], {
+                imageURLPrefix: 'imgcanvas',
+
+                watermarkImage: watermarkImage,
+                watermarkScale: 0.6 // you can scale it
+
+            });
+
+        LC.init(
+            document.getElementsByClassName('my-drawing')[1], {
+                imageURLPrefix: 'imgcanvas',
+
+                watermarkImage: watermarkImage1,
+                watermarkScale: 0.6// you can scale it
+
+            });
+    });
+
+
+
+    function sinEspacios(inputs) {
+        $(inputs).on('keypress', function(e) {
+            if (e.which == 32)
+                return false;
+        });
+    }
+    sinEspacios(".sinEspacios");
+    </script>
+</body>
+
+</html>

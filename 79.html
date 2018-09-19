@@ -128,25 +128,30 @@ input {
     border-radius: 50%;
     border: 10px solid #00e600;
 }
+
 .ovalincorrecto {
     width: auto;
     height: auto;
     border-radius: 50%;
     border: 10px solid #ff6666;
 }
-.pintar1{
+
+.pintar1 {
     background: #AFD290;
     color: white;
 }
-.pintar2{
+
+.pintar2 {
     background: #C093C3;
     color: white;
 }
-.pintar3{
+
+.pintar3 {
     background: #F8B472;
     color: white;
 }
-.pintar4{
+
+.pintar4 {
     background: #8BCBB7;
     color: white;
 }
@@ -202,7 +207,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta3()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="NotaFinal()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -410,14 +415,45 @@ input {
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
                                     aria-controls="collapseFour">
-                                    <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota4" readonly>&nbsp;<b>4. Encuentra</b>
+                                    <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota4" readonly>&nbsp;<b>4. Obtén</b>
                                 </a>
                             </h4>
                         </div>
                         <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
                             <div class="panel-body">
                                 <div class="text-question">
-                                    <span><b>4. Encuentra</b> el número decimal y <b>clasifícalo</b>.</span></div>
+                                    <span><b>4. Obtén</b> la fracción irreductible.</span>
+                                    <div class="row">
+                                        <ol type="a">
+                                            <div class="col-lg-12">
+                                                <div class="col-lg-4">
+                                                    <table>
+                                                        <tr class="act4class" id="act04Txt1">
+                                                        </tr>
+                                                        <tr class="act4class" id="act04Txt2">
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <table>
+                                                        <tr class="act4class" id="act04Txt3">
+                                                        </tr>
+                                                        <tr class="act4class" id="act04Txt4">
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <table>
+                                                        <tr class="act4class" id="act04Txt5">
+                                                        </tr>
+                                                        <tr class="act4class" id="act04Txt6">
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </ol>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -426,13 +462,42 @@ input {
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false"
                                     aria-controls="collapseFive">
-                                    <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota5" readonly>&nbsp;<b>5. De los números:</b>
+                                    <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota5" readonly>&nbsp;<b>5. Escribe</b>
                                 </a>
                             </h4>
                         </div>
                         <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
                             <div class="panel-body">
                                 <div class="text-question">
+                                    <b>5. Escribe</b>Escribe las siguientes fracciones con denominador 24.
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                <table>
+                                                    <tr class="act5class" id="act05Txt0">
+                                                    </tr>
+                                                    <tr class="act5class" id="act05Txt1">
+                                                    </tr>
+                                                    <tr class="act5class" id="act05Txt2">
+                                                    </tr>
+                                                    <tr class="act5class" id="act05Txt3">
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                <table>
+                                                    <tr class="act5class" id="act05Txt4">
+                                                    </tr>
+                                                    <tr class="act5class" id="act05Txt5">
+                                                    </tr>
+                                                    <tr class="act5class" id="act05Txt6">
+                                                    </tr>
+                                                    <tr class="act5class" id="act05Txt7">
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -442,13 +507,49 @@ input {
                             <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false"
                                         aria-controls="collapseSix">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota6" readonly>&nbsp;<b>6. La representación decimal</b>
+                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota6" readonly>&nbsp;<b>6. Identifica</b>
                                     </a>
                                 </h4>
                         </div>
                         <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
                             <div class="panel-body">
                                 <div class="text-question">
+                                    <b>Identifica</b> la fracción que no es equivalente a las demás.
+                                    <div class="eq-c">
+                                        <div class="fraction">
+                                            <span class="fup">3</span>
+                                            <span class="bar">/</span>
+                                            <span class="fdn">5</span>
+                                        </div>
+                                        ,
+                                        <div class="fraction">
+                                            <span class="fup">33</span>
+                                            <span class="bar">/</span>
+                                            <span class="fdn">55</span>
+                                        </div>,
+                                        <div class="fraction">
+                                            <span class="fup">12</span>
+                                            <span class="bar">/</span>
+                                            <span class="fdn">20</span>
+                                        </div>,
+                                        <div class="fraction">
+                                            <span class="fup">21</span>
+                                            <span class="bar">/</span>
+                                            <span class="fdn">34</span>
+                                        </div>,
+                                        <div class="fraction">
+                                            <span class="fup">34</span>
+                                            <span class="bar">/</span>
+                                            <span class="fdn">40</span>
+                                        </div>
+                                    </div>
+                                    <div>La fracción que no es equivalente es
+                                        <div class="fraction">
+                                            <span class="fup"><input id="act6num0" type="text" name="" class="inputfraccciones"></span>
+                                            <span class="bar">/</span>
+                                            <span class="fdn"><input id="act6num1" type="text" name="" class="inputfraccciones"></span>
+                                        </div>.
+                                    </div>
                                 </div>
                             </div>
                         </div>
