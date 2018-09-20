@@ -83,7 +83,8 @@ input {
     <div id="nota-informativa" class="nota-ayuda">
         <button type="button" class="close" onclick="cerrar_ayuda()" aria-label="Close"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
         <!--ACA ESCRIBIR TEXTO DE LA AYUDA DE LA ACTIVIDAD-->
-        Escribe la respuesta correcta en los espacios en blanco.
+        Escribe la respuesta correcta en los espacios en blanco. <br>
+        <b>Relaciona</b> Arrastra el número decimal que le corresponde al recuadro de cada imagen.
         <br>
         <span id="ayudas"></span>
     </div>
@@ -296,7 +297,7 @@ input {
         <script type="text/javascript">
         var titulos = "reflexiono";
         $("#txtNota").html("0");
-        $("#n_pagina").html("62");
+        $("#n_pagina").html("66");
 
         function sinEspacios(inputs) {
             $(inputs).on('keypress', function(e) {

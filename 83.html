@@ -14,6 +14,10 @@
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/fraccion.css" rel="stylesheet">
     <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/literallycanvas.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/react-with-addons.js"></script>
+    <script type="text/javascript" src="js/literallycanvas.min.js"></script>
 </head>
 <style type="text/css">
 .cajas {
@@ -102,6 +106,12 @@ input {
     border-top: 2px solid #000000;
     border-radius: 15px;
 }
+
+.inputfraccciones {
+    text-align: center;
+    border: 1px solid #D3D3D3;
+    width: 40px;
+}
 </style>
 
 <body>
@@ -148,7 +158,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta1()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="actividad1()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -183,47 +193,21 @@ input {
             <div class="panel-body">
                 <!--pregunats de la actividad-->
                 <div class="text-question">
-                    <img class="img-responsive" src="img/problema.png"></img>
-                    <span><b>Resuelve</b> el siguiente ejercicio.</span>
-                    <br> En una clase de décimo hay 36 alumnos, los
-                    <div class="fraction">
-                        <span class="fup">2</span>
-                        <span class="bar">/</span>
-                        <span class="fdn">3</span>
-                    </div> son mujeres, el resto son hombres. Del grupo de mujeres
-                    <div class="fraction">
-                        <span class="fup">1</span>
-                        <span class="bar">/</span>
-                        <span class="fdn">4</span>
-                    </div> les gusta el básquet, a
-                    <div class="fraction">
-                        <span class="fup">1</span>
-                        <span class="bar">/</span>
-                        <span class="fdn">3</span>
-                    </div>les gusta vóley y al resto le gusta el fútbol.
-                    <br><br>
-                    <span><b>Completa</b> la siguiente tabla:</span><br>
-                    <br>
-                    <table class="table" style="width: auto;">
-                        <tr class="act1class" id="act01Txt0">
-
-                        </tr>
-                        <tr class="act1class" id="act01Txt1">
-
-                        </tr>
-                        <tr class="act1class" id="act01Txt2">
-
-                        </tr>
-                        <tr class="act1class" id="act01Txt3">
-
-                        </tr>
-                        <tr class="act1class" id="act01Txt4">
-
-                        </tr>
-                    </table>
-                </div>
+                    <img src="img/problema.png" alt="" class="img-responsive">
+                    <input class="nota-abierta" id="nota1"></input><span><b style="color: #005ca4">1.</b> A la fiesta de María José asistieron <div class="fraction">
+<span class="fup">5</span>
+                    <span class="bar">/</span>
+                    <span class="fdn">6</span>
+                </div> de sus compañeros de clase y a la fiesta de Juanito asistieron
+                <div class="fraction">
+                    <span class="fup">7</span>
+                    <span class="bar">/</span>
+                    <span class="fdn">9</span>
+                </div> de sus compañeros. A qué fiesta asistieron más personas.</span>
+                <input class="form-control"></input>
             </div>
         </div>
+    </div>
     </div>
     <!-- Modal Guardar PDF-->
     <div class="modal fade animated pulse" id="myModal" role="dialog">
@@ -270,11 +254,29 @@ input {
     <script src="js/Utilitario.js"></script>
     <script src="js/validacionesExtras.js"></script>
     <script src="js/dragNdrop.js"></script>
-    <script src="js/actividad75.js"></script>
     <script type="text/javascript">
     var titulos = "aplico";
     $("#txtNota").html("0");
-    $("#n_pagina").html("69");
+    $("#n_pagina").html("75");
+
+    var winHeight = $(window).height();
+    var winWidth = $(window).width();
+    $(document).ready(function() {
+        var watermarkImage = new Image();
+        watermarkImage.src = 'img/i1_p73_act81.png';
+        var watermarkImage1 = new Image();
+        watermarkImage1.src = 'img/i1_p73_act81.png';
+        LC.init(
+            document.getElementsByClassName('my-drawing')[0], {
+                imageURLPrefix: 'imgcanvas',
+
+                watermarkImage: watermarkImage,
+                watermarkScale: 0.8 // you can scale it
+
+            });
+
+
+    });
 
     function sinEspacios(inputs) {
         $(inputs).on('keypress', function(e) {
@@ -283,6 +285,27 @@ input {
         });
     }
     sinEspacios(".sinEspacios");
+
+    function actividad1() {
+        var respact1 = ['-1', '4', '-0,18', '1', '6', '0,3', ];
+        var cont1 = 0;
+        for (var i = 0; i < 6; i++) {
+            var res = $('#act1num' + [i] + '').val().toLowerCase();
+            if (respact1[i] == res) {
+                cont1 = cont1 + 1;
+                $('#act1num' + [i] + '').css("background", "#00e600");
+            } else {
+                $('#act1num' + [i] + '').css("background", "#ff6666");
+            }
+
+        }
+        var total = (cont1 * 10) / 6;
+
+        $('#txtNota').html(parseFloat(total).toFixed(2));
+        document.getElementById('bt_comprobar').disabled = true;
+        $('input').attr("disabled", true);
+        $('#txtAlumno').attr("disabled", false);
+    }
     </script>
 </body>
 

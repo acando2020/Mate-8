@@ -5,7 +5,7 @@ function initElementos(contenedor,arrayElement,divBlank,isRandom,clases=[]){ //d
     if(isRandom == 1){ //1 hacer randomicao, 0 no hacer randomico
         arrayElement.sort(f_randomico);
     }
-    
+
     for(i=0; i<arrayElement.length;i++){
         var createDiv = document.createElement('div');
         var createNodo = document.createTextNode(arrayElement[i]);
@@ -14,14 +14,14 @@ function initElementos(contenedor,arrayElement,divBlank,isRandom,clases=[]){ //d
             createDiv.classList.add(currentElement);
             //createDiv.classList.add('cajas','col-md-1','estiloP','texto');
         });
-        
+
         if(divBlank==1){
             var createSpan = document.createElement('span');
             createSpan.id = 'span'+genIdRandom()+i;
             createSpan.appendChild(createNodo);
             createDiv.appendChild(createSpan);
         }
-        
+
         contenedores.appendChild(createDiv);
     }
 }
@@ -33,7 +33,7 @@ function initElementosTable(contenedor,arrayElement,theadelements){
     theadelements.forEach(function(currelement){
         var createThead = document.createElement('thead');
         var createNodoTh = document.createTextNode(currelement);
-        
+
         createThead.appendChild(createNodoTh);
         createTable.appendChild(createThead);
     });

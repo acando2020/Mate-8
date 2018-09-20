@@ -14,6 +14,10 @@
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/fraccion.css" rel="stylesheet">
     <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/literallycanvas.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/react-with-addons.js"></script>
+    <script type="text/javascript" src="js/literallycanvas.min.js"></script>
 </head>
 <style type="text/css">
 .cajas {
@@ -154,7 +158,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="calificar_abierta()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="actividad1()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -224,10 +228,24 @@ input {
                         </div>
                     </div>
                     <span><img src="img/paso2.jpg"><b>Localiza</b> los números decimales en la recta numérica.</span>
+                    <div class="my-drawing"></div>
+                    <span><img src="img/paso3.jpg">  <b>Ordena</b> los números en forma ascendente.</span>
+                    <div class="eq-c">
+                        <div class="fraction">
+                            <span class="fup"><input id="act1num0" type="text" class="sinEspacios inputfraccciones" name=""></span>
+                            <span class="bar">/</span>
+                            <span class="fdn"><input id="act1num1" type="text" class="sinEspacios inputfraccciones" name=""></span>
+                        </div>
+                        < <input id="act1num2" class=" sinEspacios inputfraccciones">
+                            <<div class="fraction">
+                                <span class="fup"><input id="act1num3" type="text" class="sinEspacios inputfraccciones" name=""></span>
+                                <span class="bar">/</span>
+                                <span class="fdn"><input id="act1num4" type="text" class="sinEspacios inputfraccciones" name=""></span>
+                    </div>
+                    < <input id="act1num5" class=" sinEspacios inputfraccciones">
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <!-- Modal Guardar PDF-->
     <div class="modal fade animated pulse" id="myModal" role="dialog">
@@ -277,7 +295,26 @@ input {
     <script type="text/javascript">
     var titulos = "aplico";
     $("#txtNota").html("0");
-    $("#n_pagina").html("69");
+    $("#n_pagina").html("73");
+
+    var winHeight = $(window).height();
+    var winWidth = $(window).width();
+    $(document).ready(function() {
+        var watermarkImage = new Image();
+        watermarkImage.src = 'img/i1_p73_act81.png';
+        var watermarkImage1 = new Image();
+        watermarkImage1.src = 'img/i1_p73_act81.png';
+        LC.init(
+            document.getElementsByClassName('my-drawing')[0], {
+                imageURLPrefix: 'imgcanvas',
+
+                watermarkImage: watermarkImage,
+                watermarkScale: 0.8 // you can scale it
+
+            });
+
+
+    });
 
     function sinEspacios(inputs) {
         $(inputs).on('keypress', function(e) {
@@ -286,6 +323,27 @@ input {
         });
     }
     sinEspacios(".sinEspacios");
+
+    function actividad1() {
+        var respact1 = ['-1', '4', '-0,18', '1', '6', '0,3', ];
+        var cont1 = 0;
+        for (var i = 0; i < 6; i++) {
+            var res = $('#act1num' + [i] + '').val().toLowerCase();
+            if (respact1[i] == res) {
+                cont1 = cont1 + 1;
+                $('#act1num' + [i] + '').css("background", "#00e600");
+            } else {
+                $('#act1num' + [i] + '').css("background", "#ff6666");
+            }
+
+        }
+        var total = (cont1 * 10) / 6;
+
+        $('#txtNota').html(parseFloat(total).toFixed(2));
+        document.getElementById('bt_comprobar').disabled = true;
+        $('input').attr("disabled", true);
+        $('#txtAlumno').attr("disabled", false);
+    }
     </script>
 </body>
 
