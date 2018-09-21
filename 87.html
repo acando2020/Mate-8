@@ -154,7 +154,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="actividad83()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta1()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -189,31 +189,100 @@ input {
             <div class="panel-body">
                 <!--pregunats de la actividad-->
                 <div class="text-question">
-                    <img src="img/problema.png" alt="" class="img-responsive">
-                    <input class="nota-abierta" id="nota1" style="text-align: center;"></input><b style="color: #005ca4">1.</b> A la fiesta de María José asistieron
-                    <div class="fraction">
-                        <span class="fup">5</span>
-                        <span class="bar">/</span>
-                        <span class="fdn">6</span>
-                    </div> de sus compañeros de clase y a la fiesta de Juanito asistieron
-                    <div class="fraction">
-                        <span class="fup">7</span>
-                        <span class="bar">/</span>
-                        <span class="fdn">9</span>
-                    </div> de sus compañeros. A qué fiesta asistieron más personas.
-                    <input class="form-control"></input>
-                    <input class="nota-abierta" id="nota2" style="text-align: center;"></input><b style="color: #005ca4">2.</b> Cuatro amigos consumieron treinta bolones de verde. Al momento de pagar, Luisa paga
-                    <div class="fraction">
-                        <span class="fup">1</span>
-                        <span class="bar">/</span>
-                        <span class="fdn">10</span>
-                    </div> de sus compañeros de clase y a la fiesta de Juanito asistieron
-                    <div class="fraction">
-                        <span class="fup">7</span>
-                        <span class="bar">/</span>
-                        <span class="fdn">9</span>
-                    </div> de sus compañeros. A qué fiesta asistieron más personas.
-                    <input class="form-control"></input>
+                    <img class="img-responsive" src="img/practica_guiada.png">
+                    <span><b>Realiza</b> la siguiente operación.</span>
+                    <div class="eq-c">
+                        <div class="fraction">
+                            <span class="fup">2</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">3</span>
+                        </div>
+                        +
+                        <div class="fraction">
+                            <span class="fup">1</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">2</span>
+                        </div>
+                        - 0,
+                        <span class="periodicos">3</span>
+                    </div>
+                    <span><img src="img/paso1.jpg" alt=""></span>
+                    <br>
+                    <span><b>Transforma</b> todos los números racionales a fracciones.</span>
+                    <div class="eq-c">
+                        0,
+                        <span class="periodicos">3</span> =
+                        <div class="fraction">
+                            <span class="fup"><input id="act1num0" class="inputfraccciones"></input></span>
+                            <span class="bar">/</span>
+                            <span class="fdn"><input id="act1num1" class="inputfraccciones"></input></span>
+                        </div>
+                        =
+                        <div class="fraction">
+                            <span class="fup"><input id="act1num2" class="inputfraccciones"></input></span>
+                            <span class="bar">/</span>
+                            <span class="fdn"><input id="act1num3" class="inputfraccciones"></input></span>
+                        </div>
+                    </div>
+                    <span><img src="img/paso2.jpg" alt=""></span>
+                    <br>
+                    <span><b>Efectúa</b> la operación obteniendo el mcm de los denominadores.</span>
+                    <div class="eq-c">
+                        <div class="fraction">
+                            <span class="fup">2</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">3</span>
+                        </div>
+                        +
+                        <div class="fraction">
+                            <span class="fup">1</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">2</span>
+                        </div>
+                        -
+                        <div class="fraction">
+                            <span class="fup">1</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">3</span>
+                        </div>
+                        =
+                        <span style="font-size: 50px;">(</span>
+                        <div class="fraction">
+                            <span class="fup">2</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">3</span>
+                        </div>-
+                        <div class="fraction">
+                            <span class="fup">1</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">3</span>
+                        </div>
+                        <span style="font-size: 50px;">)</span> +
+                        <div class="fraction">
+                            <span class="fup">1</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">2</span>
+                        </div>
+                    </div>
+                    <div class="eq-c">=
+                        <div class="fraction">
+                            <span class="fup"><input id="act1num4" class="inputfraccciones"></input></span>
+                            <span class="bar">/</span>
+                            <span class="fdn"><input id="act1num5" class="inputfraccciones"></input></span>
+                        </div>
+                        +
+                        <div class="fraction">
+                            <span class="fup"><input id="act1num6" class="inputfraccciones"></input></span>
+                            <span class="bar">/</span>
+                            <span class="fdn"><input id="act1num7" class="inputfraccciones"></input></span>
+                        </div>
+                        =
+                        <div class="fraction">
+                            <span class="fup"><input id="act1num8" class="inputfraccciones"></input></span>
+                            <span class="bar">/</span>
+                            <span class="fdn"><input id="act1num9" class="inputfraccciones"></input></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -263,10 +332,11 @@ input {
     <script src="js/Utilitario.js"></script>
     <script src="js/validacionesExtras.js"></script>
     <script src="js/dragNdrop.js"></script>
+    <script src="js/actividad86.js"></script>
     <script type="text/javascript">
     var titulos = "aplico";
     $("#txtNota").html("0");
-    $("#n_pagina").html("75");
+    $("#n_pagina").html("77");
 
     /*var winHeight = $(window).height();
     var winWidth = $(window).width();
@@ -281,11 +351,29 @@ input {
 
                 watermarkImage: watermarkImage,
                 watermarkScale: 0.8 // you can scale it
-
             });
-
-
     });*/
+
+    function pregunta1() {
+        var respact2 = ['3','9','1','3','1','3','1','2','5','6',];
+        var cont = 0;
+        for (var i = 0; i < 10; i++) {
+            var res = $('#act1num' + [i] + '').val().toLowerCase();
+            if (respact2[i] == res) {
+                cont = cont + 1;
+                $('#act1num' + [i] + '').css("background", "#00e600");
+            } else {
+                $('#act1num' + [i] + '').css("background", "#ff6666");
+            }
+
+        }
+        var total = (cont * 10) / 10;
+        $('#txtNota').html(parseFloat(total).toFixed(2));
+        document.getElementById('bt_comprobar').disabled = true;
+        $('input').attr("disabled", true);
+        $('#txtAlumno').attr("disabled", false);
+
+    }
 
     function sinEspacios(inputs) {
         $(inputs).on('keypress', function(e) {
@@ -307,27 +395,6 @@ input {
     document.getElementById('nota2').addEventListener('keyup', () => {
         validMaxIngreso(document.getElementById('nota2'), 5)
     });
-
-    function actividad83() {
-        var nota1 = document.getElementById('nota1').value;
-        var nota2 = document.getElementById('nota2').value;
-        if ((nota1 == "") || (nota2 == "")) {
-            alert("Ingrese la nota de la pregunta 1 ó 2");
-            document.getElementById('nota1').focus();
-
-        } else {
-
-            var total = parseFloat(nota1) + parseFloat(nota2);
-            $('#nota1').addClass('correcto');
-            $('#nota2').addClass('correcto');
-
-            $('#txtNota').html(parseFloat(total).toFixed(2));
-            document.getElementById('bt_comprobar').disabled = true;
-            $('input').attr("disabled", true);
-            $('#txtAlumno').attr("disabled", false);
-        }
-
-    }
     </script>
 </body>
 

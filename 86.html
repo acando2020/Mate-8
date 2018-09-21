@@ -154,7 +154,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="actividad83()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta1()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -189,31 +189,36 @@ input {
             <div class="panel-body">
                 <!--pregunats de la actividad-->
                 <div class="text-question">
-                    <img src="img/problema.png" alt="" class="img-responsive">
-                    <input class="nota-abierta" id="nota1" style="text-align: center;"></input><b style="color: #005ca4">1.</b> A la fiesta de María José asistieron
-                    <div class="fraction">
-                        <span class="fup">5</span>
-                        <span class="bar">/</span>
-                        <span class="fdn">6</span>
-                    </div> de sus compañeros de clase y a la fiesta de Juanito asistieron
-                    <div class="fraction">
-                        <span class="fup">7</span>
-                        <span class="bar">/</span>
-                        <span class="fdn">9</span>
-                    </div> de sus compañeros. A qué fiesta asistieron más personas.
-                    <input class="form-control"></input>
-                    <input class="nota-abierta" id="nota2" style="text-align: center;"></input><b style="color: #005ca4">2.</b> Cuatro amigos consumieron treinta bolones de verde. Al momento de pagar, Luisa paga
-                    <div class="fraction">
-                        <span class="fup">1</span>
-                        <span class="bar">/</span>
-                        <span class="fdn">10</span>
-                    </div> de sus compañeros de clase y a la fiesta de Juanito asistieron
-                    <div class="fraction">
-                        <span class="fup">7</span>
-                        <span class="bar">/</span>
-                        <span class="fdn">9</span>
-                    </div> de sus compañeros. A qué fiesta asistieron más personas.
-                    <input class="form-control"></input>
+                    <span><b>Completa</b> los ejemplos de la tabla.</span>
+                    <br>
+                    <span>La operación de adición cumple con las siguientes propiedades, donde x, y, z ∈ ℚ.</span>
+                    <div class="table-responsive">
+                        <table class="table" style="width: auto;">
+                            <tr style="background:#810a82 ;color: white;text-align: center;">
+                                <td colspan="3">Propiedades de la adición de números racionales</td>
+                            </tr>
+                            <tr>
+                                <td style="background:#0098c4 ;color: white;text-align: center;width: 35%;">Propiedad</td>
+                                <td style="background:#00b1d3 ;color: white;text-align: center;width: 25%;">Notación</td>
+                                <td style="background:#70c4df ;color: white;text-align: center;width: 50%;">Ejemplos</td>
+                            </tr>
+                            <tr class="act1class" id="act01Txt0">
+
+                            </tr>
+                            <tr class="act1class" id="act01Txt1">
+
+                            </tr>
+                            <tr class="act1class" id="act01Txt2">
+
+                            </tr>
+                            <tr class="act1class" id="act01Txt3">
+
+                            </tr>
+                            <tr class="act1class" id="act01Txt4">
+
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -263,10 +268,11 @@ input {
     <script src="js/Utilitario.js"></script>
     <script src="js/validacionesExtras.js"></script>
     <script src="js/dragNdrop.js"></script>
+    <script src="js/actividad86.js"></script>
     <script type="text/javascript">
-    var titulos = "aplico";
+    var titulos = "reflexiono";
     $("#txtNota").html("0");
-    $("#n_pagina").html("75");
+    $("#n_pagina").html("76");
 
     /*var winHeight = $(window).height();
     var winWidth = $(window).width();
@@ -281,11 +287,10 @@ input {
 
                 watermarkImage: watermarkImage,
                 watermarkScale: 0.8 // you can scale it
-
             });
-
-
     });*/
+
+
 
     function sinEspacios(inputs) {
         $(inputs).on('keypress', function(e) {
@@ -307,27 +312,6 @@ input {
     document.getElementById('nota2').addEventListener('keyup', () => {
         validMaxIngreso(document.getElementById('nota2'), 5)
     });
-
-    function actividad83() {
-        var nota1 = document.getElementById('nota1').value;
-        var nota2 = document.getElementById('nota2').value;
-        if ((nota1 == "") || (nota2 == "")) {
-            alert("Ingrese la nota de la pregunta 1 ó 2");
-            document.getElementById('nota1').focus();
-
-        } else {
-
-            var total = parseFloat(nota1) + parseFloat(nota2);
-            $('#nota1').addClass('correcto');
-            $('#nota2').addClass('correcto');
-
-            $('#txtNota').html(parseFloat(total).toFixed(2));
-            document.getElementById('bt_comprobar').disabled = true;
-            $('input').attr("disabled", true);
-            $('#txtAlumno').attr("disabled", false);
-        }
-
-    }
     </script>
 </body>
 
