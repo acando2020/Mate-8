@@ -208,8 +208,158 @@ function pregunta2() {
 ///////////////////ptrgunta3/////////////////////////////////////////////////////////
 
 
+var random3 = [
+    [' <td style="background: #f7eff7;">' +
+        '<div class="eq-c">' +
+        '<div class="fraction">' +
+        '<span class="fup">2</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">3</span>' +
+        '</div>' +
+        '</div>' +
+        '</td>' +
+        '<td>' +
+        '<div class="eq-c">' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act3num0" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act3num1" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '</div>' +
+        '</div>' +
+        '</td>' +
+        '<td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act3num2" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act3num3" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '</div>' +
+        '</td>' +
+        '<td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act3num4" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act3num5" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '</div>' +
+        '</td>' +
+        '<td>-' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act3num6" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act3num7" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '</div>' +
+        '</td>'
+    ],
+    [' <td style="background: #f7eff7;">1' +
+        '</td>' +
+        '<td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act3num8" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act3num9" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '</div>' +
+        '</td>' +
+        '<td>' +
+        '<input id="act3num10" class="inputfraccciones sinEspacios soloNumeros"></input>' +
+        '</td>' +
+        '<td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act3num11" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act3num12" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '</div>' +
+        '</td>' +
+        '<td>-' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act3num13" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act3num14" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '</div>' +
+        '</td>'
+    ],
+    ['<td style="background: #f7eff7;">' +
+        '<div class="eq-c">' +
+        '<div class="fraction">' +
+        '<span class="fup">7</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">6</span>' +
+        '</div>' +
+        '</div>' +
+        '</td>' +
+        '<td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act3num15" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act3num16" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '</div>' +
+        '</td>' +
+        '<td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act3num17" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act3num18" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '</div>' +
+        '</td>' +
+        '<td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act3num19" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act3num20" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '</div>' +
+        '</td>' +
+        '<td>-' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act3num21" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act3num22" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '</div>' +
+        '</td>'
+    ],
+    ['<td style="background: #f7eff7;">' +
+        '<div class="eq-c">-' +
+        '<div class="fraction">' +
+        '<span class="fup">3</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">2</span>' +
+        '</div>' +
+        '</div>' +
+        '</td>' +
+        '<td>-' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act3num23" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act3num24" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '</div>' +
+        '</td>' +
+        '<td>-' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act3num25" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act3num26" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '</div>' +
+        '</td>' +
+        '<td>-' +
+        '<div class="fraction">' +
+        '<span class="fup"><input id="act3num27" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input id="act3num28" class="inputfraccciones sinEspacios soloNumeros"></input></span>' +
+        '</div>' +
+        '</td>' +
+        '<td>' +
+        '<input id="act3num29" class="inputfraccciones sinEspacios"></input>' +
+        '</td>'
+    ],
+
+];
+
+var act03Txt = document.getElementsByClassName('act3class');
+
+random3.sort(f_randomico);
+for (i = 0; i < act03Txt.length; i++) {
+    $('#' + act03Txt[i].id).html(random3[i]);
+}
+
 function pregunta3() {
-    var respact2 = ['4','3','5','3','11','6','5','6','5','3','2','13','6','1','2','11','6','13','6','7','3','1','3','5','6','1','2','1','3','-3',];
+    var respact2 = ['4', '3', '5', '3', '11', '6', '5', '6', '5', '3', '2', '13', '6', '1', '2', '11', '6', '13', '6', '7', '3', '1', '3', '5', '6', '1', '2', '1', '3', '-3', ];
     var cont = 0;
     for (var i = 0; i < 30; i++) {
         var res = $('#act3num' + [i] + '').val().toLowerCase();
