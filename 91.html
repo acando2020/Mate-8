@@ -114,7 +114,8 @@ input {
     <div id="nota-informativa" class="nota-ayuda">
         <button type="button" class="close" onclick="cerrar_ayuda()" aria-label="Close"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
         <!--ACA ESCRIBIR TEXTO DE LA AYUDA DE LA ACTIVIDAD-->
-        Escribe la respuesta correcta en los espacios en blanco y agregar la nota.
+        Realiza la siguiente operación.
+        <br> Escribe la respuesta correcta en los espacios en blanco.
         <br>
         <span id="ayudas"></span>
     </div>
@@ -154,7 +155,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="calificar_abierta()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta1()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -189,27 +190,37 @@ input {
             <div class="panel-body">
                 <!--pregunats de la actividad-->
                 <div class="text-question">
-                    <img src="img/trabajamos_juntos.png" alt="" class="img-responsive">
-                    <span><b>Trabaja</b> con un compañero.</span>
-                    <br><input class="nota-abierta"></input><span>Se conocen ahora los datos de cinco conejos más, R, A, B, I y T, los cuales avanzan del 0 hacia la derecha, de la siguiente manera:</span>
+                    <img class="img-responsive" src="img/practica_guiada.png">
+                    <span><b>Determina</b> por extensión los elementos del siguiente conjunto, <b>represéntalos</b> en un diagrama de Venn y <b>determina</b> la cardinalidad.</span>
+                    <br>
+                    <h3>B = {x | x ∈ ℤ, − 2 ≤ x ≤ 5}.</h3>
+                    <span><img src="img/paso1.jpg" alt=""></span>
+                    <br>
+                    <span><b>Interpreta</b> la simbología del conjunto y <b>menciona</b> qué tipo de números son.</span>
+                    <input class="form-control"></input>
+                    <span><img src="img/paso2.jpg" alt=""></span>
+                    <br>
+                    <span><b>Escribe</b> el conjunto por extensión.</span>
+                    <h3>B = {-2 -1, 0, 1, <input id="act1num0" class="sinespacios" type="" name="">, <input id="act1num1" class="sinespacios" type="" name="">, <input id="act1num2" class="sinespacios" type="" name="">, <input id="act1num3" class="sinespacios" type="" name=""> }.</h3>
+                    <span><img src="img/paso3.jpg" alt=""></span>
+                    <br><span><b>Representa</b> el conjunto en un diagrama de Venn y <b>encuentra</b> la cardinalidad.</span>
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <span>R llega en 3 saltos al 5.</span>
-                                <br>
-                                <span>B llega en 9 saltos al 14.</span>
-                                <br>
-                                <span>T llega en 11 saltos al 23.</span>
-                                <br>
+                            <div class="col-lg-3" align="rigth">
+                                <ol>
+                                    B
+                                    <div style="border: 1px solid #92c2e6; border-radius: 10px 10px 10px 10px; width: 150px;height: 70px; background: #fdf6eb;">
+                                        -2 -1, 0,
+                                        <br> 1
+                                        <input id="act1num4" class="sinespacios" style="width: 70px; background: transparent;" type="" name="">
+                                    </div>
+                                </ol>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <span>A llega en 9 saltos al 5.</span>
-                                <br><span>I llega en 6 saltos al 10.</span>
+                            <div class="col-lg-9" align="left"> <i>n</i>(B)=
+                                <input id="act1num5" class="sinespacios" type="" name="">
                             </div>
                         </div>
-                    </div><br>
-                    <span><b>Ordena</b> por tamaño, de menor a mayor, los pasos de los cinco conejos. <b>Explica</b>, con tus palabras, cómo hiciste para compararlos.</span>
-                    <input class="form-control sinEspacios  text-uppercase"></input>
+                    </div>
                 </div>
             </div>
         </div>
@@ -259,10 +270,11 @@ input {
     <script src="js/Utilitario.js"></script>
     <script src="js/validacionesExtras.js"></script>
     <script src="js/dragNdrop.js"></script>
+    <script src="js/actividad91.js"></script>
     <script type="text/javascript">
     var titulos = "aplico";
     $("#txtNota").html("0");
-    $("#n_pagina").html("75");
+    $("#n_pagina").html("85");
 
     /*var winHeight = $(window).height();
     var winWidth = $(window).width();
@@ -277,11 +289,10 @@ input {
 
                 watermarkImage: watermarkImage,
                 watermarkScale: 0.8 // you can scale it
-
             });
-
-
     });*/
+
+
 
     function sinEspacios(inputs) {
         $(inputs).on('keypress', function(e) {
@@ -291,26 +302,6 @@ input {
     }
     sinEspacios(".sinEspacios");
 
-    function actividad83() {
-        var nota1 = document.getElementById('nota1').value;
-        var nota2 = document.getElementById('nota2').value;
-        if ((nota1 == "") || (nota2 == "")) {
-            alert("Ingrese la nota de la pregunta 1 ó 2");
-            document.getElementById('nota1').focus();
-
-        } else {
-
-            var total = parseFloat(nota1) + parseFloat(nota2);
-            $('#nota1').addClass('correcto');
-            $('#nota2').addClass('correcto');
-
-            $('#txtNota').html(parseFloat(total).toFixed(2));
-            document.getElementById('bt_comprobar').disabled = true;
-            $('input').attr("disabled", true);
-            $('#txtAlumno').attr("disabled", false);
-        }
-
-    }
     </script>
 </body>
 

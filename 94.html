@@ -130,6 +130,18 @@ input {
     border-radius: 10px 10px 10px 10px;
 }
 
+.pintar {
+
+    border: 10px solid #a94e86;
+    background: #a94e86;
+}
+
+.colorear {
+
+
+    background: #a94e86;
+}
+
 .pintar2 {
 
 
@@ -186,15 +198,7 @@ input {
         <!--ACA ESCRIBIR TEXTO DE LA AYUDA DE LA ACTIVIDAD-->
         Lee cuidadosamente las preguntas, contesta cada una de ellas.
         <br>
-        <b>2.</b> Debes utilizar solo los números del 1 al 6.
-        <br>
-        <b>4.</b> Has click y pinta del mismo color las parejas de opuestos de la siguiente lista de números racionales.
-        <br>
-        <b>5.</b> Has click y pinta del mismo color tres números con sus parejas de opuestos y deja en blanco al intruso
-        <br>
-        <b>6.</b> Arrastra el resultado de cada sustracción en la columna de la derecha en el cuadro amarillo.
-        <br>
-        <b>11.</b> Selecciona la propiedad aplicada.
+        <b>4.</b>De entre los siguientes conjuntos, selecciona los que son conjunto vacío:
         <br>
         <span id="ayudas"></span>
     </div>
@@ -234,7 +238,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="Nota_Total()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="NotaFinal()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -268,15 +272,12 @@ input {
             </div>
             <div class="panel-body">
                 <!--pregunats de la actividad-->
-                <img src="img/problema.png">
-                <br>
-                <div class="text-question"><b>Resuelve</b> los siguientes ejercicios:</div>
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingOne">
                             <h4 class="panel-title">
                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <input type="text" maxlength="4" size="" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota1" readonly>&nbsp; <b>1. </b>
+                                    <input type="text" maxlength="4" size="" style="text-align:center; background: white;" class="nota-abierta" min="0" max="1" id="nota1">&nbsp; <b>1. Identifica</b>
                                 </a>
                             </h4>
                         </div>
@@ -284,30 +285,15 @@ input {
                             <div class="panel-body">
                                 <div class="col-md-12 ">
                                     <div class="text-question">
-                                        <b>1.</b> En un crucero por las Islas Galápagos,
-                                        <div class="fraction">
-                                            <span class="fup">2</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">5</span>
-                                        </div> de los pasajeros son alemanes,
-                                        <div class="fraction">
-                                            <span class="fup">1</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">6</span>
-                                        </div> son japoneses y
-                                        <div class="fraction">
-                                            <span class="fup">1</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">15</span>
-                                        </div> son canadienses. El resto de pasajeros son ecuatorianos. ¿Qué fracción de los pasajeros son ecuatorianos?
-                                        <div class="eq-c">R.
-                                            <div class="fraction">
-                                                <span class="fup"><input class="inputfraccciones sinEspacios soloNumeros" id="act1num0"></input></span>
-                                                <span class="bar">/</span>
-                                                <span class="fdn"><input class="inputfraccciones sinEspacios soloNumeros" id="act1num1"></input></span>
-                                            </div>
-                                            son ecuatorianos.
-                                        </div>
+                                        <b>1. Identifica</b> qué clase de conjunto es.
+                                        <br>
+                                        <h3>B = {2 x 2  − 3 | x ∈ ℤ, − 2 ≤ x ≤ 2}.</h3>
+                                        <img src="img/paso1.jpg">
+                                        <input class="form-control"></input>
+                                        <img src="img/paso2.jpg">
+                                        <textarea class="form-control" rows="5" style="resize: none;"></textarea>
+                                        <img src="img/paso3.jpg">
+                                        <input class="form-control"></input>
                                     </div>
                                 </div>
                             </div>
@@ -318,7 +304,7 @@ input {
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
                                     aria-controls="collapseTwo">
-                                     <input type="text" maxlength="" size="" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota2" readonly>&nbsp;<b>2. </b>
+                                     <input type="text" maxlength="" size="" style="text-align:center; background: white;" class="nota-abierta" min="0" max="1" id="nota2">&nbsp;<b>2. Determina</b>
 
                                 </a>
                             </h4>
@@ -327,25 +313,66 @@ input {
                             <div class="panel-body">
                                 <div class="col-md-12 ">
                                     <div class="text-question">
-                                        <b>2. </b> Camila tiene 5 cachorros y para alimentarlos compra
-                                        <div class="fraction">
-                                            <span class="fup">3</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">4</span>
-                                        </div> de kilo de alimento para perro. Su vecina, que también tiene una mascota, le pide prestado
-                                        <div class="fraction">
-                                            <span class="fup">1</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">3</span>
-                                        </div> de kilo. ¿Qué fracción del kilo le queda a Camila?
+                                        <b>2. Determina</b>cada conjunto por extensión y clasifícalo.
                                         <br>
-                                        <div class="eq-c">R. Camila le quedan
-                                            <div class="fraction">
-                                                <span class="fup"><input class="inputfraccciones sinEspacios soloNumeros" id="act2num0"></input></span>
-                                                <span class="bar">/</span>
-                                                <span class="fdn"><input class="inputfraccciones sinEspacios soloNumeros" id="act2num1"></input></span>
+                                        <div class="row">
+                                            <div class="col-lg-12"><b style="color:#005CA9">a)</b>M = {x| x, es un día de la semana que comienza con una vocal}.
+                                                <br>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-2">Por extensión</div>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control"></input>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-2">Clasificación</div>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control"></input>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            de kilo.
+                                            <div class="col-lg-12"><b style="color:#005CA9">b)</b>N = {x|x, es un mes del año que comience con j}
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-2">Por extensión</div>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control"></input>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-2">Clasificación</div>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control"></input>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12"><b style="color:#005CA9">c)</b>P ={x|x, son las estaciones del año cuya palabra termine en a}
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-2">Por extensión</div>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control"></input>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-2">Clasificación</div>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control"></input>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12"><b style="color:#005CA9">d)</b>R = {x | x ∈ ℚ}
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-2">Por extensión</div>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control"></input>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-2">Clasificación</div>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control"></input>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -358,8 +385,8 @@ input {
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
                                     aria-controls="collapseThree">
-                                 <input type="text" maxlength="" size="" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota3" readonly>&nbsp;
-                                    <b>3. </b>
+                                 <input type="text" maxlength="" size="" style="text-align:center; background: white;" class="nota-abierta" min="0" max="1" id="nota3">&nbsp;
+                                    <b>3. Completa</b>
                                 </a>
                             </h4>
                         </div>
@@ -367,27 +394,36 @@ input {
                             <div class="panel-body">
                                 <div class="col-md-12">
                                     <div class="text-question">
-                                        <b>3. </b>Pepe vende helados de paila en la ciudad de Salcedo. Del total de helados vendidos durante un fin de semana, Pepe vendió
-                                        <div class="fraction">
-                                            <span class="fup">3</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">4</span>
-                                        </div> el viernes,
-                                        <div class="fraction">
-                                            <span class="fup">1</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">5</span>
-                                        </div> el sábado y el resto el domingo. ¿Qué fracción de los helados vendió el domingo?
-                                        <br>
-                                        <br>
-                                        <div class="eq-c">R. El domingo, Pepe vendió
-                                            <div class="fraction">
-                                                <span class="fup"><input class="inputfraccciones sinEspacios soloNumeros" id="act3num0"></input></span>
-                                                <span class="bar">/</span>
-                                                <span class="fdn"><input class="inputfraccciones sinEspacios soloNumeros" id="act3num1"></input></span>
-                                            </div>
-                                            del total de los helados de paila.
-                                        </div>
+                                        <b>3. Completa</b> el organizador gráfico.
+                                        <table>
+                                            <tr>
+                                                <td rowspan="5" style="text-align: center; background: #0098c4; color:white;border-radius: 10px 10px 10px 10px;">
+                                                    <h3>Clasificación <br>de<br> conjuntos</h3></td>
+                                                <td>
+                                                    <input class="form-control" style="border: 1px solid #0098c4;"></input>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control" style="border: 1px solid #0098c4;"></input>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control" style="border: 1px solid #0098c4;"></input>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control" style="border: 1px solid #0098c4;"></input>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control" style="border: 1px solid #0098c4;"></input>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                     <br>
                                 </div>
@@ -399,35 +435,99 @@ input {
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
                                     aria-controls="collapseFour">
-                                    <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota4" readonly>&nbsp;<b>4. </b>
+                                    <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota4" readonly>&nbsp;<b>4. Señala</b>
                                 </a>
                             </h4>
                         </div>
                         <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
                             <div class="panel-body">
                                 <div class="text-question">
-                                    <b>4. </b>Para hacer una pizza, un chef se demora
-                                    <div class="fraction">
-                                        <span class="fup">2</span>
-                                        <span class="bar">/</span>
-                                        <span class="fdn">3</span>
-                                    </div> del tiempo preparando la masa,
-                                    <div class="fraction">
-                                        <span class="fup">1</span>
-                                        <span class="bar">/</span>
-                                        <span class="fdn">5</span>
-                                    </div> del tiempo en agregarle los ingredientes y el resto del tiempo en hornearla.
-                                    <br>¿Qué fracción del tiempo pasará la pizza en el horno?
-                                    <div class="eq-c">R. La pizza pasará en el horno
-                                        <div class="fraction">
-                                            <span class="fup"><input class="inputfraccciones sinEspacios soloNumeros" id="act4num0"></input></span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn"><input class="inputfraccciones sinEspacios soloNumeros" id="act4num1"></input></span>
+                                    <b>4. </b>De entre los siguientes conjuntos, <b>señala</b> los que son conjunto vacío:
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-4"><b style="color:#005CA9">a)</b>A = { x ∈ ℕ| x + 1 = 0}</div>
+                                            <div class="col-lg-8">
+                                                <select class="form-control" id="sel0">
+                                                    <option>-------selecciona---------</option>
+                                                    <option>Conjunto vacío</option>
+                                                    <option>Conjunto no vacío</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                        del tiempo de preparación.
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-4"><b style="color:#005CA9">b)</b><span>B = { x ∈ ℕ| x
+                                                < − 6}</span> </div>
+                                            <div class="col-lg-8">
+                                                <select class="form-control" id="sel1">
+                                                    <option>-------selecciona---------</option>
+                                                    <option>Conjunto vacío</option>
+                                                    <option>Conjunto no vacío</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-4"><b style="color:#005CA9">c)</b>C = { x ∈ ℤ| x − 1 = 0}</div>
+                                            <div class="col-lg-8">
+                                                <select class="form-control" id="sel2">
+                                                    <option>-------selecciona---------</option>
+                                                    <option>Conjunto vacío</option>
+                                                    <option>Conjunto no vacío</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-4"><b style="color:#005CA9">d)</b>D = { x ∈ ℤ| x + 5 = 5}</div>
+                                            <div class="col-lg-8">
+                                                <select class="form-control" id="sel3">
+                                                    <option>-------selecciona---------</option>
+                                                    <option>Conjunto vacío</option>
+                                                    <option>Conjunto no vacío</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-4"><b style="color:#005CA9">e)</b>E = { x ∈ ℚ| x = 6}</div>
+                                            <div class="col-lg-8">
+                                                <select class="form-control" id="sel4">
+                                                    <option>-------selecciona---------</option>
+                                                    <option>Conjunto vacío</option>
+                                                    <option>Conjunto no vacío</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-4"><b style="color:#005CA9">f)</b>F = { x ∈ ℕ| x > 4 y x no es mayor que 5}</div>
+                                            <div class="col-lg-8">
+                                                <select class="form-control" id="sel5">
+                                                    <option>-------selecciona---------</option>
+                                                    <option>Conjunto vacío</option>
+                                                    <option>Conjunto no vacío</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFive">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false"
+                                    aria-controls="collapseFive">
+                                    <input type="text" maxlength="4" size="2" style="text-align:center; background: white;" class="nota-abierta" min="0" max="1" id="nota5" >&nbsp;<b>5. Define</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <b>5. Define</b> un conjunto universal o por comprensión para cada conjunto representado gráficamente.
+                                    <img class="img-responsive" src="img/i1_p87_act94.jpg"></img>
+                                    <input class="form-control"></input>
+                                    <img class="img-responsive" src="img/i2_p87_act94.jpg"></img>
+                                    <input class="form-control"></input>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -479,11 +579,11 @@ input {
         <script src="js/Utilitario.js"></script>
         <script src="js/validacionesExtras.js"></script>
         <script src="js/dragNdrop.js"></script>
-        <script src="js/actividad89.js"></script>
+        <script src="js/actividad94.js"></script>
         <script type="text/javascript">
         var titulos = "aplico";
         $("#txtNota").html("0");
-        $("#n_pagina").html("79");
+        $("#n_pagina").html("87");
 
         /*$(document).ready(function() {
             var winHeight = $(window).height();

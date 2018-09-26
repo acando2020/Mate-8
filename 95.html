@@ -114,7 +114,8 @@ input {
     <div id="nota-informativa" class="nota-ayuda">
         <button type="button" class="close" onclick="cerrar_ayuda()" aria-label="Close"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
         <!--ACA ESCRIBIR TEXTO DE LA AYUDA DE LA ACTIVIDAD-->
-        Escribe la respuesta correcta en los espacios en blanco y agregar la nota.
+        Realiza la siguiente operación.
+        <br> Escribe la respuesta correcta en los espacios en blanco.
         <br>
         <span id="ayudas"></span>
     </div>
@@ -189,27 +190,32 @@ input {
             <div class="panel-body">
                 <!--pregunats de la actividad-->
                 <div class="text-question">
-                    <img src="img/trabajamos_juntos.png" alt="" class="img-responsive">
-                    <span><b>Trabaja</b> con un compañero.</span>
-                    <br><input class="nota-abierta"></input><span>Se conocen ahora los datos de cinco conejos más, R, A, B, I y T, los cuales avanzan del 0 hacia la derecha, de la siguiente manera:</span>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <span>R llega en 3 saltos al 5.</span>
-                                <br>
-                                <span>B llega en 9 saltos al 14.</span>
-                                <br>
-                                <span>T llega en 11 saltos al 23.</span>
-                                <br>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <span>A llega en 9 saltos al 5.</span>
-                                <br><span>I llega en 6 saltos al 10.</span>
-                            </div>
-                        </div>
-                    </div><br>
-                    <span><b>Ordena</b> por tamaño, de menor a mayor, los pasos de los cinco conejos. <b>Explica</b>, con tus palabras, cómo hiciste para compararlos.</span>
-                    <input class="form-control sinEspacios  text-uppercase"></input>
+                    <img class="img-responsive" src="img/practica_guiada.png">
+                    <input class="nota-abierta" max="10" min="0"></input><span><b>Determina</b> todos los subconjuntos del conjunto A.</span>
+                    <br>
+                    <h3>A = {5x − 1 | x ∈ ℕ, 1 ≤ x ≤ 3}.</h3>
+                    <span><img src="img/paso1.jpg" alt=""></span>
+                    <br>
+                    <span><b>Determina</b> el conjunto por extensión. <br>
+                    1 ≤ x ≤ 3; x = 1, 2, 3</span>
+                    <br>
+                    <span>Reemplazamos en 5x – 1.</span>
+                    <br><span>x = 1; 5(1) – 1 = 4</span>
+                    <textarea class="form-control" style="resize: none;"></textarea>
+                    <span><img src="img/paso2.jpg" alt=""></span><br>
+                    <span><b>Calcula</b> el número de subconjuntos del conjunto A.</span><br>
+                    <span>η(A ) = <input type="" name=""></span><br><span>2<sup>3</sup> = <input type="" name=""></span><br>
+
+                    <span><img src="img/paso3.jpg" alt=""></span><br>
+                    <span><b>Escribe</b> los ocho subconjuntos del conjunto A.</span><br>
+                    <span>Conjunto sin elementos, 1: ∅</span>
+                    <textarea class="form-control" rows="5" style="resize: none;"></textarea>
+                    <span><img src="img/paso4.jpg" alt=""></span><br>
+                    <span><b>Escribe</b> el conjunto potencia de A.</span>
+                    <br>
+                    <span>P(A )= <b>{</b><input type="" name="" style="width: 200px;"><b>}</b></span>
+
+
                 </div>
             </div>
         </div>
@@ -262,7 +268,7 @@ input {
     <script type="text/javascript">
     var titulos = "aplico";
     $("#txtNota").html("0");
-    $("#n_pagina").html("75");
+    $("#n_pagina").html("90");
 
     /*var winHeight = $(window).height();
     var winWidth = $(window).width();
@@ -277,11 +283,10 @@ input {
 
                 watermarkImage: watermarkImage,
                 watermarkScale: 0.8 // you can scale it
-
             });
-
-
     });*/
+
+
 
     function sinEspacios(inputs) {
         $(inputs).on('keypress', function(e) {
@@ -291,26 +296,6 @@ input {
     }
     sinEspacios(".sinEspacios");
 
-    function actividad83() {
-        var nota1 = document.getElementById('nota1').value;
-        var nota2 = document.getElementById('nota2').value;
-        if ((nota1 == "") || (nota2 == "")) {
-            alert("Ingrese la nota de la pregunta 1 ó 2");
-            document.getElementById('nota1').focus();
-
-        } else {
-
-            var total = parseFloat(nota1) + parseFloat(nota2);
-            $('#nota1').addClass('correcto');
-            $('#nota2').addClass('correcto');
-
-            $('#txtNota').html(parseFloat(total).toFixed(2));
-            document.getElementById('bt_comprobar').disabled = true;
-            $('input').attr("disabled", true);
-            $('#txtAlumno').attr("disabled", false);
-        }
-
-    }
     </script>
 </body>
 

@@ -130,6 +130,18 @@ input {
     border-radius: 10px 10px 10px 10px;
 }
 
+.pintar {
+
+    border: 10px solid #a94e86;
+    background: #a94e86;
+}
+
+.colorear {
+
+
+    background: #a94e86;
+}
+
 .pintar2 {
 
 
@@ -186,16 +198,6 @@ input {
         <!--ACA ESCRIBIR TEXTO DE LA AYUDA DE LA ACTIVIDAD-->
         Lee cuidadosamente las preguntas, contesta cada una de ellas.
         <br>
-        <b>2.</b> Debes utilizar solo los números del 1 al 6.
-        <br>
-        <b>4.</b> Has click y pinta del mismo color las parejas de opuestos de la siguiente lista de números racionales.
-        <br>
-        <b>5.</b> Has click y pinta del mismo color tres números con sus parejas de opuestos y deja en blanco al intruso
-        <br>
-        <b>6.</b> Arrastra el resultado de cada sustracción en la columna de la derecha en el cuadro amarillo.
-        <br>
-        <b>11.</b> Selecciona la propiedad aplicada.
-        <br>
         <span id="ayudas"></span>
     </div>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -234,7 +236,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta1()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="Nota_Total()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -277,7 +279,7 @@ input {
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
                                 <div class="col-md-12 ">
                                     <div class="text-question">
@@ -334,7 +336,7 @@ input {
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                             <div class="panel-body">
                                 <div class="col-md-12 ">
                                     <div class="text-question">
@@ -342,146 +344,21 @@ input {
                                         <br>
                                         <ol type="a">
                                             <div class="row">
-                                                <div class="col-lg-12">
-                                                    <table>
-                                                        <tr>
-                                                            <td><b style="color:#005CA9"><li></li></b></td>
-                                                            <td>0,8x<sup>2</sup> + 9x – 1,3x<sup>2</sup> – 4x</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2">
-                                                                <input type="" name="" class="inputfraccciones"><sup><input type="" name="" class="inputfraccciones" style="width: 20px;"></sup> +
-                                                                <input type="" name="" class="inputfraccciones">
-                                                            </td>
-                                                        </tr>
-                                                    </table>
+                                                <div class="col-lg-12 act2class" id="act02Txt0">
                                                 </div>
-                                                <div class="col-lg-12">
-                                                    <table>
-                                                        <tr>
-                                                            <td><b style="color: #005CA9"><li></li></b></td>
-                                                            <td>5x<sup>2</sup> – 6xy - 3x<sup>2</sup> + 9xy + 4</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2">
-                                                                <input type="" name="" class="inputfraccciones"><sup><input type="" name="" class="inputfraccciones" style="width: 20px;"></sup> +
-                                                                <input type="" name="" class="inputfraccciones"> +
-                                                                <input type="" name="" class="inputfraccciones">
-                                                            </td>
-                                                        </tr>
-                                                    </table>
+                                                <div class="col-lg-12 act2class" id="act02Txt1">
                                                 </div>
-                                                <div class="col-lg-12">
-                                                    <table>
-                                                        <tr>
-                                                            <td><b style="color: #005CA9"><li></li></b></td>
-                                                            <td>25x<sup>3</sup> – 2x<sup>2</sup> – 4x<sup>3</sup> + 8x<sup>2</sup> – 9x + 7x</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2">
-                                                                <input type="" name="" class="inputfraccciones"><sup><input type="" name="" class="inputfraccciones" style="width: 20px;"></sup> +
-                                                                <input type="" name="" class="inputfraccciones"> -
-                                                                <input type="" name="" class="inputfraccciones">
-                                                            </td>
-                                                        </tr>
-                                                    </table>
+                                                <div class="col-lg-12 act2class" id="act02Txt2">
                                                 </div>
-                                                <div class="col-lg-12">
-                                                    <table>
-                                                        <tr>
-                                                            <td><b style="color: #005CA9"><li></li></b></td>
-                                                            <td>–x + 7,2x + 2x – 3,5x + 4</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2">
-                                                                <input class="inputfraccciones" style="width: 70px;"></input>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
+                                                <div class="col-lg-12 act2class" id="act02Txt3">
                                                 </div>
-                                                <div class="col-lg-12">
-                                                    <table>
-                                                        <tr>
-                                                            <td><b style="color: #005CA9"><li></li></b></td>
-                                                            <td>
-                                                                <div class="fraction">
-                                                                    <span class="fup">4</span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn">3</span>
-                                                                </div>x
-                                                                <div class="fraction">
-                                                                    <span class="fup">5</span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn">2</span>
-                                                                </div>x - 2x + x</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2">
-                                                                <div class="fraction">
-                                                                    <span class="fup"><input type="" name="" class="inputfraccciones"></span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn"><input type="" name="" class="inputfraccciones"></span>
-                                                                </div>
-                                                                <input type="" name="" class="inputfraccciones">
-                                                            </td>
-                                                        </tr>
-                                                    </table>
+                                                <div class="col-lg-12 act2class" id="act02Txt4">
                                                 </div>
-                                                <div class="col-lg-12">
-                                                    <table>
-                                                        <tr>
-                                                            <td><b style="color: #005CA9"><li></li></b></td>
-                                                            <td>9x<sup>2</sup> – 3x + 5x – 5x<sup>2</sup></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2">
-                                                                <input type="" name="" class="inputfraccciones"><sup><input type="" name="" class="inputfraccciones" style="width: 20px;"></sup> +
-                                                                <input type="" name="" class="inputfraccciones">
-                                                            </td>
-                                                        </tr>
-                                                    </table>
+                                                <div class="col-lg-12 act2class" id="act02Txt5">
                                                 </div>
-                                                <div class="col-lg-12">
-                                                    <table>
-                                                        <tr>
-                                                            <td><b style="color: #005CA9"><li></li></b></td>
-                                                            <td>
-                                                                <div class="fraction">
-                                                                    <span class="fup">2</span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn">3</span>
-                                                                </div>x
-                                                                <div class="fraction">
-                                                                    <span class="fup">3</span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn">4</span>
-                                                                </div>y - x - y +
-                                                                <div class="fraction">
-                                                                    <span class="fup">1</span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn">6</span>
-                                                                </div>x -
-                                                                <div class="fraction">
-                                                                    <span class="fup">2</span>
-                                                                    <span class="bar">/</span>
-                                                                    <span class="fdn">9</span>
-                                                                </div>y</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2"></td>
-                                                        </tr>
-                                                    </table>
+                                                <div class="col-lg-12 act2class" id="act02Txt6">
                                                 </div>
-                                                <div class="col-lg-12">
-                                                    <table>
-                                                        <tr>
-                                                            <td><b style="color: #005CA9"><li></li></b></td>
-                                                            <td>x<sup>3</sup> – x<sup>2</sup> + 4x<sup>3</sup> – x<sup>2</sup> +x<sup>2</sup>y − xy<sup>2</sup> + 2 – 3x<sup>2</sup>y</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2"></td>
-                                                        </tr>
-                                                    </table>
+                                                <div class="col-lg-12 act2class" id="act02Txt7">
                                                 </div>
                                             </div>
                                         </ol>
@@ -497,7 +374,7 @@ input {
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
                                     aria-controls="collapseThree">
                                  <input type="text" maxlength="" size="" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota3" readonly>&nbsp;
-                                    <b>3. </b>
+                                    <b>3. Completa</b>
                                 </a>
                             </h4>
                         </div>
@@ -505,27 +382,190 @@ input {
                             <div class="panel-body">
                                 <div class="col-md-12">
                                     <div class="text-question">
-                                        <b>3. </b>Pepe vende helados de paila en la ciudad de Salcedo. Del total de helados vendidos durante un fin de semana, Pepe vendió
-                                        <div class="fraction">
-                                            <span class="fup">3</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">4</span>
-                                        </div> el viernes,
-                                        <div class="fraction">
-                                            <span class="fup">1</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">5</span>
-                                        </div> el sábado y el resto el domingo. ¿Qué fracción de los helados vendió el domingo?
-                                        <br>
-                                        <br>
-                                        <div class="eq-c">R. El domingo, Pepe vendió
-                                            <div class="fraction">
-                                                <span class="fup"><input class="inputfraccciones sinEspacios soloNumeros" id="act3num0"></input></span>
-                                                <span class="bar">/</span>
-                                                <span class="fdn"><input class="inputfraccciones sinEspacios soloNumeros" id="act3num1"></input></span>
-                                            </div>
-                                            del total de los helados de paila.
-                                        </div>
+                                        <b style="color:#005CA9">3. </b><b>Completa</b> la siguiente tabla.
+                                        <table class="table table-bordered" style="text-align: center;">
+                                            <tr>
+                                                <td style="background: #0098c4;color: white;">Representación escrita</td>
+                                                <td style="background: #00b1d3;color: white;">Representación numérica</td>
+                                                <td style="background: #0098c4;color: white;">Representación gráfica</td>
+                                                <td style="background: #00b1d3;color: white;">Representación en la recta númerica</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tres octavos</td>
+                                                <td>
+                                                    <div class="eq-c">
+                                                        <div class="fraction">
+                                                            <span class="fup">3</span>
+                                                            <span class="bar">/</span>
+                                                            <span class="fdn">8</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><img class="img-responsive" src="img/i1_p82_act90.jpg"></img>
+                                                </td>
+                                                <td><img class="img-responsive" src="img/i4_p82_act90.jpg"></img>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input id="act3num0" class="form-control text-lowercase"></input>
+                                                </td>
+                                                <td>
+                                                    <div class="eq-c">
+                                                        <div class="fraction">
+                                                            <span class="fup"><input id="act3num1" class="inputfraccciones"></input></span>
+                                                            <span class="bar">/</span>
+                                                            <span class="fdn"><input id="act3num2" class="inputfraccciones"></input></span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td id="pintar1">
+                                                    <table class="table-bordered">
+                                                        <tr>
+                                                            <td>
+                                                                <input class="inputfraccciones enc" style="height: 70px;"></input>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones enc" style="height: 70px;"></input>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones enc" style="height: 70px;"></input>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones enc" style="height: 70px;"></input>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones enc" style="height: 70px;"></input>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones enc" style="height: 70px;"></input>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td><img class="img-responsive" src="img/i5_p82_act90.jpg"></img>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nueve cuartos</td>
+                                                <td>
+                                                    <div class="eq-c">
+                                                        <div class="fraction">
+                                                            <span class="fup"><input id="act3num3" class="inputfraccciones"></input></span>
+                                                            <span class="bar">/</span>
+                                                            <span class="fdn"><input id="act3num4" class="inputfraccciones"></input></span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td id="colorear1">
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <input class="inputfraccciones enc1" style="border:1px solid #000000;"></input>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones" style="border: 0;"></input>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones enc1" style="border:1px solid #000000;"></input>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones" style="border: 0;"></input>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones enc1" style="border:1px solid #000000;"></input>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <input class="inputfraccciones enc1" style="border:1px solid #000000;"></input>
+                                                            </td>
+                                                            <td>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones enc1" style="border:1px solid #000000;"></input>
+                                                            </td>
+                                                            <td>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones enc1" style="border:1px solid #000000;"></input>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <input class="inputfraccciones enc1" style="border:1px solid #000000;"></input>
+                                                            </td>
+                                                            <td>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones enc1" style="border:1px solid #000000;"></input>
+                                                            </td>
+                                                            <td>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones enc1" style="border:1px solid #000000;"></input>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <input class="inputfraccciones enc1" style="border:1px solid #000000;"></input>
+                                                            </td>
+                                                            <td>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones enc1" style="border:1px solid #000000;"></input>
+                                                            </td>
+                                                            <td>
+                                                            </td>
+                                                            <td>
+                                                                <input class="inputfraccciones enc1" style="border:1px solid #000000;"></input>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input id="act3num5" class="form-control text-lowercase"></input>
+                                                </td>
+                                                <td>
+                                                    <div class="eq-c">
+                                                        <div class="fraction">
+                                                            <span class="fup"><input id="act3num6" class="inputfraccciones"></input></span>
+                                                            <span class="bar">/</span>
+                                                            <span class="fdn"><input id="act3num7" class="inputfraccciones"></input></span>
+                                                        </div>
+                                                        =
+                                                        <div class="fraction">
+                                                            <span class="fup"><input id="act3num8" class="inputfraccciones"></input></span>
+                                                            <span class="bar">/</span>
+                                                            <span class="fdn"><input id="act3num9" class="inputfraccciones"></input></span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><img class="img-responsive" src="img/i2_p82_act90.jpg"></img>
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input id="act3num10" class="form-control text-lowercase"></input>
+                                                </td>
+                                                <td>
+                                                    <div class="fraction">
+                                                        <span class="fup"><input id="act3num11" class="inputfraccciones"></input></span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn"><input id="act3num12" class="inputfraccciones"></input></span>
+                                                    </div>
+                                                </td>
+                                                <td><img class="img-responsive" src="img/i3_p82_act90.jpg"></img>
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                     <br>
                                 </div>
@@ -537,33 +577,116 @@ input {
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
                                     aria-controls="collapseFour">
-                                    <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota4" readonly>&nbsp;<b>4. </b>
+                                    <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota4" readonly>&nbsp;<b>4. Escribe</b>
                                 </a>
                             </h4>
                         </div>
                         <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
                             <div class="panel-body">
                                 <div class="text-question">
-                                    <b>4. </b>Para hacer una pizza, un chef se demora
-                                    <div class="fraction">
-                                        <span class="fup">2</span>
-                                        <span class="bar">/</span>
-                                        <span class="fdn">3</span>
-                                    </div> del tiempo preparando la masa,
-                                    <div class="fraction">
-                                        <span class="fup">1</span>
-                                        <span class="bar">/</span>
-                                        <span class="fdn">5</span>
-                                    </div> del tiempo en agregarle los ingredientes y el resto del tiempo en hornearla.
-                                    <br>¿Qué fracción del tiempo pasará la pizza en el horno?
-                                    <div class="eq-c">R. La pizza pasará en el horno
-                                        <div class="fraction">
-                                            <span class="fup"><input class="inputfraccciones sinEspacios soloNumeros" id="act4num0"></input></span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn"><input class="inputfraccciones sinEspacios soloNumeros" id="act4num1"></input></span>
-                                        </div>
-                                        del tiempo de preparación.
-                                    </div>
+                                    <b style="color:#005CA9">4. </b><b>Escribe</b> la fracción que representa las siguientes situaciones de la vida cotidiana y ubícala en la recta numérica.
+                                    <table class="table">
+                                        <tr>
+                                            <td></td>
+                                            <td style="background: #a7d9f4;">Situación</td>
+                                            <td style="background: #fcedd4;">Fracción</td>
+                                            <td style="background: #e2c9da;">Representación gráfica</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b style="color:#005CA9">a)</b></td>
+                                            <td>4 de cada 10 equipos han ganado partidos.</td>
+                                            <td>
+                                                <div class="eq-c">
+                                                    <div class="fraction">
+                                                        <span class="fup"><input id="act4num0" class="inputfraccciones"></input></span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn"><input id="act4num1" class="inputfraccciones"></input></span>
+                                                    </div>
+                                                    =
+                                                    <div class="fraction">
+                                                        <span class="fup"><input id="act4num2" class="inputfraccciones"></input></span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn"><input id="act4num3" class="inputfraccciones"></input></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td><img class="img-responsive" src="img/i6_p82_act90.jpg"></img>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b style="color:#005CA9">b)</b></td>
+                                            <td>La cuarta parte de los estudiantes tiene éxito en sus tareas.</td>
+                                            <td>
+                                                <div class="eq-c">
+                                                    <div class="fraction">
+                                                        <span class="fup"><input id="act4num4" class="inputfraccciones"></input></span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn"><input id="act4num5" class="inputfraccciones"></input></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td><img class="img-responsive" src="img/i6_p82_act90.jpg"></img>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b style="color:#005CA9">c)</b></td>
+                                            <td>De cada 50 lanzamientos de pelota, 30 son canastas.</td>
+                                            <td>
+                                                <div class="eq-c">
+                                                    <div class="fraction">
+                                                        <span class="fup"><input id="act4num6" class="inputfraccciones"></input></span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn"><input id="act4num7" class="inputfraccciones"></input></span>
+                                                    </div>
+                                                    =
+                                                    <div class="fraction">
+                                                        <span class="fup"><input id="act4num8" class="inputfraccciones"></input></span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn"><input id="act4num9" class="inputfraccciones"></input></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td><img class="img-responsive" src="img/i6_p82_act90.jpg"></img>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b style="color:#005CA9">d)</b></td>
+                                            <td>Gasté dos tercios de mi dinero.</td>
+                                            <td>
+                                                <div class="eq-c">
+                                                    -
+                                                    <div class="fraction">
+                                                        <span class="fup"><input id="act4num10" class="inputfraccciones"></input></span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn"><input id="act4num11" class="inputfraccciones"></input></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td><img class="img-responsive" src="img/i6_p82_act90.jpg"></img>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b style="color:#005CA9">e)</b></td>
+                                            <td>El cuerpo humano está formado por el 70% de agua.</td>
+                                            <td>
+                                                <div class="eq-c">
+                                                    <div class="fraction">
+                                                        <span class="fup"><input id="act4num12" class="inputfraccciones"></input></span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn"><input id="act4num13" class="inputfraccciones"></input></span>
+                                                    </div>
+                                                    =
+                                                    <div class="fraction">
+                                                        <span class="fup"><input id="act4num14" class="inputfraccciones"></input></span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn"><input id="act4num15" class="inputfraccciones"></input></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td><img class="img-responsive" src="img/i6_p82_act90.jpg"></img>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
                                 <br>
                             </div>
@@ -574,31 +697,63 @@ input {
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false"
                                     aria-controls="collapseFive">
-                                    <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota5" readonly>&nbsp;<b>5. Encuentra</b>
+                                    <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota5" readonly>&nbsp;<b>5. Escribe</b>
                                 </a>
                             </h4>
                         </div>
                         <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
                             <div class="panel-body">
                                 <div class="text-question">
-                                    <b>5. Encuentra</b> dentro del cuadro: tres números, sus opuestos y el intruso.
+                                    <b>5. Escribe</b> los números racionales que corresponden a los puntos señalados en cada recta.
                                     <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="col-lg-4 col-md-4 col-sm-4 act5class" id="act05Txt0">
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-4 act5class" id="act05Txt1">
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-4 act5class" id="act05Txt2">
+                                        <div class="col-lg-12"><img class="img-responsive" src="img/i7_p82_act90.jpg"></img>
+                                            <div class="eq-c">
+                                                -
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act5num0" class="inputfraccciones"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act5num1" class="inputfraccciones"></input></span>
+                                                </div>, -
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act5num2" class="inputfraccciones"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act5num3" class="inputfraccciones"></input></span>
+                                                </div>,
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act5num4" class="inputfraccciones"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act5num5" class="inputfraccciones"></input></span>
+                                                </div>,
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act5num6" class="inputfraccciones"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act5num7" class="inputfraccciones"></input></span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <div class="col-lg-3 col-md-3 col-sm-3 act5class" id="act05Txt3">
-                                            </div>
-                                            <div class="col-lg-3 col-md-3 col-sm-3 act5class" id="act05Txt4">
-                                            </div>
-                                            <div class="col-lg-3 col-md-3 col-sm-3 act5class" id="act05Txt5">
-                                            </div>
-                                            <div class="col-lg-3 col-md-3 col-sm-3 act5class" id="act05Txt6">
+                                        <div class="col-lg-12"><img class="img-responsive" src="img/i8_p82_act90.jpg"></img>
+                                            <div class="eq-c">
+                                                -
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act5num8" class="inputfraccciones"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act5num9" class="inputfraccciones"></input></span>
+                                                </div>, -
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act5num10" class="inputfraccciones"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act5num11" class="inputfraccciones"></input></span>
+                                                </div>,
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act5num12" class="inputfraccciones"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act5num13" class="inputfraccciones"></input></span>
+                                                </div>,
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act5num14" class="inputfraccciones"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act5num15" class="inputfraccciones"></input></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -611,59 +766,88 @@ input {
                             <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false"
                                         aria-controls="collapseSix">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota6" readonly>&nbsp;<b>6. Encuentra</b>
+                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota6" readonly>&nbsp;<b>6. Compara</b>
                                     </a>
                                 </h4>
                         </div>
                         <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
                             <div class="panel-body">
                                 <div class="text-question">
-                                    <b>6. Encuentra</b> el resultado de cada sustracción en la columna de la derecha.
-                                    <table class="table">
-                                        <tr>
-                                            <td>
-                                                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 cajas imagen" id="caja_img1"></div>
-                                            </td>
-                                            <td>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 cajas texto" style="border: 5px solid #F9B000" id="caja_txt1"></div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 cajas imagen" id="caja_img2"></div>
-                                            </td>
-                                            <td>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 cajas texto" style="border: 5px solid #F9B000" id="caja_txt2"></div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 cajas imagen" id="caja_img3"></div>
-                                            </td>
-                                            <td>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 cajas texto" style="border: 5px solid #F9B000" id="caja_txt3"></div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 cajas imagen" id="caja_img4"></div>
-                                            </td>
-                                            <td>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 cajas texto" style="border: 5px solid #F9B000" id="caja_txt4"></div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 cajas imagen" id="caja_img5"></div>
-                                            </td>
-                                            <td>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 cajas texto" style="border: 5px solid #F9B000" id="caja_txt5"></div>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <b>6. Compara</b> cada par de fracciones y escribe >,
+                                    < o=s egún corresponda. <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-6">
+                                                <div class="eq-c">
+                                                    <b style="color:#005CA9">a)</b>
+                                                    <div class="fraction">
+                                                        <span class="fup">3</span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn">7</span>
+                                                    </div>
+                                                    <input id="act6num0" class="inputfraccciones sinEspacios"></input>
+                                                    <div class="fraction">
+                                                        <span class="fup">5</span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn">11</span>
+                                                    </div>
+                                                </div>
+                                                <textarea style="resize: none;" class="form-control"></textarea>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="eq-c">
+                                                    <b style="color:#005CA9">c)</b>
+                                                    <div class="fraction">
+                                                        <span class="fup">3</span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn">5</span>
+                                                    </div>
+                                                    <input id="act6num1" class="inputfraccciones sinEspacios"></input>
+                                                    <div class="fraction">
+                                                        <span class="fup">4</span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn">9</span>
+                                                    </div>
+                                                </div>
+                                                <textarea style="resize: none;" class="form-control"></textarea>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="eq-c">
+                                                    <b style="color:#005CA9">b)</b>
+                                                    <div class="fraction">
+                                                        <span class="fup">13</span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn">4</span>
+                                                    </div>
+                                                    <input id="act6num2" class="inputfraccciones sinEspacios"></input>-
+                                                    <div class="fraction">
+                                                        <span class="fup">5</span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn">9</span>
+                                                    </div>
+                                                </div>
+                                                <textarea style="resize: none;" class="form-control"></textarea>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="eq-c">
+                                                    <b style="color:#005CA9">d)</b>
+                                                    <div class="fraction">
+                                                        <span class="fup">-4</span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn">8</span>
+                                                    </div>
+                                                    <input id="act6num3" class="inputfraccciones sinEspacios"></input>-
+                                                    <div class="fraction">
+                                                        <span class="fup">1</span>
+                                                        <span class="bar">/</span>
+                                                        <span class="fdn">-2</span>
+                                                    </div>
+                                                </div>
+                                                <textarea style="resize: none;" class="form-control"></textarea>
+                                            </div>
+                                        </div>
                                 </div>
-                                <br>
                             </div>
+                            <br>
                         </div>
                     </div>
                     <div class="panel panel-default">
@@ -671,250 +855,162 @@ input {
                             <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false"
                                         aria-controls="collapseSeven">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota7" readonly>&nbsp;<b>7. Completa</b>
+                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota7" readonly>&nbsp;<b>7. Resuelve</b>
                                     </a>
                                 </h4>
                         </div>
                         <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
                             <div class="panel-body">
                                 <div class="text-question">
-                                    <b>7. Completa</b> el cuadrado mágico de tal manera que el resultado en cualquier dirección en que sumes sea 0.
-                                    <table class="table table-bordered" style="border: 2px solid #831F82; text-align: center;">
-                                        <tr class="act7class" id="act07Txt0">
-                                        </tr>
-                                        <tr class="act7class" id="act07Txt1">
-                                        </tr>
-                                        <tr class="act7class" id="act07Txt2">
-                                        </tr>
-                                        <tr class="act7class" id="act07Txt3">
-                                        </tr>
-                                    </table>
+                                    <b>7. Resuelve</b> las siguientes operaciones.
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="eq-c">
+                                                <b style="color:#005CA9">a)</b> A = {x | x ∈ ℕ, x es un número par, x ≤ 10}.
+                                                <br>
+                                                <div class="fraction">
+                                                    <span class="fup">-1</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">5</span>
+                                                </div>
+                                                -
+                                                <div class="fraction">
+                                                    <span class="fup">4</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">3</span>
+                                                </div>
+                                                +
+                                                <div class="fraction">
+                                                    <span class="fup">1</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">2</span>
+                                                </div>
+                                                =
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act7num0" class="inputfraccciones"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act7num1" class="inputfraccciones"></input></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="eq-c">
+                                                <b style="color:#005CA9">b)</b>
+                                                <div class="fraction">
+                                                    <span class="fup">-1</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">2</span>
+                                                </div>
+                                                +
+                                                <div class="fraction">
+                                                    <span class="fup">3</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">5</span>
+                                                </div>
+                                                +
+                                                <div class="fraction">
+                                                    <span class="fup">7</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">6</span>
+                                                </div>
+                                                =
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act7num2" class="inputfraccciones"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act7num3" class="inputfraccciones"></input></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="eq-c">
+                                                <b style="color:#005CA9">b)</b>
+                                                <div class="fraction">
+                                                    <span class="fup">-1</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">3</span>
+                                                </div>
+                                                +
+                                                <div class="fraction">
+                                                    <span class="fup">-1</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">4</span>
+                                                </div>
+                                                +
+                                                <div class="fraction">
+                                                    <span class="fup">-1</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">5</span>
+                                                </div>
+                                                =
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act7num4" class="inputfraccciones"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act7num5" class="inputfraccciones"></input></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="eq-c">
+                                                <b style="color:#005CA9">b)</b>
+                                                <div class="fraction">
+                                                    <span class="fup">2</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">3</span>
+                                                </div>
+                                                -
+                                                <div class="fraction">
+                                                    <span class="fup">4</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">5</span>
+                                                </div>
+                                                -
+                                                <div class="fraction">
+                                                    <span class="fup">3</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">7</span>
+                                                </div>
+                                                -
+                                                <div class="fraction">
+                                                    <span class="fup">-5</span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn">6</span>
+                                                </div>
+                                                =
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act7num6" class="inputfraccciones"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act7num7" class="inputfraccciones"></input></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <img src="img/problema.png" alt=""><img src="img/conectoCo.jpg">
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingEight">
                             <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false"
                                         aria-controls="collapseEight">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota8" readonly>&nbsp;<b>8. Determina</b>
+                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota8" readonly>&nbsp;<b>Me conecto con el comercio</b>
                                     </a>
                                 </h4>
                         </div>
-                        <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+                        <div id="collapseEight" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingEight">
                             <div class="panel-body">
                                 <div class="text-question">
-                                    <b>8. Determina</b> lo solicitado.
+                                    <b>Resuelvan</b> el siguiente problema con un compañero, usen los dos métodos estudiados y comparen las respuestas. Joaquín vende flautas dulces en su almacén. Del total de flautas vendidas durante el fin de semana, vendió _34_ el viernes, _15_ el 45 sábado y el resto el domingo. ¿Qué fracción de flautas vendió el domingo?
                                     <br>
-                                    <b style="color: #005ca4;">a)</b> <b>Calcula</b> el valor de A, B y C.
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="col-lg-6">
-                                                <h3><div class="eq-c">
-                                                    A = -7 +
-                                                    <div class="fraction">
-                                                        <span class="fup">5</span>
-                                                        <span class="bar">/</span>
-                                                        <span class="fdn">3</span>
-                                                    </div>
-                                                    +
-                                                    <div class="fraction">
-                                                        <span class="fup">44</span>
-                                                        <span class="bar">/</span>
-                                                        <span class="fdn">6</span>
-                                                    </div>
-                                                </div></h3> A =
-                                                <input class="inputfraccciones sinEspacios" id="act8num0" style="width: 60px;"></input>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <h3><div class="eq-c">
-                                                    C =
-                                                    <div class="fraction">
-                                                        <span class="fup">3</span>
-                                                        <span class="bar">/</span>
-                                                        <span class="fdn">5</span>
-                                                    </div>
-                                                    -
-                                                    <div class="fraction">
-                                                        <span class="fup">7</span>
-                                                        <span class="bar">/</span>
-                                                        <span class="fdn">12</span>
-                                                    </div>
-                                                    +
-                                                    <div class="fraction">
-                                                        <span class="fup">4</span>
-                                                        <span class="bar">/</span>
-                                                        <span class="fdn">15</span>
-                                                    </div>
-                                                </div></h3> C =
-                                                <input class="inputfraccciones sinEspacios" id="act8num1" style="width: 60px;"></input>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <h3><div class="eq-c">
-                                                    B =
-                                                    <div class="fraction">
-                                                        <span class="fup">8</span>
-                                                        <span class="bar">/</span>
-                                                        <span class="fdn">15</span>
-                                                    </div>
-                                                    -
-                                                    <div class="fraction">
-                                                        <span class="fup">2</span>
-                                                        <span class="bar">/</span>
-                                                        <span class="fdn">5</span>
-                                                    </div>
-                                                    +
-                                                   1
-                                                </div></h3> B =
-                                            <input class="inputfraccciones sinEspacios" id="act8num2" style="width: 60px;"></input>
-                                        </div>
-                                    </div>
-                                    <b style="color: #005ca4;">b)</b> <b>Utiliza</b> los resultados anteriores para encontrar el valor numérico de:
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="col-lg-4">A + B =
-                                                <input class="inputfraccciones sinEspacios" id="act8num3" style="width: 70px;"></input>
-                                            </div>
-                                            <div class="col-lg-4">B - A =
-                                                <input class="inputfraccciones sinEspacios" id="act8num4" style="width: 70px;"></input>
-                                            </div>
-                                            <div class="col-lg-4">C - B + A =
-                                                <input class="inputfraccciones sinEspacios" id="act8num5" style="width: 70px;"></input>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingNine">
-                            <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false"
-                                        aria-controls="collapseNine">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota9" readonly>&nbsp;<b>9. Encuentra</b>
-                                    </a>
-                                </h4>
-                        </div>
-                        <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading Nine">
-                            <div class="panel-body">
-                                <div class="text-question">
-                                    <b>9. Encuentra</b> el número que se ha borrado.
-                                    <h3>
-                                        <div class="eq-c">
+                                    <div class="eq-c">
+                                        El domingo vendió
                                         <div class="fraction">
-                                            <span class="fup">37</span>
+                                            <span class="fup"><input id="act8num0" class="inputfraccciones"></input></span>
                                             <span class="bar">/</span>
-                                            <span class="fdn">60</span>
+                                            <span class="fdn"><input id="act8num1" class="inputfraccciones"></input></span>
                                         </div>
-                                        =
-                                        <div class="fraction">
-                                            <span class="fup">1</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">2</span>
-                                        </div>
-                                        -
-                                        <div class="fraction">
-                                            <span class="fup">1</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">4</span>
-                                        </div>
-                                        +
-                                        <div class="fraction">
-                                            <span class="fup">1</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">3</span>
-                                        </div>
-                                        -
-                                        <div class="fraction">
-                                            <span class="fup">1</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">6</span>
-                                        </div>
-                                        <input type="" name="" class="inputfraccciones" style="height: 70px; border-radius: 10px 0px 10px 0px;border: 1px solid #6AB5E5;" readonly> +
-                                        <div class="fraction">
-                                            <span class="fup">47</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">15</span>
-                                        </div>
-                                        +
-                                        <div class="fraction">
-                                            <span class="fup">1</span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn">5</span>
-                                        </div>
-                                    </div>
-                                    </h3>
-                                    <div class="eq-c">R. -
-                                        <div class="fraction">
-                                            <span class="fup"><input class="inputfraccciones sinEspacios" id="act9num0"></input></span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn"><input class="inputfraccciones sinEspacios" id="act9num1"></input></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingTen">
-                            <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false"
-                                        aria-controls="collapseTen">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota10" readonly>&nbsp;<b>10. Analiza y responde </b>
-
-                                    </a>
-                                </h4>
-                        </div>
-                        <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen">
-                            <div class="panel-body">
-                                <div class="text-question">
-                                    <b>10. Analiza</b> y <b>responde</b> V (verdadero) o F (falso).
-                                    <ol type="a">
-                                        <table>
-                                            <tr class="act10class" id="act010Txt0">
-                                            </tr>
-                                            <tr class="act10class" id="act010Txt1">
-                                            </tr>
-                                            <tr class="act10class" id="act010Txt2">
-                                            </tr>
-                                            <tr class="act10class" id="act010Txt3">
-                                            </tr>
-                                            <tr class="act10class" id="act010Txt4">
-                                            </tr>
-                                            <tr class="act10class" id="act010Txt5">
-                                            </tr>
-                                        </table>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingLeven">
-                            <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLeven" aria-expanded="false"
-                                        aria-controls="collapseLeven">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota11" readonly>&nbsp;<b>11. Identifica</b>
-
-                                    </a>
-                                </h4>
-                        </div>
-                        <div id="collapseLeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLeven">
-                            <div class="panel-body">
-                                <div class="text-question">
-                                    <b>11. Identifica</b> la propiedad aplicada.
-                                    <div class="row">
-                                        <div class="col-lg-12 act11class" id="act011Txt0">
-                                        </div>
-                                        <div class="col-lg-12 act11class" id="act011Txt1">
-                                        </div>
-                                        <div class="col-lg-12 act11class" id="act011Txt3">
-                                        </div>
-                                        <div class="col-lg-12 act11class" id="act011Txt4">
-                                        </div>
+                                        del total de flautas
                                     </div>
                                 </div>
                             </div>
@@ -972,7 +1068,7 @@ input {
         <script type="text/javascript">
         var titulos = "refuerzo";
         $("#txtNota").html("0");
-        $("#n_pagina").html("74");
+        $("#n_pagina").html("82");
 
         /*$(document).ready(function() {
             var winHeight = $(window).height();
