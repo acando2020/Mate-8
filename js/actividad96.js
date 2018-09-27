@@ -831,17 +831,32 @@ function NotaFinal() {
     var nota3 = document.getElementById('nota3').value;
     var nota4 = document.getElementById('nota4').value;
     var nota5 = document.getElementById('nota5').value;
-    if ((nota1 == "") || (nota2 == "") || (nota3 == "") || (nota5 == "")) {
-        alert("Ingresar nota de la pregunta 1, 2, 3 ó 5");
+    var nota6 = document.getElementById('nota6').value;
+    var nota7 = document.getElementById('nota7').value;
+    var nota8 = document.getElementById('nota8').value;
+    var nota9 = document.getElementById('nota9').value;
+    if ((nota1 == "") || (nota5 == "") || (nota7 == "") || (nota9 == "")) {
+        alert("Ingresar nota de la pregunta 1, 5, 7 ó 9");
     } else {
-        pregunta4();
+
+        pregunta2();
+        pregunta3();
+        contarRespCorrectaDnD();
+        pregunta6();
+        pregunta8();
+
 
         var nota1 = document.getElementById('nota1').value;
         var nota2 = document.getElementById('nota2').value;
         var nota3 = document.getElementById('nota3').value;
         var nota4 = document.getElementById('nota4').value;
         var nota5 = document.getElementById('nota5').value;
-        var total = parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3) + parseFloat(nota4) + parseFloat(nota5);
+        var nota6 = document.getElementById('nota6').value;
+        var nota7 = document.getElementById('nota7').value;
+        var nota8 = document.getElementById('nota8').value;
+        var nota9 = document.getElementById('nota9').value;
+        var subtotal = parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3) + parseFloat(nota4) + parseFloat(nota5) + parseFloat(nota6) + parseFloat(nota7) + parseFloat(nota8) + parseFloat(nota9);
+        var total = (subtotal * 10) / 9;
         $('#txtNota').html(parseFloat(total).toFixed(2));
         document.getElementById('bt_comprobar').disabled = true;
         $('input').attr("disabled", true);

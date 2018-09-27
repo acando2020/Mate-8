@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mate 8</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Bootstrap-->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--Animaciones-->
+    <link href="css/animate.css" rel="stylesheet">
+    <!--Css propio del proyecto-->
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/fraccion.css" rel="stylesheet">
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+</head>
+<style type="text/css">
+.cajas {
+    max-width: 100%;
+    max-height: 100%;
+    border: 1px #005ca4 solid;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 5px;
+    width: auto;
+    display: grid;
+}
+
+.encierra {
+    border: 5px solid #FF9D29;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+
+
+.actividad1 {
+    background: #fff;
+}
+
+.correcto {
+    color: #ffffff;
+    background-color: #00e600;
+}
+
+.incorrecto {
+    color: #ffffff;
+    background-color: #ff6666;
+}
+
+.desactivar {
+    background-color: #444;
+    color: #888;
+    padding: 8px;
+}
+
+#cabecera .badge {
+    background-color: #232956;
+}
+
+.inputPequeño {
+    text-align: center;
+    border: 0;
+    border-bottom: 1px dotted #328AF7;
+    width: 40px;
+    color: blue;
+}
+
+.cajas1 {
+    max-width: 95%;
+    max-height: 200px;
+    border: 1px #ed8700 dotted;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 5px;
+    width: auto;
+}
+
+input {
+
+    border: 0;
+    border-bottom: 1px solid #85BCEB;
+    width: 30px;
+}
+
+.fraction {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.2em 0.4ex;
+    text-align: center;
+}
+
+.fraction>span {
+    display: block;
+    padding-top: 0.15em;
+}
+
+.fraction span.fdn {
+    border-top: thin solid black;
+}
+
+.fraction span.bar {
+    display: none;
+}
+
+.periodicos {
+    border-top: 2px solid #000000;
+    border-radius: 15px;
+}
+
+.inputfraccciones {
+    text-align: center;
+    border: 1px solid #D3D3D3;
+    width: 40px;
+}
+
+.subrayar {
+
+    border-bottom: 3px solid #FF8A00;
+}
+
+.pintar1 {
+
+    border: 10px solid #AFD290;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.pintar2 {
+
+
+    border: 10px solid #C093C3;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.pintar3 {
+
+
+    border: 10px solid #F8B472;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.pintar4 {
+
+
+    border: 10px solid #8BCBB7;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.vacio {}
+
+.color1 {
+
+    background: #AFD290;
+}
+
+.color2 {
+    background: #C093C3;
+}
+
+.color3 {
+    background: #F8B472;
+}
+
+.color4 {
+    background: #8BCBB7;
+}
+
+
+
+.circulo {
+    width: 70px;
+    height: 70px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid #000000;
+}
+</style>
+
+<body>
+    <div id="nota-informativa" class="nota-ayuda">
+        <button type="button" class="close" onclick="cerrar_ayuda()" aria-label="Close"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
+        <!--ACA ESCRIBIR TEXTO DE LA AYUDA DE LA ACTIVIDAD-->
+        Lee cuidadosamente las preguntas, contesta cada una de ellas.
+        <br>
+        <b>4.</b> Seleccione verdadero o falso de acuerdo con el análisis.
+        <br>
+        <span id="ayudas"></span>
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <button class="btn button btnHelp mytooltip" data-info="Mostrar ayuda de la actividad" onclick="mostrar_ayuda()">
+                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_1 btnGuardar mytooltip" data-info="Guardar en local" onclick="$('#myModal').modal('show')">
+                        <span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_1 btnEvniar mytooltip" style="display: none !important;" data-info="Enviar a Correo">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_2 btnIniciar mytooltip" style="display: none !important;" disabled data-info="Iniciar">
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_2 btnRepetir mytooltip" data-info="Repetir" onclick="location.reload()">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="NotaFinal()">
+                        <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_5 mytooltip display-none" style="display: none !important;" data-info="Pantalla completa" onclick="full_screen_change()">
+                        <span id="full_ico" class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
+                    </button>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 0px;margin-left: 0px; ">
+                <li><span class="notificacion actividad">
+                            <span class="glyphicon glyphicon-list-alt"></span> Actividad <span id='n_cont'>1</span> / <span id='n_ejer'>1</span>
+                    </span>
+                    <span class="notificacion nota">
+                            <span class="glyphicon glyphicon-pencil"></span> Nota <span id="txtNota"></span> / 10
+                    </span>
+                    <span class="notificacion pagina">
+                            <span class="glyphicon glyphicon-bookmark"></span> Pág <i id="n_pagina"></i>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--FIN DE NAVBAR QUE SE AÑADE-->
+    <div class="container espacio">
+        <div class="panel border-exploro" id="activity">
+            <!--modificar el bg- segun la actividad-->
+            <div class="panel-heading bg-exploro">
+                <span class="titulo"><img src="img/icoE.png" alt="">Exploro para recordar</span>
+                <span class="titulo_2 txtAlumno display-none" id="nombre_alumno">Alumno: </span>
+            </div>
+            <div class="panel-body">
+                <!--pregunats de la actividad-->
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <input type="text" maxlength="4" size="" style="text-align:center; background: white;" class="nota-abierta" min="0" max="1" id="nota1">&nbsp; <b>1. Determina</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <div class="col-md-12 ">
+                                    <div class="text-question">
+                                        <span><b>1. Determina</b> por extensión los siguientes conjuntos.</span>
+                                        <br>
+                                        <b style="color:#005CA9">a)</b> A = {x − 2 | x ∈ ℤ, 0
+                                        < x ≤ 5} <input type="text" class="form-control" name="">
+                                            <b style="color:#005CA9">b)</b> B = {x | x ∈ ℕ, x es impar, 1
+                                            < x ≤ 7} <input type="text" class="form-control" name="">
+                                                <b style="color:#005CA9">c)</b> C = {x2 | x ∈ ℤ,   − 3
+                                                < x < 3} <input type="text" class="form-control" name="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                     <input type="text" maxlength="" size="" style="text-align:center; background: white;" class="nota-abierta" min="0" max="1" id="nota2">&nbsp;<b>2. Determina</b>
+
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <div class="col-md-12 ">
+                                    <div class="text-question">
+                                        <b>2. Determina</b> por comprensión estos conjuntos.
+                                        <br>
+                                        <table class="table" style="width: auto;">
+                                            <tr>
+                                                <td>Signos:</td>
+                                                <td>∈</td>
+                                                <td>ℕ</td>
+                                                <td>≤</td>
+                                                <td>≥</td>
+                                                <td>|</td>
+                                            </tr>
+                                        </table>
+                                        <b style="color:#005CA9">a)</b><span> A = {3, 5, 7, 9, 11, 13}</span>
+                                        <input type="text" class="form-control" name="">
+                                        <b style="color:#005CA9">b)</b><span> B = {6, 8, 10, 12}</span>
+                                        <input type="text" class="form-control" name="">
+                                        <b style="color:#005CA9">c)</b><span> C = {1, 4, 9, 16, 25, 36, 49, 64, 81, 100}</span>
+                                        <input type="text" class="form-control" name="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="html2pdf__page-break"></div>
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                 <input type="text" maxlength="" size="" style="text-align:center; background: white;" class="nota-abierta" min="0" max="1" id="nota3">&nbsp;
+                                    <b>3. Explica</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <div class="text-question">
+                                        <b>3. </b><b>Explica</b> con tus palabras las siguientes preguntas.
+                                        <br>
+                                        <b style="color:#005CA9">a)</b> ¿Cuántas parejas ordenadas tiene el producto cartesiano A × B si se conoce la cardinalidad η(A ) = 5; η(B ) = 7 ?
+                                        <input class="form-control"></input>
+                                        <b style="color:#005CA9">b)</b> Si en un producto cartesiano se obtienen 27 parejas ordenadas y la cardinalidad η(B ) = 9, ¿cuál es la cardinalidad de A?
+                                        <input class="form-control"></input>
+                                        <b style="color:#005CA9">c)</b> Se define el producto cartesiano así: P × Q = { (3, 9) ; (5, 9 ) ; (8, 9 ) ; (6, 9)}
+                                        <br> ¿Cuál es el conjunto de salida y cuál es el conjunto de llegada?
+                                        <input class="form-control"></input>
+                                        <b style="color:#005CA9">d)</b> ¿El conjunto formado por: M = {(3, 9); (6,9)} es subconjunto de P × Q?
+                                        <input class="form-control"></input>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFour">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
+                                    aria-controls="collapseFour">
+                                    <input type="text" maxlength="4" size="2" style="text-align:center;" class="nota-abierta" min="0" max="1" id="nota4" readonly>&nbsp;<b>4. Analicen</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <b>4.</b> <b>Analicen</b> con un compañero el diagrama de Venn y escriban verdadero o falso de acuerdo con el análisis.
+                                    <img class="img-responsive" src="img/i1_p96_act99.jpg"></img>
+                                    <div class="row">
+                                        <ol type="a">
+                                            <div class="col-lg-12">
+                                                <div class="col-lg-6">
+                                                    <table class="table">
+                                                        <tr class="act4class" id="act04Txt0">
+                                                        </tr>
+                                                        <tr class="act4class" id="act04Txt1">
+                                                        </tr>
+                                                        <tr class="act4class" id="act04Txt2">
+                                                        </tr>
+                                                        <tr class="act4class" id="act04Txt3">
+                                                        </tr>
+                                                        <tr class="act4class" id="act04Txt4">
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <table class="table">
+                                                        <tr class="act4class" id="act04Txt5">
+                                                        </tr>
+                                                        <tr class="act4class" id="act04Txt6">
+                                                        </tr>
+                                                        <tr class="act4class" id="act04Txt7">
+                                                        </tr>
+                                                        <tr class="act4class" id="act04Txt8">
+                                                        </tr>
+                                                        <tr class="act4class" id="act04Txt9">
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFive">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false"
+                                    aria-controls="collapseFive">
+                                    <input type="text" maxlength="4" size="2" style="text-align:center; background: white;" class="nota-abierta" min="0" max="1" id="nota5">&nbsp;<b>5. Observa</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <b>5. Observa</b> el producto matricial representado en el plano cartesiano.
+                                    <img class="img-responsive" src="img/i2_p96_act99.jpg"></img>
+                                    <b style="color:#005CA9">a) </b> <b>Escribe</b> los elementos de A × B.
+                                    <textarea name="" class="form-control"></textarea>
+                                    <b style="color:#005CA9">b) </b> <b>Determina</b> los elementos de la relación:
+                                    <br>
+                                    <span>R = {(a, b) ∈ A × B | (a + b) ≥ 10}.</span>
+                                    <textarea name="" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Guardar PDF-->
+        <div class="modal fade animated pulse" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal conLevent-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" onclick="$('#myModal').modal('hide')">&times;</button>
+                        <h4 class="modal-title">Guarda esta actividad en tu computadora</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="modal_form" class="form-horizontal">
+                            <div class="form-group ">
+                                <div class="col-sm-2">
+                                    <label id="lbl_nombre" for="txtAlumno">Alumno: </label>
+                                </div>
+                                <div class="col-sm-10">
+                                    <!--el input para ingresar el nombre del alumno debe se txt_alumno-->
+                                    <input type="text" class="form-control nombre " id="txtAlumno" placeholder="Ingrese tu nombre">
+                                    <div class="alert alert-danger display-none" id="txtAlumnoAlert" role="alert">
+                                        <button type="button" class="close" onclick="o$('#myModal').modal('hide')" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <span class="glyphicon glyphicon-info-sign error-color" aria-hidden="true"></span> Debes ingresar tu nombre</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="save_open_activity_to_local('txtAlumno')">Guardar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <!--generador d pdf-->
+        <script src="js/html2pdf/html2pdf.bundle.min.js"></script>
+        <script src="js/screenfull.js"></script>
+        <script src="js/helper1.js"></script>
+        <script src="js/activities.js"></script>
+        <script src="js/Utilitario.js"></script>
+        <script src="js/validacionesExtras.js"></script>
+        <script src="js/dragNdrop.js"></script>
+        <script src="js/actividad99.js"></script>
+        <script type="text/javascript">
+        var titulos = "refuerzo";
+        $("#txtNota").html("0");
+        $("#n_pagina").html("96");
+
+       /* $(document).ready(function() {
+            var winHeight = $(window).height();
+            var winWidth = $(window).width();
+            //var imageSize = { width: winHeight , height: winHeight };
+            var watermarkImage = new Image();
+            var watermarkImage2 = new Image();
+            var watermarkImage3 = new Image();
+            watermarkImage.src = 'img/i1_p94_act98.jpg';
+            watermarkImage2.src = 'img/i3_p94_act98.jpg';
+            watermarkImage3.src = 'img/i5_p94_act98.jpg';
+            LC.init(
+                document.getElementsByClassName('my-drawing')[0], {
+                    imageURLPrefix: 'imgcanvas',
+
+                    watermarkImage: watermarkImage,
+                    watermarkScale: 0.8, // you can scale it
+                    //imageSize: imageSize
+                    backgroundColor: 'white'
+
+                });
+            LC.init(
+                document.getElementsByClassName('my-drawing')[1], {
+                    imageURLPrefix: 'imgcanvas',
+
+                    watermarkImage: watermarkImage2,
+                    watermarkScale: 0.8, // you can scale it
+                    //imageSize: imageSize
+                    backgroundColor: 'white'
+
+                });
+            LC.init(
+                document.getElementsByClassName('my-drawing')[2], {
+                    imageURLPrefix: 'imgcanvas',
+
+                    watermarkImage: watermarkImage3,
+                    watermarkScale: 0.8, // you can scale it
+                    //imageSize: imageSize
+                    backgroundColor: 'white'
+
+                });
+
+
+        });*/
+
+
+
+
+        function sinEspacios(inputs) {
+            $(inputs).on('keypress', function(e) {
+                if (e.which == 32)
+                    return false;
+            });
+        }
+        sinEspacios(".sinEspacios");
+        </script>
+</body>
+
+</html>

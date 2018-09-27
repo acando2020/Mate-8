@@ -224,7 +224,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta8()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="NotaFinal()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -268,7 +268,7 @@ input {
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
                                 <div class="col-md-12 ">
                                     <div class="text-question">
@@ -551,7 +551,7 @@ input {
                             <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false"
                                         aria-controls="collapseSeven">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota7">&nbsp;<b>7. Escribe</b>
+                                        <input type="text" maxlength="4" size="2" style="text-align:center; background: white;" class="nota-abierta" min="0" max="1" id="nota7">&nbsp;<b>7. Escribe</b>
                                     </a>
                                 </h4>
                         </div>
@@ -613,7 +613,7 @@ input {
                                     </a>
                                 </h4>
                         </div>
-                        <div id="collapseNine" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading Nine">
+                        <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading Nine">
                             <div class="panel-body">
                                 <div class="text-question">
                                     <b>9. Expresa</b> por extensión cada conjunto, grafica y determina la relación que existe entre ellos.
@@ -677,7 +677,7 @@ input {
         <script type="text/javascript">
         var titulos = "aplico";
         $("#txtNota").html("0");
-        $("#n_pagina").html("77");
+        $("#n_pagina").html("90");
 
         /*$(document).ready(function() {
             var winHeight = $(window).height();
