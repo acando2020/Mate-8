@@ -4,6 +4,18 @@ document.getElementById('nota3').addEventListener('keypress', () => {
 document.getElementById('nota3').addEventListener('keyup', () => {
     validMaxIngreso(document.getElementById('nota3'), 0.75)
 });
+document.getElementById('nota8').addEventListener('keypress', () => {
+    validNumero(0, 0.75, 1);
+});
+document.getElementById('nota8').addEventListener('keyup', () => {
+    validMaxIngreso(document.getElementById('nota8'), 0.75)
+});
+document.getElementById('nota10').addEventListener('keypress', () => {
+    validNumero(0, 0.75, 1);
+});
+document.getElementById('nota10').addEventListener('keyup', () => {
+    validMaxIngreso(document.getElementById('nota10'), 0.75)
+});
 var resp_cor_len3_act13_p14 = [
     ["Perímetro de un triángulo equilátero", "img/i1_p98_act100.jpg"],
     ["El tripe de un número más dos unidades", "img/i2_p98_act100.jpg"],
@@ -991,5 +1003,182 @@ function pregunta7() {
      document.getElementById('bt_comprobar').disabled = true;
      $('input').attr("disabled", true);
      $('#txtAlumno').attr("disabled", false);*/
+
+}
+//////////pregunta9//////////////////////////////
+var random9 = [
+    ['<td><b style="color: #005CA9"><li></li></b></td>' +
+        '<td>10</td>' +
+        '<td>' +
+        '<select class="form-control" id="sel0">' +
+        '<option>--seleccione--</option>' +
+        '<option>∉</option>' +
+        '<option>∈</option>' +
+        '<option>⊂</option>' +
+        '</select>' +
+        '</td>' +
+        '<td>A</td>'
+    ],
+    ['<td><b style="color: #005CA9"><li></li></b></td>' +
+        '<td>12</td>' +
+        '<td>' +
+        '<select class="form-control" id="sel1">' +
+        '<option>--seleccione--</option>' +
+        '<option>∉</option>' +
+        '<option>∈</option>' +
+        '<option>⊂</option>' +
+        '</select> </td> <td>A</td>'
+    ],
+    ['<td><b style="color: #005CA9"><li></li></b></td>' +
+        '<td>A</td>' +
+        '<td>' +
+        '<select class="form-control" id="sel2">' +
+        '<option>--seleccione--</option>' +
+        '<option>∉</option>' +
+        '<option>∈</option>' +
+        '<option>⊂</option>' +
+        '</select> </td> <td>C</td>'
+    ],
+    ['<td><b style="color: #005CA9"><li></li></b></td>' +
+        '<td>5</td>' +
+        '<td>' +
+        '<select class="form-control" id="sel3">' +
+        '<option>--seleccione--</option>' +
+        '<option>∉</option>' +
+        '<option>∈</option>' +
+        '<option>⊂</option>' +
+        '</select> </td> <td>C</td>'
+    ],
+    ['<td><b style="color: #005CA9"><li></li></b></td>' +
+        '<td>1</td>' +
+        '<td>' +
+        '<select class="form-control" id="sel4">' +
+        '<option>--seleccione--</option>' +
+        '<option>∉</option>' +
+        '<option>∈</option>' +
+        '<option>⊂</option>' +
+        '</select> </td> <td>C</td>'
+    ],
+    ['<td><b style="color: #005CA9"><li></li></b></td>' +
+        '<td>1</td>' +
+        '<td>' +
+        '<select class="form-control" id="sel5">' +
+        '<option>--seleccione--</option>' +
+        '<option>∉</option>' +
+        '<option>∈</option>' +
+        '<option>⊂</option>' +
+        '</select> </td> <td>B</td>'
+    ],
+    ['<td><b style="color: #005CA9"><li></li></b></td>' +
+        '<td>C</td>' +
+        '<td>' +
+        '<select class="form-control" id="sel6">' +
+        '<option>--seleccione--</option>' +
+        '<option>∉</option>' +
+        '<option>∈</option>' +
+        '<option>⊂</option>' +
+        '</select> </td> <td>A</td>'
+    ],
+    ['<td><b style="color: #005CA9"><li></li></b></td>' +
+        '<td>11</td>' +
+        '<td>' +
+        '<select class="form-control" id="sel7">' +
+        '<option>--seleccione--</option>' +
+        '<option>∉</option>' +
+        '<option>∈</option>' +
+        '<option>⊂</option>' +
+        '</select> </td> <td>A</td>'
+    ],
+    ['<td><b style="color: #005CA9"><li></li></b></td>' +
+        '<td>14</td>' +
+        '<td>' +
+        '<select class="form-control" id="sel8">' +
+        '<option>--seleccione--</option>' +
+        '<option>∉</option>' +
+        '<option>∈</option>' +
+        '<option>⊂</option>' +
+        '</select> </td> <td>C</td>'
+    ],
+    [' <td><b style="color: #005CA9"><li></li></b></td>' +
+        '<td>5</td>' +
+        '<td>' +
+        '<select class="form-control" id="sel9">' +
+        '<option>--seleccione--</option>' +
+        '<option>∉</option>' +
+        '<option>∈</option>' +
+        '<option>⊂</option>' +
+        '</select> </td> <td>A</td>'
+    ],
+];
+var act09Txt = document.getElementsByClassName('act9class');
+
+random9.sort(f_randomico);
+for (i = 0; i < act09Txt.length; i++) {
+    $('#' + act09Txt[i].id).html(random9[i]);
+}
+
+function pregunta9() {
+    var respact2 = ['∉', '∈', '⊂', '∉', '∈', '∈', '∉', '∉', '∉', '∉', ];
+    var cont = 0;
+    for (var i = 0; i < 10; i++) {
+        var res = $('#sel' + [i] + ' option:selected').text();
+        if (respact2[i] == res) {
+            cont = cont + 1;
+            $('#sel' + [i] + '').css("background", "#00e600");
+        } else {
+            $('#sel' + [i] + '').css("background", "#ff6666");
+        }
+
+    }
+    var total = (cont * 0.75) / 10;
+    $('#nota9').val(parseFloat(total).toFixed(2));
+
+}
+///////////////////////////////////////////////
+function NotaFinal() {
+    var nota1 = document.getElementById('nota1').value;
+    var nota2 = document.getElementById('nota2').value;
+    var nota3 = document.getElementById('nota3').value;
+    var nota4 = document.getElementById('nota4').value;
+    var nota5 = document.getElementById('nota5').value;
+    var nota6 = document.getElementById('nota6').value;
+    var nota7 = document.getElementById('nota7').value;
+    var nota8 = document.getElementById('nota8').value;
+    var nota9 = document.getElementById('nota9').value;
+    var nota10 = document.getElementById('nota10').value;
+
+    if ((nota3 == "") || (nota8 == "") || (nota10 == "")) {
+        alert("Calificar la pregunta 3, 8 ó 10")
+    } else {
+        contarRespCorrectaDnD();
+        pregunta2();
+        //pregunta3();
+        pregunta4();
+        pregunta5();
+        pregunta6();
+        pregunta7();
+        //pregunta8();
+        pregunta9();
+        //pregunta10();
+
+        var nota1 = document.getElementById('nota1').value;
+        var nota2 = document.getElementById('nota2').value;
+        var nota3 = document.getElementById('nota3').value;
+        var nota4 = document.getElementById('nota4').value;
+        var nota5 = document.getElementById('nota5').value;
+        var nota6 = document.getElementById('nota6').value;
+        var nota7 = document.getElementById('nota7').value;
+        var nota8 = document.getElementById('nota8').value;
+        var nota9 = document.getElementById('nota9').value;
+        var nota10 = document.getElementById('nota10').value;
+
+        var total = parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3) + parseFloat(nota4) + parseFloat(nota5) + parseFloat(nota6) + parseFloat(nota7) + parseFloat(nota8) + parseFloat(nota9) + parseFloat(nota10);
+
+        $('#txtNota').html(parseFloat(total).toFixed(2));
+        document.getElementById('bt_comprobar').disabled = true;
+        $('input').attr("disabled", true);
+        $('#txtAlumno').attr("disabled", false);
+    }
+
 
 }

@@ -148,6 +148,10 @@ input {
         <!--ACA ESCRIBIR TEXTO DE LA AYUDA DE LA ACTIVIDAD-->
         Lee cuidadosamente las preguntas, contesta cada una de ellas.
         <br>
+        <b>1.</b> Arrastra la expresión algebraica a cada enunciado.
+        <br>
+        <b>9.</b> Selecciona la respuesta correcta.
+        <br>
         <span id="ayudas"></span>
     </div>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -186,7 +190,7 @@ input {
                     </button>
                 </li>
                 <li>
-                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="pregunta7()">
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="NotaFinal()">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                     </button>
                 </li>
@@ -334,7 +338,7 @@ input {
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
                             <div class="panel-body">
                                 <div class="text-question">
                                     <span><b>3. Ubica</b> en la recta numérica los números racionales.</span>
@@ -361,7 +365,7 @@ input {
                                             <span class="fdn">4</span>
                                         </div>
                                     </div>
-                                    <div class="my-drawing"></div>
+                                    <div class="my-drawing" style="border: 1px solid #000000;"></div>
                                 </div>
                                 <br>
                             </div>
@@ -492,7 +496,7 @@ input {
                                     </a>
                                 </h4>
                         </div>
-                        <div id="collapseSeven" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSeven">
+                        <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
                             <div class="panel-body">
                                 <div class="text-question">
                                     <b>7. Calcula</b> de la forma más ventajosa posible.
@@ -502,19 +506,89 @@ input {
                                                 <div class="col-lg-6">
                                                     <table>
                                                         <tr class="act7class" id="act07Txt0">
-
                                                         </tr>
                                                         <tr class="act7class" id="act07Txt1">
-
                                                         </tr>
                                                         <tr class="act7class" id="act07Txt2">
-
                                                         </tr>
                                                         <tr class="act7class" id="act07Txt3">
-
                                                         </tr>
                                                         <tr class="act7class" id="act07Txt4">
-
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="img-responsive" src="img/geometria.png"></img>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingEight">
+                            <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false"
+                                        aria-controls="collapseEight">
+                                        <input type="text" maxlength="4" size="2" style="text-align:center; background: white" class="nota-abierta" min="0" max="1" id="nota8">&nbsp;<b>8. Realiza</b> <span class="sobre">0,75 pts</span>
+                                    </a>
+                                </h4>
+                        </div>
+                        <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <span><b>8. Realiza</b> el producto cartesiano B × A entre los conjuntos: A = {–3, 1, 4} y B = {–2, 2, 5, 7}</span>
+                                    <textarea name="" class="form-control" style="resize: none;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingNine">
+                            <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false"
+                                        aria-controls="collapseNine">
+                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota9">&nbsp;<b>9. Analiza </b> <span class="sobre">0,75 pts</span>
+                                    </a>
+                                </h4>
+                        </div>
+                        <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading Nine">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <b>9. Analiza</b> el diagrama de conjuntos; luego escribe: según corresponda.
+                                    <img class="img-responsive" src="img/i6_p98_act100.jpg"></img>
+                                    <div class="row">
+                                        <ol type="a">
+                                            <div class="col-lg-12">
+                                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                                    <table>
+                                                        <tr class="act9class" id="act09Txt0">
+                                                        </tr>
+                                                        <tr class="act9class" id="act09Txt1">
+                                                        </tr>
+                                                        <tr class="act9class" id="act09Txt2">
+                                                        </tr>
+                                                        <tr class="act9class" id="act09Txt3">
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                                    <table>
+                                                        <tr class="act9class" id="act09Txt4">
+                                                        </tr>
+                                                        <tr class="act9class" id="act09Txt5">
+                                                        </tr>
+                                                        <tr class="act9class" id="act09Txt6">
+                                                        </tr>
+                                                        <tr class="act9class" id="act09Txt7">
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                                    <table>
+                                                        <tr class="act9class" id="act09Txt8">
+                                                        </tr>
+                                                        <tr class="act9class" id="act09Txt9">
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -526,200 +600,20 @@ input {
                         </div>
                     </div>
                     <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingEight">
-                            <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false"
-                                        aria-controls="collapseEight">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota8" readonly>&nbsp;<b>8. Analiza y selecciona</b>
-                                    </a>
-                                </h4>
-                        </div>
-                        <div id="collapseEight" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingEight">
-                            <div class="panel-body">
-                                <div class="text-question">
-                                    <span><b>8. Analiza</b> y <b>selecciona</b> la respuesta que reduce los siguientes términos semejantes.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingNine">
-                            <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false"
-                                        aria-controls="collapseNine">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota9">&nbsp;<b>9. Escribe </b>
-                                    </a>
-                                </h4>
-                        </div>
-                        <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading Nine">
-                            <div class="panel-body">
-                                <div class="text-question">
-                                    <b>9. Escribe</b> tres fracciones que se encuentren entre los números racionales
-                                    <div class="fraction">
-                                        <span class="fup">1</span>
-                                        <span class="bar">/</span>
-                                        <span class="fdn">4</span>
-                                    </div> y
-                                    <div class="fraction">
-                                        <span class="fup">3</span>
-                                        <span class="bar">/</span>
-                                        <span class="fdn">4</span>
-                                    </div>
-                                    <textarea cols="30" rows="5" class="form-control"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingTen">
                             <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false"
                                         aria-controls="collapseTen">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota10" readonly>&nbsp;<b>10. Escribe </b>
+                                        <input type="text" maxlength="4" size="2" style="text-align:center; background: white;" class="nota-abierta" min="0" max="1" id="nota10">&nbsp;<b>10. Grafica </b> <span class="sobre">0,75 pts</span>
 
                                     </a>
                                 </h4>
                         </div>
-                        <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen">
+                        <div id="collapseTen" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTen">
                             <div class="panel-body">
                                 <div class="text-question">
-                                    <b>10. Escribe</b> V (Verdadero) o F (Falso). Si es falso justifica tu respuesta.
-                                    <table>
-                                        <tr class="act10class" id="act010Txt0">
-                                        </tr>
-                                        <tr class="act10class" id="act010Txt1">
-                                        </tr>
-                                        <tr class="act10class" id="act010Txt2">
-                                        </tr>
-                                    </table>
-                                    <input class="form-control"></input>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingLeven">
-                            <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLeven" aria-expanded="false"
-                                        aria-controls="collapseLeven">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota11" readonly>&nbsp;<b>11. Encierra </b>
-
-                                    </a>
-                                </h4>
-                        </div>
-                        <div id="collapseLeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLeven">
-                            <div class="panel-body">
-                                <div class="text-question">
-                                    <b>11. Encierra</b> la fracción que está más próxima a −1.
-                                    <table class="table">
-                                        <tr>
-                                            <td class="act11class" id="act011Txt0">
-                                            </td>
-                                            <td class="act11class" id="act011Txt1">
-                                            </td>
-                                            <td class="act11class" id="act011Txt2">
-                                            </td>
-                                            <td class="act11class" id="act011Txt3">
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingTwelve">
-                            <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve" aria-expanded="false"
-                                        aria-controls="collapseTwelve">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota12">&nbsp;<b>12. Encuentra </b>
-
-                                    </a>
-                                </h4>
-                        </div>
-                        <div id="collapseTwelve" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwelve">
-                            <div class="panel-body">
-                                <div class="text-question">
-                                    <b>12. Encuentra</b> dos fracciones que tengan por numerador la unidad, por denominadores dos números naturales consecutivos, tales que entre ellos se encuentre la fracción
-                                    <div class="fraction">
-                                        <span class="fup">5</span>
-                                        <span class="bar">/</span>
-                                        <span class="fdn">39</span>
-                                    </div>.
-                                    <textarea class="form-control" cols="30" rows="5"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingThirteen">
-                            <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThirteen" aria-expanded="false"
-                                        aria-controls="collapseThirteen">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota13">&nbsp;<b>13. desplaza </b>
-
-                                    </a>
-                                </h4>
-                        </div>
-                        <div id="collapseThirteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThirteen">
-                            <div class="panel-body">
-                                <div class="text-question">
-                                    <b>13. </b> El conejo Rab se desplaza dando saltos sobre una recta como la siguiente:
-                                    <img class="img-responsive" src="img/i4_p73_act82.jpg"></img>
-                                    <span>Los pasos de Rab son todos de la misma longitud y él da dos pasos para ir del 0 al 3.</span>
-                                    <br>
-                                    <br>
-                                    <span><b style="color: #005ca4">a)</b> Si Rab se para en el 6 y da un solo paso hacia la derecha, ¿qué número le asignarías al punto en el que se detiene?</span>
-                                    <div class="eq-c" align="center">
-                                        <div class="fraction">
-                                            <span class="fup"><input type="text" class="sinEspacios soloNumeros inputfraccciones" name=""></span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn"><input type="text" class="sinEspacios soloNumeros inputfraccciones" name=""></span>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <span><b style="color: #005ca4">b)</b> Identifica de menor a mayor cinco puntos de la recta donde pararía Rab, que no sean los que aparecen marcados con los números naturales, y asígnale un número a cada uno de esos cinco puntos.</span>
-                                    <div class="eq-c" align="center">
-                                        <div class="fraction">
-                                            <span class="fup"><input type="text" class="sinEspacios soloNumeros inputfraccciones" name=""></span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn"><input type="text" class="sinEspacios soloNumeros inputfraccciones" name=""></span>
-                                        </div>;
-                                        <div class="fraction">
-                                            <span class="fup"><input type="text" class="sinEspacios soloNumeros inputfraccciones" name=""></span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn"><input type="text" class="sinEspacios soloNumeros inputfraccciones" name=""></span>
-                                        </div>;
-                                        <div class="fraction">
-                                            <span class="fup"><input type="text" class="sinEspacios soloNumeros inputfraccciones" name=""></span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn"><input type="text" class="sinEspacios soloNumeros inputfraccciones" name=""></span>
-                                        </div>;
-                                        <div class="fraction">
-                                            <span class="fup"><input type="text" class="sinEspacios soloNumeros inputfraccciones" name=""></span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn"><input type="text" class="sinEspacios soloNumeros inputfraccciones" name=""></span>
-                                        </div>;
-                                        <div class="fraction">
-                                            <span class="fup"><input type="text" class="sinEspacios soloNumeros inputfraccciones" name=""></span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn"><input type="text" class="sinEspacios soloNumeros inputfraccciones" name=""></span>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <span>Otro conejo, llamado Bit, da saltos de distinta longitud que Rab. Este nuevo conejo, con dos saltos, va del 0 al 1.</span>
-                                    <br>
-                                    <br>
-                                    <span><b style="color: #005ca4">c)</b> Si Bit está parado en el 3 y da un solo salto hacia la derecha, ¿qué número le asignarías al punto en el que se detiene?</span>
-                                    <div class="eq-c" align="center">
-                                        <div class="fraction">
-                                            <span class="fup"><input type="text" class="sinEspacios soloNumeros inputfraccciones" name=""></span>
-                                            <span class="bar">/</span>
-                                            <span class="fdn"><input type="text" class="sinEspacios soloNumeros inputfraccciones" name=""></span>
-                                        </div>
-                                    </div>
-                                    <span><b style="color: #005ca4">d)</b> ¿Cuál es la relación entre los saltos de los dos conejos?</span>
-                                    <input type="text" class="form-control">
+                                    <b>10. </b>Con los conjuntos anteriores, <b>grafica</b> en el plano cartesiano los pares ordenados producto de la relación R = {(b, a) ∈ B × A | (b, b – 1)}
+                                    <div class="my-drawing" style="border: 1px solid #000000;"></div>
                                 </div>
                             </div>
                         </div>
@@ -776,7 +670,7 @@ input {
         <script type="text/javascript">
         var titulos = "preparo";
         $("#txtNota").html("0");
-        $("#n_pagina").html("74");
+        $("#n_pagina").html("98");
 
         $(document).ready(function() {
             var winHeight = $(window).height();
@@ -784,12 +678,25 @@ input {
             //var imageSize = { width: winHeight , height: winHeight };
             var watermarkImage = new Image();
             watermarkImage.src = 'img/i5_p98_act100.jpg';
+            var watermarkImage2 = new Image();
+            watermarkImage2.src = 'img/i7_p98_act100.jpg';
+
             LC.init(
                 document.getElementsByClassName('my-drawing')[0], {
                     imageURLPrefix: 'imgcanvas',
 
                     watermarkImage: watermarkImage,
                     watermarkScale: 0.8, // you can scale it
+                    //imageSize: imageSize
+                    backgroundColor: 'white'
+
+                });
+            LC.init(
+                document.getElementsByClassName('my-drawing')[1], {
+                    imageURLPrefix: 'imgcanvas',
+
+                    watermarkImage: watermarkImage2,
+                    watermarkScale: 0.6, // you can scale it
                     //imageSize: imageSize
                     backgroundColor: 'white'
 
