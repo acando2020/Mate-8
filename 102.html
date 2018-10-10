@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mate 8</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Bootstrap-->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--Animaciones-->
+    <link href="css/animate.css" rel="stylesheet">
+    <!--Css propio del proyecto-->
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/fraccion.css" rel="stylesheet">
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/literallycanvas.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/react-with-addons.js"></script>
+    <script type="text/javascript" src="js/literallycanvas.min.js"></script>
+</head>
+<style type="text/css">
+.cajas {
+    max-width: 100%;
+    max-height: 100%;
+    border: 1px #005ca4 solid;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 5px;
+    width: auto;
+    display: grid;
+}
+
+.encierra {
+    border: 5px solid #FF9D29;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.sobre {
+    padding: 4px;
+    border-style: none;
+    border-width: 2px;
+    border-radius: 15%;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-color: #1a75ff;
+    color: #1a75ff;
+}
+
+
+
+.actividad1 {
+    background: #fff;
+}
+
+.correcto {
+    color: #ffffff;
+    background-color: #00e600;
+}
+
+.incorrecto {
+    color: #ffffff;
+    background-color: #ff6666;
+}
+
+.desactivar {
+    background-color: #444;
+    color: #888;
+    padding: 8px;
+}
+
+#cabecera .badge {
+    background-color: #232956;
+}
+
+.inputPequeño {
+    text-align: center;
+    border: 0;
+    border-bottom: 1px dotted #328AF7;
+    width: 40px;
+    color: blue;
+}
+
+.cajas1 {
+    max-width: 95%;
+    max-height: 200px;
+    border: 1px #ed8700 dotted;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 5px;
+    width: auto;
+}
+
+input {
+
+    border: 0;
+    border-bottom: 1px solid #85BCEB;
+    width: 30px;
+}
+
+.fraction {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.2em 0.4ex;
+    text-align: center;
+}
+
+.fraction>span {
+    display: block;
+    padding-top: 0.15em;
+}
+
+.fraction span.fdn {
+    border-top: thin solid black;
+}
+
+.fraction span.bar {
+    display: none;
+}
+
+.periodicos {
+    border-top: 2px solid #000000;
+    border-radius: 15px;
+}
+
+.inputfraccciones {
+    text-align: center;
+    border: 1px solid #D3D3D3;
+    width: 40px;
+}
+
+.subrayar {
+
+    border-bottom: 3px solid #FF8A00;
+}
+
+.pintar1 {
+
+    border: 5px solid #008FFF;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.grafico1 {
+    border: 2px solid #000000;
+}
+
+.grafico2 {
+    border: 2px solid #000000;
+    background: #008FFF;
+}
+
+.grafico3 {
+    border: 2px solid #000000;
+}
+
+.grafico4 {
+    border: 2px solid #000000;
+    background: #008FFF;
+}
+
+.grafico5 {
+    border: 2px solid #000000;
+}
+
+.grafico6 {
+    border: 2px solid #000000;
+    background: #008FFF;
+}
+</style>
+
+<body>
+    <div id="nota-informativa" class="nota-ayuda">
+        <button type="button" class="close" onclick="cerrar_ayuda()" aria-label="Close"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
+        <!--ACA ESCRIBIR TEXTO DE LA AYUDA DE LA ACTIVIDAD-->
+        Lee cuidadosamente las preguntas, contesta cada una de ellas.
+        <br>
+        <b>11.</b> Arrastra el gráfico a la respuesta que corresponda<br>
+        <span id="ayudas"></span>
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <button class="btn button btnHelp mytooltip" data-info="Mostrar ayuda de la actividad" onclick="mostrar_ayuda()">
+                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_1 btnGuardar mytooltip" data-info="Guardar en local" onclick="$('#myModal').modal('show')">
+                        <span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_1 btnEvniar mytooltip" style="display: none !important;" data-info="Enviar a Correo">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_2 btnIniciar mytooltip" style="display: none !important;" disabled data-info="Iniciar">
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_2 btnRepetir mytooltip" data-info="Repetir" onclick="location.reload()">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="NotaFinal()">
+                        <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_5 mytooltip display-none" style="display: none !important;" data-info="Pantalla completa" onclick="full_screen_change()">
+                        <span id="full_ico" class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
+                    </button>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 0px;margin-left: 0px; ">
+                <li><span class="notificacion actividad">
+                            <span class="glyphicon glyphicon-list-alt"></span> Actividad <span id='n_cont'>1</span> / <span id='n_ejer'>1</span>
+                    </span>
+                    <span class="notificacion nota">
+                            <span class="glyphicon glyphicon-pencil"></span> Nota <span id="txtNota"></span> / 10
+                    </span>
+                    <span class="notificacion pagina">
+                            <span class="glyphicon glyphicon-bookmark"></span> Pág <i id="n_pagina"></i>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--FIN DE NAVBAR QUE SE AÑADE-->
+    <div class="container espacio">
+        <div class="panel border-exploro" id="activity">
+            <!--modificar el bg- segun la actividad-->
+            <div class="panel-heading bg-exploro">
+                <span class="titulo"><img src="img/icoE.png" alt="">Exploro para recordar</span>
+                <span class="titulo_2 txtAlumno display-none" id="nombre_alumno">Alumno: </span>
+            </div>
+            <div class="panel-body">
+                <!--pregunats de la actividad-->
+                <img src="img/alegebra.png">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <input type="text" maxlength="4" size="" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota1" readonly>&nbsp; <b>1. Encierra</b> <span class="sobre">1 pts</span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <div class="col-md-12 ">
+                                    <div class="text-question">
+                                        <b>1. Encierra</b> las fracciones que no son equivalentes.
+                                        <ol type="a">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6 act1class" id="act01Txt0">
+                                                    </div>
+                                                    <div class="col-lg-6 act1class" id="act01Txt1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-6 act1class" id="act01Txt2">
+                                                    </div>
+                                                    <div class="col-lg-6 act1class" id="act01Txt3">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                     <input type="text" maxlength="" size="" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota2" readonly>&nbsp;<b>2.  Identifica y transforma</b> <span class="sobre">1 pts</span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <div class="col-md-12 ">
+                                    <div class="text-question">
+                                        <b>2. Identifica</b> y <b>transforma</b> los siguientes decimales a fracciones.
+                                        <ol type="a">
+                                            <table class="" style="width: auto;">
+                                                <tr class="act2class" id="act02Txt0">
+                                                </tr>
+                                                <tr class="act2class" id="act02Txt1">
+                                                </tr>
+                                                <tr class="act2class" id="act02Txt2">
+                                                </tr>
+                                                <tr class="act2class" id="act02Txt3">
+                                                </tr>
+                                                <tr class="act2class" id="act02Txt4">
+                                                </tr>
+                                                <tr class="act2class" id="act02Txt5">
+                                                </tr>
+                                            </table>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="html2pdf__page-break"></div>
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                 <input type="text" maxlength="" size="" style="text-align:center;" class="nota-abierta" min="0" max="1" id="nota3" readonly>&nbsp;
+                                    <b>3. Analiza</b> <span class="sobre">1 pts</span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse in"  role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <b>3. Analiza</b> las siguientes fracciones:
+                                    -<div class="fraction">
+                                        <span class="fup">3</span>
+                                        <span class="bar">/</span>
+                                        <span class="fdn">12</span>
+                                    </div>,
+                                    <div class="fraction">
+                                        <span class="fup">3</span>
+                                        <span class="bar">/</span>
+                                        <span class="fdn">12</span>
+                                    </div>, 2<div class="fraction">
+                                        <span class="fup">1</span>
+                                        <span class="bar">/</span>
+                                        <span class="fdn">3</span>
+                                    </div>
+                                    , <div class="fraction">
+                                        <span class="fup">1</span>
+                                        <span class="bar">/</span>
+                                        <span class="fdn">4</span>
+                                    </div>
+                                    , <div class="fraction">
+                                        <span class="fup">2</span>
+                                        <span class="bar">/</span>
+                                        <span class="fdn">14</span>
+                                    </div> y luego <b>escribe</b> la o las que correspondan al enunciado de cada literal.
+                                    <ol type="a">
+                                        <table>
+                                            <tr class="act3class" id="act03Txt0">
+                                            </tr>
+                                            <tr class="act3class" id="act03Txt1">
+                                            </tr>
+                                            <tr class="act3class" id="act03Txt2">
+                                            </tr>
+                                            <tr class="act3class" id="act03Txt3">
+                                            </tr>
+                                            <tr class="act3class" id="act03Txt4">
+                                            </tr>
+                                        </table>
+                                        <b style="color: #005ca4"><li></li></b> la ubicación en la recta numérica.
+                                        <div class="my-drawing" style="border: 1px solid #000000;"></div>
+                                        <b style="color: #005ca4"><li></li></b> el orden de mayor a menor:
+                                        <div class="eq-c">
+                                            <input class="inputfraccciones soloNumeros sinEspacios" id="act3num18"></input>
+                                            <div class="fraction">
+                                                <span class="fup"><input class="inputfraccciones soloNumeros sinEspacios" id="act3num19"></input></span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn"><input class="inputfraccciones soloNumeros sinEspacios" id="act3num20"></input></span>
+                                            </div><b>></b>
+                                            <div class="fraction">
+                                                <span class="fup"><input class="inputfraccciones soloNumeros sinEspacios" id="act3num21"></input></span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn"><input class="inputfraccciones soloNumeros sinEspacios" id="act3num22"></input></span>
+                                            </div>
+                                            <b>></b>
+                                            <div class="fraction">
+                                                <span class="fup"><input class="inputfraccciones soloNumeros sinEspacios" id="act3num23"></input></span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn"><input class="inputfraccciones soloNumeros sinEspacios" id="act3num24"></input></span>
+                                            </div>
+                                            <b>></b>
+                                            <div class="fraction">
+                                                <span class="fup"><input class="inputfraccciones soloNumeros sinEspacios" id="act3num25"></input></span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn"><input class="inputfraccciones soloNumeros sinEspacios" id="act3num26"></input></span>
+                                            </div><b>></b>-
+                                            <div class="fraction">
+                                                <span class="fup"><input class="inputfraccciones soloNumeros sinEspacios" id="act3num27"></input></span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn"><input class="inputfraccciones soloNumeros sinEspacios" id="act3num28"></input></span>
+                                            </div>
+                                        </div>
+                                    </ol>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFour">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
+                                    aria-controls="collapseFour">
+                                    <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota4" readonly>&nbsp;<b>4. Resuelve</b> <span class="sobre">1 pts</span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <b>4. Resuelve</b> los siguientes ejercicios.
+                                    <ol type="a">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <table>
+                                                    <tr class="act4class" id="act04Txt0">
+                                                    </tr>
+                                                    <tr class="act4class" id="act04Txt1">
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <table>
+                                                    <tr class="act4class" id="act04Txt2">
+                                                    </tr>
+                                                    <tr class="act4class" id="act04Txt3">
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </ol>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFive">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false"
+                                    aria-controls="collapseFive">
+                                    <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota5" readonly>&nbsp;<b>5. Resuelve</b> <span class="sobre">1 pts</span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <b>5. Resuelve</b> los siguientes ejercicios, por medio de las propiedades de adición.
+                                    <ol type="a">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <table>
+                                                    <tr class="act5class" id="act05Txt0">
+                                                    </tr>
+                                                    <tr class="act5class" id="act05Txt1">
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <table>
+                                                    <tr class="act5class" id="act05Txt2">
+                                                    </tr>
+                                                    <tr class="act5class" id="act05Txt3">
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingSix">
+                            <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false"
+                                        aria-controls="collapseSix">
+                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota6" readonly>&nbsp;<b>6. Encuentra</b> <span class="sobre">0,5 pts</span>
+                                    </a>
+                                </h4>
+                        </div>
+                        <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <b>6. Encuentra</b> la solución del siguiente problema. José gasto las seis octavas parte de su dinero y le quedan 300 dólares. ¿Cuánto dinero tenía?
+                                    <textarea name="" class="form-control" style="resize: none;"></textarea><br>
+                                    Tenía <input class="inputfraccciones" id="act6num0"></input> dólares.
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingSeven">
+                            <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false"
+                                        aria-controls="collapseSeven">
+                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota7" >&nbsp;<b>7. Escribe</b> <span class="sobre">1 pts</span>
+                                    </a>
+                                </h4>
+                        </div>
+                        <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <b>7. Escribe</b> en notación decimal cada uno de los siguientes números racionales y qué tipo de decimal representa (decimal exacto o periódico).
+                                    <table class="table" style="text-align: center;">
+                                        <tr>
+                                            <td style="background: #96599e; color: white;">Número racional</td>
+                                            <td style="background: #ae82b4; color: white;">Notación decimal</td>
+                                            <td style="background: #96599e; color: white;">Tipo de número decimal</td>
+                                        </tr>
+                                        <tr class="act7class" id="act07Txt0">
+                                        </tr>
+                                        <tr class="act7class" id="act07Txt1">
+                                        </tr>
+                                        <tr class="act7class" id="act07Txt2">
+                                        </tr>
+                                        <tr class="act7class" id="act07Txt3">
+                                        </tr>
+                                        <tr class="act7class" id="act07Txt4">
+                                        </tr>
+                                        <tr class="act7class" id="act07Txt5">
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingEight">
+                            <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false"
+                                        aria-controls="collapseEight">
+                                        <input type="text" maxlength="4" size="2" style="text-align:center;" class="nota-abierta" min="0" max="1" id="nota8" readonly>&nbsp;<b>8. Responde</b> <span class="sobre">1 pts</span>
+                                    </a>
+                                </h4>
+                        </div>
+                        <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <b>8. Responde</b> verdadero V o falso F.
+                                    <ol type="a">
+                                        <table class="table">
+                                            <tr class="act8class" id="act08Txt0">
+                                            </tr>
+                                            <tr class="act8class" id="act08Txt1">
+                                            </tr>
+                                            <tr class="act8class" id="act08Txt2">
+                                            </tr>
+                                            <tr class="act8class" id="act08Txt3">
+                                            </tr>
+                                            <tr class="act8class" id="act08Txt4">
+                                            </tr>
+                                            <tr class="act8class" id="act08Txt5">
+                                            </tr>
+                                        </table>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="img-responsive" src="img/estadisticas.png"></img>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingNine">
+                            <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false"
+                                        aria-controls="collapseNine">
+                                        <input type="text" maxlength="4" size="2" style="text-align:center; background: white;" class="nota-abierta" min="0" max="1" id="nota9" >&nbsp;<b>9. Problema</b> <span class="sobre">0,5 pts</span>
+                                    </a>
+                                </h4>
+                        </div>
+                        <div id="collapseNine" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading Nine">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    En un curso de octavo de básica se pregunta sobre el número de hermanos de los alumnos, los resultados son los siguientes: <br>
+                                    0, 1, 0, 0, 3, 2, 1, 4, 0, 0, 1, 1, 2, 0, 1, 0, 0, 1, 2, 3, 4, 4, 1, 2, 0, 1, 1, 2, 1, 3, 0, 0, 2, 1, 2, 3, 5, 1, 2, 3, 4, 5, 5.
+                                    <br>
+                                    <b style="color: #005ca4">a)</b> <b>Elabora</b> una tabla de frecuencias en las que se incluyan: frecuencia absoluta, absoluta acumulada, relativa y relativa acumulada.
+                                    <table class="table table-bordered" style="text-align: center;">
+                                        <tr>
+                                            <td colspan="5" style="background: #e3d7eb;"><h3>Número de hermanos</h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background: #d5c1dc;">Variable x</td>
+                                            <td style="background: #e3d7eb;">Frecuencia absoluta f<sub>i</sub></td>
+                                            <td style="background: #d5c1dc;">Frecuencia absoluta acumulada Fa</td>
+                                            <td style="background: #e3d7eb;">Frecuencia relativa fr %</td>
+                                            <td style="background: #d5c1dc;">Frecuencia relativa acumulada Fra %</td>
+                                        </tr>
+                                        <tr>
+                                            <td>0</td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total</td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><input type="text" class="form-control"></td>
+                                        </tr>
+                                    </table>
+                                    <b style="color: #005ca4">b)</b> <b>Dibuja</b> un diagrama de barras con la frecuencia absoluta.
+                                    <div class="my-drawing" style="border: 1px solid #000000;"></div>
+                                    <b style="color: #005ca4">c)</b> ¿Qué porcentaje de alumnos son hijos únicos?
+                                    <input class="form-control"></input>
+                                    <b style="color: #005ca4">d)</b> ¿Cuántos alumnos tienen más de un hermano?
+                                    <input class="form-control"></input>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTen">
+                            <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false"
+                                        aria-controls="collapseTen">
+                                        <input type="text" maxlength="4" size="2" style="text-align:center;" class="nota-abierta" min="0" max="1" id="nota10" readonly>&nbsp;<b>10. Utiliza </b> <span class="sobre">1 pts</span>
+
+                                    </a>
+                                </h4>
+                        </div>
+                        <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <b>10. Utiliza</b> los conceptos básicos de estadística, y <b>completa</b> las siguientes frases.
+                                    <ol type="a">
+                                        <table>
+                                            <tr class="act10class" id="act010Txt0">
+                                            </tr>
+                                            <tr class="act10class" id="act010Txt1">
+                                            </tr>
+                                            <tr class="act10class" id="act010Txt2">
+                                            </tr>
+                                            <tr class="act10class" id="act010Txt3">
+                                            </tr>
+                                        </table>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingLeven">
+                            <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLeven" aria-expanded="false"
+                                        aria-controls="collapseLeven">
+                                        <input type="text" maxlength="4" size="2" style="text-align:center;" class="nota-abierta" min="0" max="1" id="nota11" readonly>&nbsp;<b>11. Dados los conjuntos</b> <span class="sobre">1 pts</span>
+
+                                    </a>
+                                </h4>
+                        </div>
+                        <div id="collapseLeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLeven">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 cajas imagen" id="caja_img1"></div>
+                                            </td>
+                                            <td>
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 cajas texto" id="caja_txt1"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 cajas imagen" id="caja_img2"></div>
+                                            </td>
+                                            <td>
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 cajas texto" id="caja_txt2"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 cajas imagen" id="caja_img3"></div>
+                                            </td>
+                                            <td>
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 cajas texto" id="caja_txt3"></div>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Guardar PDF-->
+        <div class="modal fade animated pulse" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal conLevent-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" onclick="$('#myModal').modal('hide')">&times;</button>
+                        <h4 class="modal-title">Guarda esta actividad en tu computadora</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="modal_form" class="form-horizontal">
+                            <div class="form-group ">
+                                <div class="col-sm-2">
+                                    <label id="lbl_nombre" for="txtAlumno">Alumno: </label>
+                                </div>
+                                <div class="col-sm-10">
+                                    <!--el input para ingresar el nombre del alumno debe se txt_alumno-->
+                                    <input type="text" class="form-control nombre " id="txtAlumno" placeholder="Ingrese tu nombre">
+                                    <div class="alert alert-danger display-none" id="txtAlumnoAlert" role="alert">
+                                        <button type="button" class="close" onclick="o$('#myModal').modal('hide')" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <span class="glyphicon glyphicon-info-sign error-color" aria-hidden="true"></span> Debes ingresar tu nombre</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="save_open_activity_to_local('txtAlumno')">Guardar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <!--generador de pdf-->
+        <script src="js/html2pdf/html2pdf.bundle.min.js"></script>
+        <script src="js/screenfull.js"></script>
+        <script src="js/helper1.js"></script>
+        <script src="js/activities.js"></script>
+        <script src="js/Utilitario.js"></script>
+        <script src="js/validacionesExtras.js"></script>
+        <script src="js/dragNdrop.js"></script>
+        <script src="js/actividad102.js"></script>
+        <script type="text/javascript">
+        var titulos = "diagnostico";
+        $("#txtNota").html("0");
+        $("#n_pagina").html("104");
+
+        $(document).ready(function() {
+            var winHeight = $(window).height();
+            var winWidth = $(window).width();
+            //var imageSize = { width: winHeight , height: winHeight };
+            var watermarkImage = new Image();
+            watermarkImage.src = 'img/i1_p101_act101.jpg';
+            var watermarkImage2 = new Image();
+            watermarkImage2.src = 'img/i7_p98_act100.jpg';
+            LC.init(
+                document.getElementsByClassName('my-drawing')[0], {
+                    imageURLPrefix: 'imgcanvas',
+                    //watermarkImage: watermarkImage,
+                    watermarkScale: 0.8, // you can scale it
+                    //imageSize: imageSize
+                    backgroundColor: 'white'
+                });
+            LC.init(
+                document.getElementsByClassName('my-drawing')[1], {
+                    imageURLPrefix: 'imgcanvas',
+                    //watermarkImage: watermarkImage,
+                    watermarkScale: 0.8, // you can scale it
+                    //imageSize: imageSize
+                    backgroundColor: 'white'
+                });
+        });
+
+
+        function sinEspacios(inputs) {
+            $(inputs).on('keypress', function(e) {
+                if (e.which == 32)
+                    return false;
+            });
+        }
+        sinEspacios(".sinEspacios");
+        </script>
+</body>
+
+</html>

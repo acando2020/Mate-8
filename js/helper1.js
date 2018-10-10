@@ -59,7 +59,7 @@ $(document).ready(function () {
             $(".titulo").html("").append("<img src='img/icoTST.png' alt='Evaluación sumativa'> Evaluación sumativa");
             break;
         case "diagnostico":
-            $(".titulo").html("").append("<img src='img/icoTST.png' alt='Evaluación sumativa'> Prueba Diagnóstico");
+            $(".titulo").html("").append("<img src='img/icoTST.png' alt='Evaluación sumativa'> Prueba Diagnóstica");
             break;
         case "prueba":
             $(".titulo").html("").append("<img src='img/icoTST.png' alt='Prueba Diagnóstica'> Prueba Diagnóstico");
