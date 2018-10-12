@@ -167,6 +167,24 @@ input {
     border: 2px solid #000000;
     background: #008FFF;
 }
+
+.radical {
+    position: relative;
+    font-size: 1.6em;
+    vertical-align: middle;
+}
+
+.n-root {
+    position: absolute;
+    top: -0.333em;
+    left: 0.333em;
+    font-size: 45%;
+}
+
+.radicand {
+    padding: 0.25em 0.25em;
+    border-top: thin black solid;
+}
 </style>
 
 <body>
@@ -256,7 +274,7 @@ input {
                                     <input type="text" maxlength="4" size="" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota1" readonly>&nbsp; <b>1. Realiza</b>                                </a>
                             </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
                                 <div class="col-md-12 ">
                                     <div class="text-question">
@@ -379,12 +397,19 @@ input {
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false"
                                     aria-controls="collapseFive">
-                                    <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota5" readonly>&nbsp;<b>5. Realiza</b>                                </a>
+                                    <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota5" readonly>&nbsp;<b>5. Calcula</b>                                </a>
                             </h4>
                         </div>
                         <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
                             <div class="panel-body">
-                                <div class="text-question"></div>
+                                <div class="text-question">
+                                    <b>5. Calcula</b> el valor que se obtiene al simplificar las siguientes expresiones.
+                                    <div class="row">
+                                        <div class="col-lg-4" align="center"><b style="color: #005ca4">a) </b><img src="img/i9_p120_act115.jpg" alt=""></img></div>
+                                        <div class="col-lg-4" align="center"><textarea class="form-control" style="resize: none;"></textarea></div>
+                                        <div class="col-lg-4" align="left"> = <input class="inputfraccciones sinEspacios" id="act5num0"></input></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -393,13 +418,63 @@ input {
                             <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false"
                                         aria-controls="collapseSix">
-                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota6" readonly>&nbsp;<b>6. Aplica</b>
+                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota6" readonly>&nbsp;<b>6. Calcula</b>
                                     </a>
                                 </h4>
                         </div>
                         <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
                             <div class="panel-body">
-                                <div class="text-question"></div>
+                                <div class="text-question">
+                                    <b>6. Calcula</b> el valor que se obtiene al simplificar las siguientes expresiones.
+                                    <div class="row">
+                                        <div class="col-lg-4" align="center"><b style="color: #005ca4">a) </b><img src="img/i10_p120_act115.jpg" alt=""></img></div>
+                                        <div class="col-lg-4" align="center"><textarea class="form-control" style="resize: none;"></textarea></div>
+                                        <div class="col-lg-4" align="left"> = <div class="fraction">
+                                                <span class="fup"><input class="inputfraccciones sinEspacios" id="act6num0"></input></span>
+                                                <span class="bar">/</span>
+                                                <span class="fdn"><input class="inputfraccciones sinEspacios" id="act6num1"></input></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingSeven">
+                            <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false"
+                                        aria-controls="collapseSeven">
+                                        <input type="text" maxlength="4" size="2" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota7" readonly>&nbsp;<b>7. Completa</b>
+                                    </a>
+                                </h4>
+                        </div>
+                        <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <b>7. Completa</b> con el número racional que corresponda.
+                                    <div class="table-responsive">
+                                        <ol type="a">
+                                            <table>
+                                                <tr class="act7class" id="act07Txt0">
+                                                </tr>
+                                                <tr class="act7class" id="act07Txt1">
+                                                </tr>
+                                                <tr class="act7class" id="act07Txt2">
+                                                </tr>
+                                                <tr class="act7class" id="act07Txt3">
+                                                </tr>
+                                                <tr class="act7class" id="act07Txt4">
+                                                </tr>
+                                                <tr class="act7class" id="act07Txt5">
+                                                </tr>
+                                                <tr class="act7class" id="act07Txt6">
+                                                </tr>
+                                            </table>
+                                        </ol>
+                                    </div>
+                                </div>
                                 <br>
                             </div>
                         </div>
@@ -454,9 +529,9 @@ input {
         <script src="js/dragNdrop.js"></script>
         <script src="js/actividad115.js"></script>
         <script type="text/javascript">
-        var titulos = "aplico";
+        var titulos = "refuerzo";
         $("#txtNota").html("0");
-        $("#n_pagina").html("108");
+        $("#n_pagina").html("120");
 
         /*$(document).ready(function() {
             var winHeight = $(window).height();

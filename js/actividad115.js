@@ -206,7 +206,7 @@ function pregunta2() {
         }
 
     }
-    var total = (cont * 2) / 8;
+    var total = (cont * 1) / 8;
     $('#nota2').val(parseFloat(total).toFixed(2));
 
 
@@ -246,7 +246,7 @@ function pregunta3() {
         }
 
     }
-    var total = (cont * 2) / 3;
+    var total = (cont * 1) / 3;
     $('#nota3').val(parseFloat(total).toFixed(2));
 
 
@@ -308,23 +308,137 @@ function pregunta4() {
         }
 
     }
-    var total = (cont * 2) / 16;
+    var total = (cont * 1) / 16;
     $('#nota4').val(parseFloat(total).toFixed(2));
 
 
 }
-/*function pregunta4() {
+
+function pregunta5() {
     var nt1 = 0;
-    var act4num0 = document.getElementById('act4num0').value;
-    if (act4num0 == 17) {
+    var act5num0 = document.getElementById('act5num0').value;
+    if (act5num0 == 'a') {
         nt1 = 2;
-        $('#act4num0').css("background", "#00e600");
+        $('#act5num0').css("background", "#00e600");
     } else {
-        $('#act4num0').css("background", "#ff6666");
+        $('#act5num0').css("background", "#ff6666");
     }
-    $('#nota4').val(parseFloat(nt1).toFixed(2));
+    $('#nota5').val(parseFloat(nt1).toFixed(2));
 }
 
+function pregunta6() {
+    var respact2 = ['1', '9', ];
+    var cont = 0;
+    for (var i = 0; i < 2; i++) {
+        var res = $('#act6num' + [i] + '').val().toLowerCase();
+        if (respact2[i] == res) {
+            cont = cont + 1;
+            $('#act6num' + [i] + '').css("background", "#00e600");
+        } else {
+            $('#act6num' + [i] + '').css("background", "#ff6666");
+        }
+
+    }
+    var total = (cont * 1) / 2;
+    $('#nota6').val(parseFloat(total).toFixed(2));
+
+
+}
+//////////////////////pregunta7////////////////////////////////////////////////
+
+var random7 = [
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td>' +
+        '<div class="eq-c">' +
+        '<span class="radical"><span class="n-root">3</span>&radic;</span><span class="radicand">-<sup><input type="text" style="width: 20px;" id="act7num0" class="inputfraccciones sinEspacios"></sup>/<sub><input type="text" style="width: 20px;" id="act7num1" class="inputfraccciones sinEspacios"></sub></span> = - 0,44' +
+        '</div>' +
+        '</td>'
+    ],
+    [' <td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td>' +
+        '<div class="eq-c">' +
+        '<span class="radical"><span class="n-root">6</span>&radic;</span><span class="radicand">-<sup>64</sup>/<sub><input type="text" style="width: 30px;" id="act7num2" class="inputfraccciones sinEspacios"></sub></span> = <div class="fraction">' +
+        '<span class="fup">2</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">3</span>' +
+        '</div>' +
+        '</div>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td>' +
+        '<div class="eq-c">' +
+        '<sup><input type="text" style="width: 20px;" id="act7num3" class="inputfraccciones sinEspacios"></sup><span class="radical">&radic;</span><span class="radicand">-<sup>9</sup>/<sub>16</sub></span> = <div class="fraction">' +
+        '<span class="fup">3</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">4</span>' +
+        '</div>' +
+        '</div>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td>' +
+        '<div class="eq-c">' +
+        '<span class="radical"><span class="n-root">3</span>&radic;</span><span class="radicand">- 0,729</span></span> = -<div class="fraction">' +
+        '<span class="fup"><input id="act7num4" class="inputfraccciones"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">10</span>' +
+        '</div>' +
+        '</div>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td>' +
+        '<div class="eq-c">' +
+        '<span class="radical"><span class="n-root"></span>&radic;</span><span class="radicand"><sup>9</sup>/<sub><input type="text" style="width: 30px;" id="act7num5" class="inputfraccciones sinEspacios"></sub></span> = <div class="fraction">' +
+        '<span class="fup">3</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">7</span>' +
+        '</div>' +
+        '</div>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td>' +
+        '<div class="eq-c">' +
+        '<span class="radical"><span class="n-root"></span>&radic;</span><span class="radicand"><span class="radical"><span class="n-root"><input type="text" style="width: 15px; height: 15px;" id="act7num6" class="inputfraccciones sinEspacios"></span>&radic;</span><span class="radicand"><span class="radical"><span class="n-root"></span>&radic;</span><span class="radicand">x<sup>24</sup></span></span></span> = x<sup>2</sup>' +
+        '</div>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td>' +
+        '<div class="eq-c">' +
+        '<sup><input type="text" style="width: 15px; height: 15px;" id="act7num7" class="inputfraccciones sinEspacios"></sup><span class="radical">&radic;</span><span class="radicand">(<sup>3</sup>/<sub>8</sub>)<sup>3</sup></span> = (<sup>3</sup>/<sub>8</sub>)<sup><sup><input type="text" style="width: 15px; height: 15px;" id="act7num8" class="inputfraccciones sinEspacios"></sup>/<sub>5</sub></sup>' +
+        '</div>' +
+        '</td>'
+    ],
+];
+var act07Txt = document.getElementsByClassName('act7class');
+
+random7.sort(f_randomico);
+for (i = 0; i < act07Txt.length; i++) {
+    $('#' + act07Txt[i].id).html(random7[i]);
+}
+
+function pregunta7() {
+    var respact2 = ['9', '100', '729', '2', '9', '49', '3', '5', '3', ];
+    var cont = 0;
+    for (var i = 0; i < 9; i++) {
+        var res = $('#act7num' + [i] + '').val().toLowerCase();
+        if (respact2[i] == res) {
+            cont = cont + 1;
+            $('#act7num' + [i] + '').css("background", "#00e600");
+        } else {
+            $('#act7num' + [i] + '').css("background", "#ff6666");
+        }
+
+    }
+    var total = (cont * 1) / 9;
+    $('#nota7').val(parseFloat(total).toFixed(2));
+
+
+}
+/*
 function pregunta5() {
     var nt1 = 0;
     var act5num0 = document.getElementById('act5num0').value;
@@ -347,10 +461,12 @@ function NotaFinal() {
         alert("Calificar la pregunta 4")
     } else {*/
     pregunta1();
-    pregunta2();
+   pregunta2();
     pregunta3();
     pregunta4();
-    pregunta5();
+    /*pregunta5();
+    pregunta6();
+    pregunta7();*/
 
 
 
@@ -360,10 +476,13 @@ function NotaFinal() {
     var nota3 = document.getElementById('nota3').value;
     var nota4 = document.getElementById('nota4').value;
     var nota5 = document.getElementById('nota5').value;
+    var nota6 = document.getElementById('nota6').value;
+    var nota7 = document.getElementById('nota7').value;
 
 
 
-    var total = parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3) + parseFloat(nota4) + parseFloat(nota5);
+    var subtotal = parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3) + parseFloat(nota4) + parseFloat(nota5) + parseFloat(nota6) + parseFloat(nota7);
+    var total = (subtotal * 10) / 7;
 
 
     $('#txtNota').html(parseFloat(total).toFixed(2));
