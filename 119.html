@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mate 8</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Bootstrap-->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--Animaciones-->
+    <link href="css/animate.css" rel="stylesheet">
+    <!--Css propio del proyecto-->
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/fraccion.css" rel="stylesheet">
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/literallycanvas.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/react-with-addons.js"></script>
+    <script type="text/javascript" src="js/literallycanvas.min.js"></script>
+</head>
+<style type="text/css">
+.cajas {
+    max-width: 100%;
+    max-height: 100%;
+    border: 1px #005ca4 solid;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 5px;
+    width: auto;
+    display: grid;
+}
+
+.encierra {
+    border: 5px solid #FF9D29;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.sobre {
+    padding: 4px;
+    border-style: none;
+    border-width: 2px;
+    border-radius: 15%;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-color: #1a75ff;
+    color: #1a75ff;
+}
+
+
+
+.actividad1 {
+    background: #fff;
+}
+
+.correcto {
+    color: #ffffff;
+    background-color: #00e600;
+}
+
+.incorrecto {
+    color: #ffffff;
+    background-color: #ff6666;
+}
+
+.desactivar {
+    background-color: #444;
+    color: #888;
+    padding: 8px;
+}
+
+#cabecera .badge {
+    background-color: #232956;
+}
+
+.inputPequeño {
+    text-align: center;
+    border: 0;
+    border-bottom: 1px dotted #328AF7;
+    width: 40px;
+    color: blue;
+}
+
+.cajas1 {
+    max-width: 95%;
+    max-height: 200px;
+    border: 1px #ed8700 dotted;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 5px;
+    width: auto;
+}
+
+input {
+
+    border: 0;
+    border-bottom: 1px solid #85BCEB;
+    width: 30px;
+}
+
+.fraction {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.2em 0.4ex;
+    text-align: center;
+}
+
+.fraction>span {
+    display: block;
+    padding-top: 0.15em;
+}
+
+.fraction span.fdn {
+    border-top: thin solid black;
+}
+
+.fraction span.bar {
+    display: none;
+}
+
+.periodicos {
+    border-top: 2px solid #000000;
+    border-radius: 15px;
+}
+
+.inputfraccciones {
+    text-align: center;
+    border: 1px solid #D3D3D3;
+    width: 40px;
+}
+
+.subrayar {
+
+    border-bottom: 3px solid #FF8A00;
+}
+
+.pintar1 {
+
+    border: 5px solid #008FFF;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.grafico1 {
+    border: 2px solid #000000;
+}
+
+.grafico2 {
+    border: 2px solid #000000;
+    background: #008FFF;
+}
+
+.grafico3 {
+    border: 2px solid #000000;
+}
+
+.grafico4 {
+    border: 2px solid #000000;
+    background: #008FFF;
+}
+
+.grafico5 {
+    border: 2px solid #000000;
+}
+
+.grafico6 {
+    border: 2px solid #000000;
+    background: #008FFF;
+}
+
+.radical {
+    position: relative;
+    font-size: 1.6em;
+    vertical-align: middle;
+}
+
+.n-root {
+    position: absolute;
+    top: -0.333em;
+    left: 0.333em;
+    font-size: 45%;
+}
+
+.radicand {
+    padding: 0.25em 0.25em;
+    border-top: thin black solid;
+}
+</style>
+
+<body>
+    <div id="nota-informativa" class="nota-ayuda">
+        <button type="button" class="close" onclick="cerrar_ayuda()" aria-label="Close"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
+        <!--ACA ESCRIBIR TEXTO DE LA AYUDA DE LA ACTIVIDAD-->
+        Lee cuidadosamente las preguntas, contesta cada una de ellas.
+        <br>
+        <span id="ayudas"></span>
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <button class="btn button btnHelp mytooltip" data-info="Mostrar ayuda de la actividad" onclick="mostrar_ayuda()">
+                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_1 btnGuardar mytooltip" data-info="Guardar en local" onclick="$('#myModal').modal('show')">
+                        <span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_1 btnEvniar mytooltip" style="display: none !important;" data-info="Enviar a Correo">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_2 btnIniciar mytooltip" style="display: none !important;" disabled data-info="Iniciar">
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_2 btnRepetir mytooltip" data-info="Repetir" onclick="location.reload()">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_3 btnCalificar mytooltip" data-info="Calificar / Comprobar" id="bt_comprobar" onclick="NotaFinal()">
+                        <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn button button_5 mytooltip display-none" style="display: none !important;" data-info="Pantalla completa" onclick="full_screen_change()">
+                        <span id="full_ico" class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
+                    </button>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 0px;margin-left: 0px; ">
+                <li><span class="notificacion actividad">
+                            <span class="glyphicon glyphicon-list-alt"></span> Actividad <span id='n_cont'>1</span> / <span id='n_ejer'>1</span>
+                    </span>
+                    <span class="notificacion nota">
+                            <span class="glyphicon glyphicon-pencil"></span> Nota <span id="txtNota"></span> / 10
+                    </span>
+                    <span class="notificacion pagina">
+                            <span class="glyphicon glyphicon-bookmark"></span> Pág <i id="n_pagina"></i>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--FIN DE NAVBAR QUE SE AÑADE-->
+    <div class="container espacio">
+        <div class="panel border-exploro" id="activity">
+            <!--modificar el bg- segun la actividad-->
+            <div class="panel-heading bg-exploro">
+                <span class="titulo"><img src="img/icoE.png" alt="">Exploro para recordar</span>
+                <span class="titulo_2 txtAlumno display-none" id="nombre_alumno">Alumno: </span>
+            </div>
+            <div class="panel-body">
+                <!--pregunats de la actividad-->
+                <img src="img/practica_individual.png" class="img-responsive">
+                <img src="img/problema.png" alt=""><img src="img/conecSociales.png" alt="">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <input type="text" maxlength="4" size="" style="text-align:center;" class="nota-abierta" min="0" max="1" id="nota1" readonly>&nbsp; <b>1. Problema</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <div class="col-md-12 ">
+                                    <div class="text-question">
+                                        <b>1. </b>Con el fin de mejorar el servicio de guía turístico en el Parque Nacional Galápagos, se ha realizado una encuesta a los 200 visitantes durante una semana. El 32 % afirma que el servicio es excelente, un 40 % dice que es muy bueno, el 23 % que es bueno y un 5 % que es malo.
+                                        <br>
+                                        <b style="color:#005ca4">a) </b><b>Organiza</b> la información en una tabla de frecuencias absolutas y relativas. <br><br>
+                                        <b style="color:#005ca4">b) </b><b>Responde</b> las siguientes preguntas:
+                                        <br><b style="color:#005ca4">• </b>¿De cuántas personas se tiene información?
+                                        <br><b style="color:#005ca4">• </b>¿En qué escala se encuentra el mayor porcentaje?<br>
+                                        <b style="color:#005ca4">• </b> ¿Cuál es tu comentario general de la investigación?
+                                        <img class="img-responsive" src="img/i1_p126_act119.jpg"></img>
+                                        <img class="img-responsive" src="img/paso1.jpg"></img>
+                                        <b>Encuentra</b> un título apropiado para la tabla. <br>
+                                        <img class="" src="img/paso2.jpg"></img> y <img class="" src="img/paso3.jpg"></img><br>
+                                        <b>Completa</b> la tabla utilizando la calculadora.
+                                        <table class="table table-bordered" style="text-align: center; width: auto;">
+                                            <tr>
+                                                <td style="color: white; background: #4279b9;" colspan="3">Servicio de guía turístico Parque Nacional Galápagos</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: #e2ebb2;">Variable x</td>
+                                                <td style="background: #fce3ab;">Frecuencia absoluta <i>fi</i></td>
+                                                <td style="background: #f1f6dc;" rowspan="2">Frecuencia relativa <i>fr</i>%</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: #f1f6dc;">Puntaje</td>
+                                                <td style="background: #fbf2d7;">Número de encuestados</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Excelente</td>
+                                                <td><input id="act1num0" class="form-control sinEspacios"></input></td>
+                                                <td><input id="act1num1" class="form-control sinEspacios"></input></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Muy bueno</td>
+                                                <td><input id="act1num2" class="form-control sinEspacios"></input></td>
+                                                <td><input id="act1num3" class="form-control sinEspacios"></input></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bueno</td>
+                                                <td><input id="act1num4" class="form-control sinEspacios"></input></td>
+                                                <td><input id="act1num5" class="form-control sinEspacios"></input></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Malo</td>
+                                                <td><input id="act1num6" class="form-control sinEspacios"></input></td>
+                                                <td><input id="act1num7" class="form-control sinEspacios"></input></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total</td>
+                                                <td><input id="act1num8" class="form-control sinEspacios"></input></td>
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                        <img class="img-responsive" src="img/paso4.jpg"></img>
+                                        <b>Responde</b> las preguntas y <b>completa</b> el grafico.
+                                        <br>
+                                        <br>
+                                        Se tiene información de <input id="act1num9" class="inputfraccciones sinEspacios"></input> personas, de las cuales el <input id="act1num10" class="inputfraccciones sinEspacios"></input>% que corresponde a <input id="act1num11" class="inputfraccciones sinEspacios"></input> personas, se encuentra con un grado de satisfacción muy bueno. <br><br>
+                                        <div class="row">
+                                            <div class="col-lg-6"><img src="img/i2_p126_act119.jpg" alt=""></img>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <table>
+                                                    <tr>
+                                                        <td><input class="inputfraccciones" readonly style="background: #0098c4"></input></td>
+                                                        <td><input class="form-control sinEspacios text-lowercase" id="act1num12"></input></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input class="inputfraccciones" readonly style="background: #df0523"></input></td>
+                                                        <td><input class="form-control  text-lowercase" id="act1num13"></input></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input class="inputfraccciones" readonly style="background: #7bb963"></input></td>
+                                                        <td><input class="form-control sinEspacios text-lowercase" id="act1num14"></input></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input class="inputfraccciones" readonly style="background: #b30082"></input></td>
+                                                        <td><input class="form-control sinEspacios text-lowercase" id="act1num15"></input></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                     <input type="text" maxlength="" size="" style="text-align:center" class="nota-abierta" min="0" max="1" id="nota2" readonly>&nbsp;<b>2. Problema</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <div class="col-md-12 ">
+                                    <div class="text-question">
+                                        <b>2. </b>Durante la campaña de prevención de enfermedades en una comunidad del Oriente, se tomó el peso en kilogramos a un grupo de estudiantes, los resultados se anotaron en una tabla como la siguiente.
+                                        <br>
+                                        <img src="img/i3_p126_act119.jpg" alt="" class="img-responsive">
+                                        <br>
+                                        <b style="color: #005ca4;">a) </b><b>Organiza</b> la información en una tabla de frecuencias absolutas y relativas.
+                                        <table class="table table-bordered" style="text-align: center; width: auto;">
+                                            <tr>
+                                                <td style="color: white; background: #4279b9;" colspan="3">Peso en kilogramos de un grupo de estudiantes</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: #e2ebb2;">Variable x</td>
+                                                <td style="background: #fce3ab;">Frecuencia absoluta <i>fi</i></td>
+                                                <td style="background: #f1f6dc;" rowspan="2">Frecuencia relativa <i>fr</i>%</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: #f1f6dc;">Puntaje</td>
+                                                <td style="background: #fbf2d7;">Número de encuestados</td>
+                                            </tr>
+                                            <tr>
+                                                <td>40</td>
+                                                <td>10</td>
+                                                <td>0,25</td>
+                                            </tr>
+                                            <tr>
+                                                <td>41</td>
+                                                <td><input id="act2num0" class="form-control sinEspacios"></input></td>
+                                                <td><input id="act2num1" class="form-control sinEspacios"></input></td>
+                                            </tr>
+                                            <tr>
+                                                <td>42</td>
+                                                <td><input id="act2num2" class="form-control sinEspacios"></input></td>
+                                                <td><input id="act2num3" class="form-control sinEspacios"></input></td>
+                                            </tr>
+                                            <tr>
+                                                <td>43</td>
+                                                <td><input id="act2num4" class="form-control sinEspacios"></input></td>
+                                                <td><input id="act2num5" class="form-control sinEspacios"></input></td>
+                                            </tr>
+                                            <tr>
+                                                <td>44</td>
+                                                <td><input id="act2num6" class="form-control sinEspacios"></input></td>
+                                                <td><input id="act2num7" class="form-control sinEspacios"></input></td>
+                                            </tr>
+                                            <tr>
+                                                <td>45</td>
+                                                <td><input id="act2num8" class="form-control sinEspacios"></input></td>
+                                                <td><input id="act2num9" class="form-control sinEspacios"></input></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total</td>
+                                                <td><input id="act2num10" class="form-control sinEspacios"></input></td>
+                                                <td><input id="act2num18" class="form-control sinEspacios"></input></td>
+                                            </tr>
+                                        </table>
+                                        <b style="color: #005ca4;">b) </b><b>Interpreta</b> la información obtenida: ¿de cuántos estudiantes se tiene información? ¿Cuál es el número de estudiantes que tienen el mayor peso? ¿A qué porcentaje corresponde? ¿Qué porcentaje de estudiantes tienen el menor peso?
+                                        <br><br>
+                                        Se tiene información de un grupo de <input id="act2num11" class="inputfraccciones sinEspacios"></input> estudiantes, el mayor peso tienen <input id="act2num12" class="inputfraccciones sinEspacios"></input> estudiantes con <input id="act2num13" class="inputfraccciones sinEspacios"></input>kg que corresponde al <input id="act2num14" class="inputfraccciones sinEspacios"></input>% de la población en estudio, adicionalmente se registra que <input id="act2num15" class="inputfraccciones sinEspacios"></input> alumnos tienen un peso de <input id="act2num16" class="inputfraccciones sinEspacios"></input>kg y que corresponde al <input id="act2num17" class="inputfraccciones sinEspacios"></input>% de los estudiantes.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="html2pdf__page-break"></div>
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                 <input type="text" maxlength="" size="" style="text-align:center;" class="nota-abierta" min="0" max="1" id="nota3" readonly>&nbsp;
+                                    <b>3. Problema</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <div class="text-question">
+                                    <b>3. </b><b>Analiza</b> la siguiente información estadística.
+                                    <br>
+                                    Durante el mes de enero, en la ciudad de Guayaquil, se han registrado las siguientes temperaturas:
+                                    <br>
+                                    31, 30, 27, 28, 28, 29, 32, 33, 29, 33, 27, 29, 30, 32, 31, 29, 28, 29, 33, 31, 27, 28, 28, 29, 31, 31, 29, 28, 27, 29, 30
+                                    <br>
+                                    <b>Construye</b> la tabla de frecuencias absolutas y relativas con los datos del recuadro.
+                                    <table class="table" style="width: auto;text-align: center;">
+                                        <tr>
+                                            <td style="background: #f1f6dc;">Temperatura</td>
+                                            <td style="background: #e2ebb2;">Frecuencia absoluta <i>fi</i></td>
+                                            <td style="background: #f1f6dc;">Frecuencia relativa <i>fr</i>%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num0" value="27" readonly></input></td>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num1"></input></td>
+                                            <td>
+                                                <div class="fraction">
+                                                    <span class="fup"><input class="inputfraccciones sinEspacios" id="act3num2"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input class="inputfraccciones sinEspacios" id="act3num3"></input></span>
+                                                </div> = <input class="inputfraccciones sinEspacios" id="act3num4"></input>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num5" value="28" readonly></input></td>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num6"></input></td>
+                                            <td>
+                                                <div class="fraction">
+                                                    <span class="fup"><input class="inputfraccciones sinEspacios" id="act3num7"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input class="inputfraccciones sinEspacios" id="act3num8"></input></span>
+                                                </div> = <input class="inputfraccciones sinEspacios" id="act3num9"></input>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num10" value="29" readonly></input></td>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num11"></input></td>
+                                            <td>
+                                                <div class="fraction">
+                                                    <span class="fup"><input class="inputfraccciones sinEspacios" id="act3num12"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input class="inputfraccciones sinEspacios" id="act3num13"></input></span>
+                                                </div> = <input class="inputfraccciones sinEspacios" id="act3num14"></input>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num15" value="30" readonly></input></td>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num16"></input></td>
+                                            <td>
+                                                <div class="fraction">
+                                                    <span class="fup"><input class="inputfraccciones sinEspacios" id="act3num17"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input class="inputfraccciones sinEspacios" id="act3num18"></input></span>
+                                                </div> = <input class="inputfraccciones sinEspacios" id="act3num19"></input>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num20" value="31" readonly></input></td>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num21"></input></td>
+                                            <td>
+                                                <div class="fraction">
+                                                    <span class="fup"><input class="inputfraccciones sinEspacios" id="act3num22"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input class="inputfraccciones sinEspacios" id="act3num23"></input></span>
+                                                </div> = <input class="inputfraccciones sinEspacios" id="act3num24"></input>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num25" value="32" readonly></input></td>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num26"></input></td>
+                                            <td>
+                                                <div class="fraction">
+                                                    <span class="fup"><input class="inputfraccciones sinEspacios" id="act3num27"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input class="inputfraccciones sinEspacios" id="act3num28"></input></span>
+                                                </div> = <input class="inputfraccciones sinEspacios" id="act3num29"></input>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num30" value="33" readonly></input></td>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num31"></input></td>
+                                            <td>
+                                                <div class="fraction">
+                                                    <span class="fup"><input class="inputfraccciones sinEspacios" id="act3num32"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input class="inputfraccciones sinEspacios" id="act3num33"></input></span>
+                                                </div> = <input class="inputfraccciones sinEspacios" id="act3num34"></input>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Total</b></td>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num35"></input></td>
+                                            <td><input class="inputfraccciones sinEspacios" id="act3num36"></input></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFour">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
+                                    aria-controls="collapseFour">
+                                    <input type="text" maxlength="4" size="2" style="text-align:center;" class="nota-abierta" min="0" max="1" id="nota4" readonly>&nbsp;<b>4. Problema</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                            <div class="panel-body">
+                                <div class="text-question" align="justify">
+                                    <b>4. Analiza</b> la siguiente información de un estudio estadístico.
+                                    <br><br>
+                                    En una encuesta realizada a 25 niños de 10 años, se conoció que el deporte favorito es: natación 24 %, fútbol 12 niños, básquet 12 %, voleibol tiene una frecuencia relativa de 0,08, hay un grupo que escogió atletismo.
+                                    <br><br>
+                                    <b>Construye</b> la tabla de frecuencias y <b>completa</b> los porcentajes de cada deporte.
+                                    <br>
+                                    <table class="table table-bordered" style="text-align: center;width: auto;">
+                                        <tr>
+                                            <td style="background: #fce3ab;">Deporte</td>
+                                            <td style="background: #e2ebb2;">Frecuencia absoluta</td>
+                                            <td style="background: #fce3ab;">Frecuencia relativa</td>
+                                            <td style="background: #e2ebb2;">Porcentaje</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Natación</td>
+                                            <td><input id="act4num0" class="inputfraccciones sinEspacios"></input></td>
+                                            <td>
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act4num1" class="inputfraccciones sinEspacios"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act4num2" class="inputfraccciones sinEspacios"></input></span>
+                                                </div> = <input id="act4num3" class="inputfraccciones sinEspacios"></input>
+                                            </td>
+                                            <td><input type="text" id="act4num4" class="inputfraccciones sinEspacios">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Natación</td>
+                                            <td><input id="act4num5" class="inputfraccciones sinEspacios"></input></td>
+                                            <td>
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act4num6" class="inputfraccciones sinEspacios"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act4num7" class="inputfraccciones sinEspacios"></input></span>
+                                                </div> = <input id="act4num8" class="inputfraccciones sinEspacios"></input>
+                                            </td>
+                                            <td><input type="text" id="act4num9" class="inputfraccciones sinEspacios">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Básquet</td>
+                                            <td><input id="act4num10" class="inputfraccciones sinEspacios"></input></td>
+                                            <td>
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act4num11" class="inputfraccciones sinEspacios"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act4num12" class="inputfraccciones sinEspacios"></input></span>
+                                                </div> = <input id="act4num13" class="inputfraccciones sinEspacios"></input>
+                                            </td>
+                                            <td><input type="text" id="act4num14" class="inputfraccciones sinEspacios">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Básquet</td>
+                                            <td><input id="act4num15" class="inputfraccciones sinEspacios"></input></td>
+                                            <td>
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act4num16" class="inputfraccciones sinEspacios"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act4num17" class="inputfraccciones sinEspacios"></input></span>
+                                                </div> = <input id="act4num18" class="inputfraccciones sinEspacios"></input>
+                                            </td>
+                                            <td><input type="text" id="act4num19" class="inputfraccciones sinEspacios">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Atletismo</td>
+                                            <td><input id="act4num20" class="inputfraccciones sinEspacios"></input></td>
+                                            <td>
+                                                <div class="fraction">
+                                                    <span class="fup"><input id="act4num21" class="inputfraccciones sinEspacios"></input></span>
+                                                    <span class="bar">/</span>
+                                                    <span class="fdn"><input id="act4num22" class="inputfraccciones sinEspacios"></input></span>
+                                                </div> = <input id="act4num23" class="inputfraccciones sinEspacios"></input>
+                                            </td>
+                                            <td><input type="text" id="act4num24" class="inputfraccciones sinEspacios">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Total</b></td>
+                                            <td><input id="act4num25" class="inputfraccciones sinEspacios"></input></td>
+                                            <td>
+                                                <input id="act4num26" class="inputfraccciones sinEspacios"></input>
+                                            </td>
+                                            <td><input type="text" id="act4num27" class="inputfraccciones sinEspacios">%</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Guardar PDF-->
+        <div class="modal fade animated pulse" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal conLevent-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" onclick="$('#myModal').modal('hide')">&times;</button>
+                        <h4 class="modal-title">Guarda esta actividad en tu computadora</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="modal_form" class="form-horizontal">
+                            <div class="form-group ">
+                                <div class="col-sm-2">
+                                    <label id="lbl_nombre" for="txtAlumno">Alumno: </label>
+                                </div>
+                                <div class="col-sm-10">
+                                    <!--el input para ingresar el nombre del alumno debe se txt_alumno-->
+                                    <input type="text" class="form-control nombre " id="txtAlumno" placeholder="Ingrese tu nombre">
+                                    <div class="alert alert-danger display-none" id="txtAlumnoAlert" role="alert">
+                                        <button type="button" class="close" onclick="o$('#myModal').modal('hide')" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <span class="glyphicon glyphicon-info-sign error-color" aria-hidden="true"></span> Debes ingresar tu nombre</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="save_open_activity_to_local('txtAlumno')">Guardar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <!--generador de pdf-->
+        <script src="js/html2pdf/html2pdf.bundle.min.js"></script>
+        <script src="js/screenfull.js"></script>
+        <script src="js/helper1.js"></script>
+        <script src="js/activities.js"></script>
+        <script src="js/Utilitario.js"></script>
+        <script src="js/validacionesExtras.js"></script>
+        <script src="js/dragNdrop.js"></script>
+        <script src="js/actividad119.js"></script>
+        <script type="text/javascript">
+        var titulos = "aplico";
+        $("#txtNota").html("0");
+        $("#n_pagina").html("126");
+
+        /*$(document).ready(function() {
+            var winHeight = $(window).height();
+            var winWidth = $(window).width();
+            //var imageSize = { width: winHeight , height: winHeight };
+            var watermarkImage = new Image();
+            watermarkImage.src = 'img/i1_p101_act101.jpg';
+            var watermarkImage2 = new Image();
+            watermarkImage2.src = 'img/i7_p98_act100.jpg';
+            LC.init(
+                document.getElementsByClassName('my-drawing')[0], {
+                    imageURLPrefix: 'imgcanvas',
+                    //watermarkImage: watermarkImage,
+                    watermarkScale: 0.8, // you can scale it
+                    //imageSize: imageSize
+                    backgroundColor: 'white'
+                });
+            LC.init(
+                document.getElementsByClassName('my-drawing')[1], {
+                    imageURLPrefix: 'imgcanvas',
+                    //watermarkImage: watermarkImage,
+                    watermarkScale: 0.8, // you can scale it
+                    //imageSize: imageSize
+                    backgroundColor: 'white'
+                });
+        });
+*/
+
+        function sinEspacios(inputs) {
+            $(inputs).on('keypress', function(e) {
+                if (e.which == 32)
+                    return false;
+            });
+        }
+        sinEspacios(".sinEspacios");
+        </script>
+</body>
+
+</html>

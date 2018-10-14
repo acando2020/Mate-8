@@ -454,23 +454,16 @@ function pregunta5() {
 
 function NotaFinal() {
 
-
-
-
-    /*if (nota4 == "") {
+   /*if (nota4 == "") {
         alert("Calificar la pregunta 4")
     } else {*/
     pregunta1();
    pregunta2();
     pregunta3();
     pregunta4();
-    /*pregunta5();
+    pregunta5();
     pregunta6();
-    pregunta7();*/
-
-
-
-
+    pregunta7();
     var nota1 = document.getElementById('nota1').value;
     var nota2 = document.getElementById('nota2').value;
     var nota3 = document.getElementById('nota3').value;
@@ -478,13 +471,8 @@ function NotaFinal() {
     var nota5 = document.getElementById('nota5').value;
     var nota6 = document.getElementById('nota6').value;
     var nota7 = document.getElementById('nota7').value;
-
-
-
     var subtotal = parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3) + parseFloat(nota4) + parseFloat(nota5) + parseFloat(nota6) + parseFloat(nota7);
     var total = (subtotal * 10) / 7;
-
-
     $('#txtNota').html(parseFloat(total).toFixed(2));
     document.getElementById('bt_comprobar').disabled = true;
     $('input').attr("disabled", true);
