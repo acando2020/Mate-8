@@ -128,36 +128,177 @@ function pregunta1() {
 /////////////////pregunta2/////////////////////////////
 var random2 = [
     ['<td><b style="color: #005ca4"><li></li></b></td>' +
-        '<td>' +
-        '<div class="eq-c">' +
-        '<span class="radical"><span class="n-root">3</span>&radic;</span><span class="radicand"> <span class="radical">&radic;</span><span class="radicand">a<sup>6</sup> . b<sup>12</sup></span></span>' +
-        '</div>' +
-        '</td>' +
-        '<td>=<input id="act2num2" class="inputfraccciones sinEspacios"></input><sup><input id="act2num3" class="inputfraccciones sinEspacios" style="width:20px;"></input></sup></td>'
-    ],
-    ['<td><b style="color: #005ca4"><li></li></b></td>' +
-        '<td>' +
-        '<div class="eq-c">' +
-        '<span class="radical"><span class="n-root"></span>&radic;</span><span class="radicand">12</span>' +
-        '<span class="radical"><span class="n-root"></span>&radic;</span><span class="radicand">3</span>' +
-        '</div>' +
-        '</td>' +
-        '<td>= <input id="act2num4" class="inputfraccciones sinEspacios"></input></td>'
-    ],
-    ['<td><b style="color: #005ca4"><li></li></b></td>' +
-        '<td>' +
-        '<div class="eq-c">' +
-        '<span class="radical"><span class="n-root"></span>&radic;</span><span class="radicand">72</span>' +
-        '<span class="radical"><span class="n-root"></span>&radic;</span><span class="radicand">4</span>' +
-        '</div>' +
-        '</td>' +
-        '<td>' +
-        '<div class="eq-c">' +
-        '= <input id="act2num5" class="inputfraccciones sinEspacios"></input><span class="radical"><span class="n-root"></span>&radic;</span><span class="radicand"><input id="act2num6" class="inputfraccciones sinEspacios"></input></span>' +
-        '</div>' +
+        '<td> <div class="fraction">' +
+        '<span class="fup">6</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">5</span>' +
+        '</div> ÷ <div class="fraction">' +
+        '<span class="fup">15</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">3</span>' +
+        '</div> = </td> <td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act2num0"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act2num1"></input></span> </div>' +
         '</td>'
     ],
-    [' <td><b style="color: #005ca4"><li></li></b></td> <td><img class="img-responsive" src="img/i1_p142_act125.jpg"></img></td> <td><input id="act2num7" class="inputfraccciones sinEspacios"></input></td>'],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="fraction">' +
+        '<span class="fup">1</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">7</span>' +
+        '</div> ÷ <div class="fraction">' +
+        '<span class="fup">5</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">2</span>' +
+        '</div> = </td> <td> <div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act2num2"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act2num3"></input></span> </div>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="fraction">' +
+        '<span class="fup">2</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">6</span>' +
+        '</div> ÷ <div class="fraction">' +
+        '<span class="fup">3</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">2</span>' +
+        '</div> = </td> <td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act2num4"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act2num5"></input></span> </div>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="fraction">' +
+        '<span class="fup">7</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">8</span>' +
+        '</div> ÷ 8 = </td> <td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act2num6"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act2num7"></input></span> </div>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="fraction">' +
+        '<span class="fup">6</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">3</span>' +
+        '</div> ÷ 2 = </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act2num8"></input></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="fraction">' +
+        '<span class="fup">5</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">10</span>' +
+        '</div> ÷ <div class="fraction">' +
+        '<span class="fup">3</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">9</span>' +
+        '</div> = </td> <td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act2num9"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act2num10"></input></span> </div>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="fraction">' +
+        '<span class="fup">3</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">2</span>' +
+        '</div> ÷ <div class="fraction">' +
+        '<span class="fup">1</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">4</span>' +
+        '</div> = </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act2num11"></input></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="fraction">' +
+        '<span class="fup">3</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">7</span>' +
+        '</div> ÷ <div class="fraction">' +
+        '<span class="fup">1</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">5</span>' +
+        '</div> = </td> <td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act2num12"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act2num13"></input></span> </div>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="fraction">' +
+        '<span class="fup">3</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">8</span>' +
+        '</div> ÷ <div class="fraction">' +
+        '<span class="fup">3</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">4</span>' +
+        '</div> = </td> <td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act2num14"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act2num15"></input></span> </div>' +
+        '</td>'
+    ],
+    [' <td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="fraction">' +
+        '<span class="fup">6</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">2</span>' +
+        '</div> ÷ <div class="fraction">' +
+        '<span class="fup">1</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">8</span>' +
+        '</div> = </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act2num16"></input></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="fraction">' +
+        '<span class="fup">6</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">9</span>' +
+        '</div> ÷ <div class="fraction">' +
+        '<span class="fup">27</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">36</span>' +
+        '</div> = </td> <td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act2num17"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act2num18"></input></span> </div>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="fraction">' +
+        '<span class="fup">2</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">3</span>' +
+        '</div> ÷ <div class="fraction">' +
+        '<span class="fup">5</span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">10</span>' +
+        '</div> = </td> <td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act2num19"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act2num20"></input></span> </div>' +
+        '</td>'
+    ],
+
 ];
 var act02Txt = document.getElementsByClassName('act2class');
 
@@ -167,9 +308,9 @@ for (i = 0; i < act02Txt.length; i++) {
 }
 
 function pregunta2() {
-    var respact2 = ['4', '25', 'ab', '2', '6', '12', '2', '4', ];
+    var respact2 = ['6', '25', '2', '35', '2', '9', '7', '64', '1', '3', '2', '6', '15', '7', '1', '2', '24', '8', '9', '4', '3', ];
     var cont = 0;
-    for (var i = 0; i < 8; i++) {
+    for (var i = 0; i < 21; i++) {
         var res = $('#act2num' + [i] + '').val().toLowerCase();
         if (respact2[i] == res) {
             cont = cont + 1;
@@ -179,7 +320,7 @@ function pregunta2() {
         }
 
     }
-    var total = (cont * 2) / 8;
+    var total = (cont * 1) / 21;
     $('#nota2').val(parseFloat(total).toFixed(2));
 }
 
