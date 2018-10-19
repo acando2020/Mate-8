@@ -326,41 +326,54 @@ function pregunta2() {
 
 /////////////////////////////pregunta3/////////////////////////////////////////////////
 var random3 = [
-    [' <div class="1 enc1">' +
-        '<table>' +
-        '<tr>' +
-        '<td><b style="color: #005ca4"><li></li></b></td>' +
-        '<td>Sólo I</td>' +
-        '</tr>' +
-        '</table>' +
-        '</div>'
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td align="center"><img class="img-responsive" src="img/i1_p144_act126.jpg"></img></td> <td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act3num0"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act3num1"></input></span> </div>' +
+        '</td>'
     ],
-    [' <div class="1 enc2">' +
-        '<table>' +
-        '<tr>' +
-        '<td><b style="color: #005ca4"><li></li></b></td>' +
-        '<td>Sólo I y III</td>' +
-        '</tr>' +
-        '</table>' +
-        '</div>'
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td align="center"><img class="img-responsive" src="img/i2_p144_act126.jpg"></img></td> <td>-' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act3num2"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act3num3"></input></span> </div>' +
+        '</td>'
     ],
-    ['<div class="1 enc3">' +
-        '<table>' +
-        '<tr>' +
-        '<td><b style="color: #005ca4"><li></li></b></td>' +
-        '<td>Sólo I y II</td>' +
-        '</tr>' +
-        '</table>' +
-        '</div>'
+    [' <td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td align="center"><img class="img-responsive" src="img/i3_p144_act126.jpg"></img></td> <td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act3num4"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act3num5"></input></span> </div>' +
+        '</td>'
     ],
-    ['<div class="1 enc4">' +
-        '<table>' +
-        '<tr>' +
-        '<td><b style="color: #005ca4"><li></li></b></td>' +
-        '<td>Sólo II y III</td>' +
-        '</tr>' +
-        '</table>' +
-        '</div>'
+    [' <td><b style="color: #005ca4"><li></li></b></td> <td align="center"><img class="img-responsive" src="img/i4_p144_act126.jpg"></img></td> <td><input class="inputfraccciones sinEspacios" id="act3num6"></input></td>'],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td align="center"><img class="img-responsive" src="img/i5_p144_act126.jpg"></img></td>' +
+        '<td> - <div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act3num7"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act3num8"></input></span> </div>' +
+        '</td>'
+    ],
+    [' <td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td align="center"><img class="img-responsive" src="img/i6_p144_act126.jpg"></img></td> <td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act3num9"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act3num10"></input></span> </div>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td align="center"><img class="img-responsive" src="img/i7_p144_act126.jpg"></img></td> <td>' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act3num11"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act3num12"></input></span> </div>' +
+        '</td>'
     ],
 ];
 var act03Txt = document.getElementsByClassName('act3class');
@@ -369,7 +382,27 @@ random3.sort(f_randomico);
 for (i = 0; i < act03Txt.length; i++) {
     $('#' + act03Txt[i].id).html(random3[i]);
 }
-$('.1').click(function() {
+
+function pregunta3() {
+    var respact2 = ['409', '30', '7', '24', '13', '2', '6', '265', '72', '203', '180', '3', '5', ];
+    var cont = 0;
+    for (var i = 0; i < 13; i++) {
+        var res = $('#act3num' + [i] + '').val().toLowerCase();
+        if (respact2[i] == res) {
+            cont = cont + 1;
+            $('#act3num' + [i] + '').css("background", "#00e600");
+        } else {
+            $('#act3num' + [i] + '').css("background", "#ff6666");
+        }
+
+    }
+    var total = (cont * 1) / 13;
+    $('#nota3').val(parseFloat(total).toFixed(2));
+}
+
+
+/*
+/*$('.1').click(function() {
     switch ($(this).attr('class')) {
         case '1 enc1':
             $('.enc1').addClass('pintar1');
@@ -427,51 +460,13 @@ function pregunta3() {
     $('.1').off('click');
     var total = parseFloat(nt1);
     $('#nota3').val(parseFloat(total).toFixed(2));
-}
+}*/
 
 /////////////////pregunta4/////////////////////////////
 var random4 = [
-    ['<td><b style="color: #005ca4"><li></li></b></td> <td><img class="img-responsive" src="img/i2_p142_act125.jpg"></img></td> <td><input id="act4num0" class="inputfraccciones sinEspacios"></input></td>'],
-    ['<td><b style="color: #005ca4"><li></li></b></td>' +
-        '<td><img class="img-responsive" src="img/i3_p142_act125.jpg"></img></td>' +
-        '<td>' +
-        '<div class="fraction">' +
-        '<span class="fup"><input id="act4num1" class="inputfraccciones sinEspacios"></input></span>' +
-        '<span class="bar">/</span>' +
-        '<span class="fdn"><input id="act4num2" class="inputfraccciones sinEspacios"></input></span>' +
-        '</div>' +
-        '</td>'
-    ],
-    [' <td><b style="color: #005ca4"><li></li></b></td>' +
-        '<td><img class="img-responsive" src="img/i4_p142_act125.jpg"></img></td>' +
-        '<td> -' +
-        '<div class="fraction">' +
-        '<span class="fup"><input id="act4num3" class="inputfraccciones sinEspacios"></input></span>' +
-        '<span class="bar">/</span>' +
-        '<span class="fdn"><input id="act4num4" class="inputfraccciones sinEspacios"></input></span>' +
-        '</div>' +
-        '</td>'
-    ],
-    ['<td><b style="color: #005ca4"><li></li></b></td>' +
-        '<td><img class="img-responsive" src="img/i5_p142_act125.jpg"></img></td>' +
-        '<td>' +
-        '<div class="fraction">' +
-        '<span class="fup"><input id="act4num5" class="inputfraccciones sinEspacios"></input></span>' +
-        '<span class="bar">/</span>' +
-        '<span class="fdn"><input id="act4num6" class="inputfraccciones sinEspacios"></input></span>' +
-        '</div>' +
-        '</td>'
-    ],
-    ['<td><b style="color: #005ca4"><li></li></b></td>' +
-        '<td><img class="img-responsive" src="img/i6_p142_act125.jpg"></img></td>' +
-        '<td>=' +
-        '<div class="fraction">' +
-        '<span class="fup"><input id="act4num7" class="inputfraccciones sinEspacios"></input></span>' +
-        '<span class="bar">/</span>' +
-        '<span class="fdn"><input id="act4num8" class="inputfraccciones sinEspacios"></input></span>' +
-        '</div>' +
-        '</td>'
-    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td> <td><img src="img/i8_p144_act126.jpg" alt=""></td> <td><span style="font-size: 40px;">(<sup><input class="inputfraccciones sinEspacios" id="act4num0" style="width: 20px;height: 20px;font-size: 20px;"></input></sup>/<sub><input class="inputfraccciones sinEspacios" id="act4num1" style="width: 20px;height: 20px;font-size: 20px;"></input></sub>)<sup><input class="inputfraccciones sinEspacios" id="act4num2" style="width: 20px;height: 20px;font-size: 20px;"></input></sup></span></td>'],
+    ['<td><b style="color: #005ca4"><li></li></b></td> <td><img src="img/i9_p144_act126.jpg" alt=""></td> <td><span style="font-size: 40px;">(<input class="inputfraccciones sinEspacios" id="act4num3" style="width: 40px;height: 40px;font-size: 20px;"></input>)<sup><input class="inputfraccciones sinEspacios" id="act4num4" style="width: 20px;height: 20px;font-size: 20px;"></input></sup></span></td>'],
+    ['<td><b style="color: #005ca4"><li></li></b></td> <td><img src="img/i10_p144_act126.jpg" alt=""></td> <td><input class="inputfraccciones sinEspacios" id="act4num5"></input></td>'],
 
 ]
 var act04Txt = document.getElementsByClassName('act4class');
@@ -482,9 +477,9 @@ for (i = 0; i < act04Txt.length; i++) {
 }
 
 function pregunta4() {
-    var respact2 = ['11', '17', '12', '373', '36', '3009', '25', '1', 'a', ];
+    var respact2 = ['3', '2', '12', '-2', '22', '-1', ];
     var cont = 0;
-    for (var i = 0; i < 9; i++) {
+    for (var i = 0; i < 6; i++) {
         var res = $('#act4num' + [i] + '').val().toLowerCase();
         if (respact2[i] == res) {
             cont = cont + 1;
@@ -494,14 +489,87 @@ function pregunta4() {
         }
 
     }
-    var total = (cont * 2) / 9;
+    var total = (cont * 1) / 6;
     $('#nota4').val(parseFloat(total).toFixed(2));
 }
+////////////////////////////////pregunta5////////////////////////////////////////////////////
+var random5 = [
+    [' <td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td>[(2/5) . (2/5)<sup>3</sup> . (2/5)<sup>2</sup>]<sup>2</sup> . (2/5)<sup>2</sup></td>' +
+        '<td> = (<sup><input class="inputfraccciones sinEspacios" id="act5num0" style="width: 20px;"></input></sup>/<sub>' +
+        '<input class="inputfraccciones sinEspacios" id="act5num1" style="width: 20px;"></input></sub>)<sup>' +
+        '<input class="inputfraccciones sinEspacios" id="act5num2" style="width: 20px;"></input></sup></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td>[(3/6)<sup>2</sup> . (3/6)<sup>3</sup>]<sup>4</sup> ÷ (3/6)<sup>3</sup></td>' +
+        '<td> = (<sup><input class="inputfraccciones sinEspacios" id="act5num3" style="width: 20px;"></input></sup>/<sub>' +
+        '<input class="inputfraccciones sinEspacios" id="act5num4" style="width: 20px;"></input></sub>)<sup>' +
+        '<input class="inputfraccciones sinEspacios" id="act5num5" style="width: 20px;"></input></sup></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="fraction">' +
+        '<span class="fup">2<sup>3</sup> . 2<sup>5</sup> . 2<sup>4</sup> . 2<sup>4</sup></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">2<sup>3</sup> . 2<sup>2</sup></span> </div> </td>' +
+        '<td>= <input class="inputfraccciones sinEspacios" id="act5num6">' +
+        '</input><sup><input class="inputfraccciones sinEspacios" id="act5num7" style="width: 20px;"></input></sup></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="fraction">' +
+        '<span class="fup">(2<sup>3</sup> . 2<sup>5</sup>)<sup>2</sup></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn">5<sup>3</sup> . 5<sup>2</sup></span> </div>' +
+        '</td> <td> =' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act5num8"></input><sup><input class="inputfraccciones sinEspacios" id="act5num9" style="width: 20px;"></input></sup></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act5num10"></input><sup><input class="inputfraccciones sinEspacios" id="act5num11" style="width: 20px;"></input></sup></span>' +
+        '</div>' +
+        '</td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td> <td>(5/10)<sup>-2</sup></td> <td> = <input class="inputfraccciones sinEspacios" id="act5num12"></input></td>'],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td>(2/5)<sup>-1</sup></td>' +
+        '<td> = <div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act5num13"></input></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act5num14"></input></span>' +
+        '</div>' +
+        '</td>'
+    ],
+    [' <td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td>(1/2)<sup>-3</sup></td>' +
+        '<td>= <input class="inputfraccciones sinEspacios" id="act5num15"></input><sup>' +
+        '<input class="inputfraccciones sinEspacios" id="act5num16" style="width: 20px;"></input></sup></td>'
+    ],
+    [' <td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td>(1/7)<sup>-3</sup></td>' +
+        '<td>= <input class="inputfraccciones sinEspacios" id="act5num17"></input><sup>' +
+        '<input class="inputfraccciones sinEspacios" id="act5num18" style="width: 20px;">' +
+        '</input></sup></td>'
+    ],
+    [' <td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td>(2/7)<sup>-4</sup></td> <td> =' +
+        '<div class="fraction">' +
+        '<span class="fup"><input class="inputfraccciones sinEspacios" id="act5num19"></input><sup><input class="inputfraccciones sinEspacios" id="act5num20" style="width: 20px;"></input></sup></span>' +
+        '<span class="bar">/</span>' +
+        '<span class="fdn"><input class="inputfraccciones sinEspacios" id="act5num21"></input><sup><input class="inputfraccciones sinEspacios" id="act5num22" style="width: 20px;"></input></sup></span>' +
+        '</div>' +
+        '</td>'
+    ],
+];
+var act05Txt = document.getElementsByClassName('act5class');
+
+random5.sort(f_randomico);
+for (i = 0; i < act05Txt.length; i++) {
+    $('#' + act05Txt[i].id).html(random5[i]);
+}
+
 
 function pregunta5() {
-    var respact2 = ['65', '25', '6', '6', '25', '0,24', '24', '4', '4', '25', '0,16', '16', '3', '3', '25', '0,12', '12', '12', '12', '25', '0,48', '48'];
+    var respact2 = ['2', '5', '14', '3', '6', '17', '2', '11', '2', '16', '5', '5', '4', '5', '2', '2', '3', '7', '3', '7', '4', '2', '4', ];
     var cont = 0;
-    for (var i = 0; i < 22; i++) {
+    for (var i = 0; i < 23; i++) {
         var res = $('#act5num' + [i] + '').val().toLowerCase();
         if (respact2[i] == res) {
             cont = cont + 1;
@@ -511,28 +579,23 @@ function pregunta5() {
         }
 
     }
-    var total = (cont * 2) / 22;
+    var total = (cont * 1) / 23;
     $('#nota5').val(parseFloat(total).toFixed(2));
 }
+/////////////////////pregunta 6//////////////////////////////////////////////////////////////////////
 
 function pregunta6() {
-    var respact2 = ['Programas de televisión', 'Series', 'Noticieros', ];
-    var cont = 0;
-    for (var i = 0; i < 3; i++) {
-        var res = $('#sel' + [i] + ' option:selected').text();
-        if (respact2[i] == res) {
-            cont = cont + 1;
-            $('#sel' + [i] + '').css("background", "#00e600");
-        } else {
-            $('#sel' + [i] + '').css("background", "#ff6666");
-        }
-
+    var nt1 = 0;
+    var act6num0 = document.getElementById('act6num0').value;
+    if (act6num0 == '1') {
+        nt1 = 1;
+        $('#act6num0').css("background", "#00e600");
+    } else {
+        $('#act6num0').css("background", "#ff6666");
     }
-    var total = (cont * 2) / 3;
-    $('#nota6').val(parseFloat(total).toFixed(2));
-    $('select').attr("disabled", true);
-
+    $('#nota6').val(parseFloat(nt1).toFixed(2));
 }
+
 
 function NotaFinal() {
 
