@@ -595,35 +595,201 @@ function pregunta6() {
     }
     $('#nota6').val(parseFloat(nt1).toFixed(2));
 }
+/////////////////////////////pregunta7/////////////////////////////////////////////
+var random7 = [
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="eq-c">' +
+        '<span class="radical"><span class="n-root"></span>&radic;</span><span class="radicand">100 x 4</span> = </div> </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act7num0"></input></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="eq-c">' +
+        '<span class="radical"><span class="n-root"></span>&radic;</span><span class="radicand"> <span class="radical"><span class="n-root">3</span>&radic;</span><span class="radicand">64</span></span> =' +
+        '</div> </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act7num1"></input></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="eq-c">' +
+        '<span class="radical"><span class="n-root">2</span>&radic;</span><span class="radicand"> <span class="radical"><span class="n-root">2</span>&radic;</span><span class="radicand">81</span></span> =' +
+        '</div> </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act7num2"></input></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="eq-c">' +
+        '<span class="radical"><span class="n-root">5</span>&radic;</span><span class="radicand">-1024</span> =' +
+        '</div> </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act7num3"></input></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="eq-c">' +
+        '<span class="radical"><span class="n-root"></span>&radic;</span><span class="radicand">36</span> =' +
+        '</div> </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act7num4"></input></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="eq-c">' +
+        '<span class="radical"><span class="n-root">5</span>&radic;</span><span class="radicand">-243</span> =' +
+        '</div> </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act7num5"></input></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="eq-c">' +
+        '<span class="radical"><span class="n-root"></span>&radic;</span><span class="radicand">100</span> =' +
+        '</div> </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act7num6"></input></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="eq-c">' +
+        '<span class="radical"><span class="n-root"></span>&radic;</span><span class="radicand">121</span> =' +
+        '</div> </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act7num7"></input></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="eq-c">' +
+        '<span class="radical"><span class="n-root">3</span>&radic;</span><span class="radicand">216</span> =' +
+        '</div> </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act7num8"></input></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="eq-c">' +
+        '<span class="radical"><span class="n-root">4</span>&radic;</span><span class="radicand">16</span> =' +
+        '</div> </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act7num9"></input></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="eq-c">' +
+        '<span class="radical"><span class="n-root">10</span>&nbsp;&radic;</span><span class="radicand">1</span> =' +
+        '</div> </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act7num10"></input></td>'
+    ],
+    ['<td><b style="color: #005ca4"><li></li></b></td>' +
+        '<td> <div class="eq-c">' +
+        '<span class="radical"><span class="n-root">4</span>&radic;</span><span class="radicand">2401</span> =' +
+        '</div> </td>' +
+        '<td><input class="inputfraccciones sinEspacios" id="act7num11"></input></td>'
+    ],
+];
+var act07Txt = document.getElementsByClassName('act7class');
 
+random7.sort(f_randomico);
+for (i = 0; i < act07Txt.length; i++) {
+    $('#' + act07Txt[i].id).html(random7[i]);
+}
+
+function pregunta7() {
+    var respact2 = ['20', '2', '3', '4', '6', '3', '10', '11', '6', '2', '1', '7', ];
+    var cont = 0;
+    for (var i = 0; i < 12; i++) {
+        var res = $('#act7num' + [i] + '').val().toLowerCase();
+        if (respact2[i] == res) {
+            cont = cont + 1;
+            $('#act7num' + [i] + '').css("background", "#00e600");
+        } else {
+            $('#act7num' + [i] + '').css("background", "#ff6666");
+        }
+
+    }
+    var total = (cont * 1) / 12;
+    $('#nota7').val(parseFloat(total).toFixed(2));
+}
+//////////////pregunta8//////////////////////
+
+function pregunta8() {
+    var respact2 = ['80', '27000', ];
+    var cont = 0;
+    for (var i = 0; i < 2; i++) {
+        var res = $('#act8num' + [i] + '').val().toLowerCase();
+        if (respact2[i] == res) {
+            cont = cont + 1;
+            $('#act8num' + [i] + '').css("background", "#00e600");
+        } else {
+            $('#act8num' + [i] + '').css("background", "#ff6666");
+        }
+
+    }
+    var total = (cont * 1) / 2;
+    $('#nota8').val(parseFloat(total).toFixed(2));
+}
+//////////////pregunta9////////////////////////////
+document.getElementById('nota9').addEventListener('keypress', () => {
+    validNumero(0, 1, 1);
+});
+document.getElementById('nota9').addEventListener('keyup', () => {
+    validMaxIngreso(document.getElementById('nota9'), 1)
+});
+//////////////////////////pregunta10/////////////////////////////
+var random10 = [
+    [' <td>Casado</td> <td><input id="act10num0" class="form-control sinEspacios"></input></td> <td><input id="act10num1" type="text" class="inputfraccciones sinEspacios">%</td>'],
+    ['<td>Soltero</td> <td><input id="act10num2" class="form-control sinEspacios"></input></td> <td><input id="act10num3" type="text" class="inputfraccciones sinEspacios">%</td>'],
+    [' <td>Divorciado</td> <td><input id="act10num4" class="form-control sinEspacios"></input></td> <td><input id="act10num5" type="text" class="inputfraccciones sinEspacios">%</td>'],
+    ['<td>Separado</td> <td><input id="act10num6" class="form-control sinEspacios"></input></td> <td><input id="act10num7" type="text" class="inputfraccciones sinEspacios">%</td>'],
+    ['<td>Viudo</td> <td><input id="act10num8" class="form-control sinEspacios"></input></td> <td><input id="act10num9" type="text" class="inputfraccciones sinEspacios">%</td>'],
+    ['<td>Unido</td> <td><input id="act10num10" class="form-control sinEspacios"></input></td> <td><input id="act10num11" type="text" class="inputfraccciones sinEspacios">%</td>'],
+]
+var act010Txt = document.getElementsByClassName('act10class');
+
+random10.sort(f_randomico);
+for (i = 0; i < act010Txt.length; i++) {
+    $('#' + act010Txt[i].id).html(random10[i]);
+}
+
+function pregunta10() {
+    var respact2 = ['50875', '40,7', '49000', '39,2', '2125', '1,7', '2875', '2,3', '4875', '3,9', '15250', '12,2', '125000', '100', ];
+    var cont = 0;
+    for (var i = 0; i < 14; i++) {
+        var res = $('#act10num' + [i] + '').val().toLowerCase();
+        if (respact2[i] == res) {
+            cont = cont + 1;
+            $('#act10num' + [i] + '').css("background", "#00e600");
+        } else {
+            $('#act10num' + [i] + '').css("background", "#ff6666");
+        }
+
+    }
+    var total = (cont * 1) / 14;
+    $('#nota10').val(parseFloat(total).toFixed(2));
+}
 
 function NotaFinal() {
-
-
-
-
-
-    /* if (nota1 == "") {
-         alert("Calificar la pregunta 1")
-     } else {*/
-    pregunta1();
-    pregunta2();
-    pregunta3();
-    pregunta4();
-    pregunta5();
-    pregunta6();
     var nota1 = document.getElementById('nota1').value;
     var nota2 = document.getElementById('nota2').value;
     var nota3 = document.getElementById('nota3').value;
     var nota4 = document.getElementById('nota4').value;
     var nota5 = document.getElementById('nota5').value;
     var nota6 = document.getElementById('nota6').value;
-    var total = parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3) + parseFloat(nota4) + parseFloat(nota5) + parseFloat(nota6);
-    $('#txtNota').html(parseFloat(total).toFixed(2));
-    document.getElementById('bt_comprobar').disabled = true;
-    $('input').attr("disabled", true);
-    $('#txtAlumno').attr("disabled", false);
-    //}
+    var nota7 = document.getElementById('nota7').value;
+    var nota8 = document.getElementById('nota8').value;
+    var nota9 = document.getElementById('nota9').value;
+    var nota10 = document.getElementById('nota10').value;
+    if (nota9 == "") {
+        alert("Calificar la pregunta 9")
+    } else {
+        pregunta1();
+        pregunta2();
+        pregunta3();
+        pregunta4();
+        pregunta5();
+        pregunta6();
+        pregunta7();
+        pregunta8();
+        pregunta10();
+
+        var nota1 = document.getElementById('nota1').value;
+        var nota2 = document.getElementById('nota2').value;
+        var nota3 = document.getElementById('nota3').value;
+        var nota4 = document.getElementById('nota4').value;
+        var nota5 = document.getElementById('nota5').value;
+        var nota6 = document.getElementById('nota6').value;
+        var nota7 = document.getElementById('nota7').value;
+        var nota8 = document.getElementById('nota8').value;
+        var nota9 = document.getElementById('nota9').value;
+        var nota10 = document.getElementById('nota10').value;
+        var total = parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3) + parseFloat(nota4) + parseFloat(nota5) + parseFloat(nota6) + parseFloat(nota7) + parseFloat(nota8) + parseFloat(nota9) + parseFloat(nota10);
+        $('#txtNota').html(parseFloat(total).toFixed(2));
+        document.getElementById('bt_comprobar').disabled = true;
+        $('input').attr("disabled", true);
+        $('#txtAlumno').attr("disabled", false);
+    }
 
 
 }
